@@ -43,7 +43,7 @@
                 <div class="mws-form-row">
                     <label>Correo</label>
                     <div class="mws-form-item small">
-                        <?php echo $this->Form->input('email', array('id'=>'email','class' => 'mws-textinput required')); ?>
+                        <?php echo $this->Form->input('email', array('id'=>'email','class' => 'mws-textinput required','disabled' => 'disabled')); ?>
                     </div>
                 </div>
 
