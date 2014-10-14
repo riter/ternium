@@ -90,15 +90,16 @@ class UsersController extends AppController
         }
         $pais = $this->Paise->find('list');
         $this->set(compact('pais'));
-            }
+            
        
     }
     public function admin_index()
     {
 
         $this->User->recursive = 0;
-        $data= $this->User->find('all');
-        $this->set('users', $data);
+        var_dump($this->User->recursive);exit;
+        //$data= $this->User->find('all');
+        //$this->set('users', $data);
 
     }
 

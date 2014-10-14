@@ -170,8 +170,8 @@
                                 </ul> 
                         </li> 
                         <li>
-                            <a  href="<?php echo $this->Html->url(array('controller'=>'Proveedores',
-                                'action' => 'index', 'admin' => true)); ?>" > Representantes</a>
+                            <a  href="<?php echo $this->Html->url(array('controller'=>'ProveedoresRepresentantes',
+                                'action' => 'index', 'admin' => true)); ?>" > Representantes proveedores</a>
 
                                   <ul <?php if ($controller == 'users') 
                                         echo 'class = ""'; 

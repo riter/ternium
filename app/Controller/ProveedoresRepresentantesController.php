@@ -125,6 +125,7 @@ class ProveedoresRepresentantesController extends AppController
 	public function admin_index() {
 		$this->ProveedoresRepresentante->recursive = 0;
 		$this->set('proveedoresRepresentantes', $this->Paginator->paginate());
+		echo "lskjdflksj";
 	}
 
 /**
