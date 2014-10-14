@@ -1,0 +1,240 @@
+/* Aquamarine theme */
+body, 
+div#mws-container
+{
+	background-image:url('../images/core/bg/paper.png');
+}
+
+div#mws-sidebar-bg, 
+div#mws-header, 
+.mws-panel .mws-panel-header, 
+div#mws-error-container, 
+div#mws-login, 
+div#mws-login .mws-login-lock, 
+.ui-accordion .ui-accordion-header, 
+.ui-tabs .ui-tabs-nav, 
+.ui-datepicker, 
+.fc-event-skin, 
+.ui-dialog .ui-dialog-titlebar, 
+div.jGrowl div.jGrowl-notification, div.jGrowl div.jGrowl-closer, 
+div#mws-user-tools .mws-dropdown-menu .mws-dropdown-box, 
+div#mws-user-tools .mws-dropdown-menu.toggled a.mws-dropdown-trigger
+{
+   background-color: #3d464b;
+}
+
+div#mws-header
+{
+	/*border-color:#88a9eb;*/
+    border-color:#ff9900;   
+}
+
+.mws-panel .mws-panel-header span, 
+div#mws-navigation ul li.active a, 
+div#mws-navigation ul li.active span, 
+div#mws-user-tools #mws-username, 
+div#mws-navigation ul li span.mws-nav-tooltip, 
+div#mws-user-tools #mws-user-info #mws-user-functions #mws-username, 
+.ui-dialog .ui-dialog-title, 
+.ui-state-default, 
+.ui-state-active, 
+.ui-state-hover, 
+.ui-state-focus, 
+.ui-state-default a, 
+.ui-state-active a, 
+.ui-state-hover a, 
+.ui-state-focus a
+{
+	color:#8affe2;
+	text-shadow:0 0 6px rgba(157, 224, 245, 0.5);
+}
+
+div#mws-searchbox input.mws-search-submit, 
+.mws-panel .mws-panel-header .mws-collapse-button span, 
+div.dataTables_wrapper .dataTables_paginate div, 
+div.dataTables_wrapper .dataTables_paginate span.paginate_active, 
+.mws-table tbody tr.odd:hover td, 
+.mws-table tbody tr.even:hover td, 
+.fc-state-highlight, 
+.ui-slider-horizontal .ui-slider-range, 
+.ui-slider-vertical .ui-slider-range, 
+.ui-progressbar .ui-progressbar-value, 
+.ui-datepicker td.ui-datepicker-current-day, 
+.ui-datepicker .ui-datepicker-prev .ui-icon, 
+.ui-datepicker .ui-datepicker-next .ui-icon, 
+.ui-accordion-header .ui-icon, 
+.ui-dialog-titlebar-close .ui-icon
+{
+	/*background-color:#88a9eb;*/
+    background-color: #ff9900;
+}
+
+
+
+
+/* ui accordion */
+.ui-accordion .ui-accordion-content {
+    height: auto !important;
+}
+
+
+
+
+/* hold the message per basis action */
+#flash_message {
+    margin-top: -35px;
+    padding-bottom: 20px;
+}
+
+
+
+
+/* form validation from server */
+.mws-textinput.form-error {
+    border-color: #eb979b;
+}
+
+
+
+
+/* tables generci styles */
+.mws-table td a {
+    color: #000;
+}
+.mws-table td .action {
+    display: inline-block;
+    margin-right: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 5px 5px 5px 25px;
+    background-color: #f0f0f0;
+    background-position: 5px center;
+    text-align: left;
+}
+
+
+
+
+/* header layout logo */
+#mws-validate.layout-header-form .logo {
+    padding: 10px;
+}
+
+
+
+
+/* navigation layout generic styles */
+#nav-layouts ul {
+    list-style: none;
+}
+#nav-layouts li {
+    display: inline-block;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+#nav-layouts .active {
+    border: 1px solid #c5d52b;
+}
+#nav-layouts span {
+    background: 0 20px no-repeat;
+    display: block;
+    width: 106px;
+    height: 88px;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+}
+#nav-layouts .active span {
+    background-position: -106px 20px;
+}
+#nav-layouts .sidebar-left {
+ background-image: url(../images/layouts/sidebar-left.png);
+}
+#nav-layouts .content {
+ background-image: url(../images/layouts/content.png);
+}
+#nav-layouts .sidebar-right {
+ background-image: url(../images/layouts/sidebar-right.png);
+}
+#nav-layouts .left-content-footer {
+ background-image: url(../images/layouts/left-content-footer.png);
+}
+
+
+
+
+/* add button */
+.add-button {
+    display: inline-block;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 5px 5px 5px 25px;
+    height: 20px;
+    background: #f0f0f0 url("icons/16/add.png") 5px 5px no-repeat;
+    color: #000;
+    line-height: 20px;
+    text-decoration: none;
+}
+.add-button:hover {
+    text-decoration: underline;
+}
+
+
+
+
+/* quiz add question */
+#quizzes-table tr {
+    cursor: pointer;
+}
+
+
+
+
+/* add answer */
+#add_awnser .add-button {
+    margin-left: 20px;
+}
+#add_awnser .mws-textinput {
+    margin-bottom: 5px;
+}
+#answers_checkbox {
+    float: left;
+    list-style: none;
+}
+#answers_checkbox .answer {
+    float: left;
+    margin: 0 5px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 5px;
+    background: #f0f0f0;
+}
+#answers_checkbox .delete {
+    display: inline-block;
+    margin: -2px 5px 0 5px;
+}
+#answers_checkbox .delete {
+    opacity: 0.6;
+}
+#answers_checkbox .delete:hover {
+    opacity: 1;
+}
+#answer-settings .col {
+    margin: 0;
+    padding: 5px 0;
+    list-style: none;
+    overflow: hidden;
+}
+#answer-settings li {
+    float: left;
+    margin-left: 20px;
+    padding: 0;
+}
+#error-holder {
+    padding: 0 10px;
+}
+#add_answer #answer-feedback {
+    display: none;
+}

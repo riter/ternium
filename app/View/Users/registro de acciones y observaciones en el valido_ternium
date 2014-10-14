@@ -1,0 +1,57 @@
+
+<!--campos quitados de usuarios -admin_add.ctp-->
+
+  <div class="mws-form-row">
+                    <label>Dirección</label>
+                    <div class="mws-form-item small">
+                        <?php echo $this->Form->input('adress', array('id'=>'adress','class' => 'mws-textinput required')); ?>
+                    </div>
+                </div>
+             <div class="mws-form-row">
+                    <label>Ciudad</label>
+                    <div class="mws-form-item small">
+                        <?php echo $this->Form->input('city', array('id'=>'city','class' => 'mws-textinput required')); ?>
+                    </div>
+                </div>
+
+                <div class="mws-form-row">
+                    <label for="FileImage">Foto</label>
+                    <div class="mws-form-item small">
+                        <!-- <input type="file" name="data[File][image]" id="FileImage" /> -->
+                        <?php echo $this->Form->input('photo', array('type' => 'file')); ?>
+                        <?php // echo $this->Form->input('photo', array('class' => 'mws-textinput required')); ?>
+                    </div>
+                </div>
+
+
+                admin_index.cpt
+
+
+                        <td><?php echo $user['User']['adress']; ?></td>
+                        <td><?php echo $user['User']['city']; ?></td>
+                        <td><?php echo $user['User']['photo']; ?></td>
+
+                  <!--   admin_edit.cpt-->
+                  <div class="mws-form-row">
+                    <label for="FileImage">Foto</label>
+                    <div class="mws-form-item small">
+                        <!-- <input type="file" name="data[File][image]" id="FileImage" /> -->
+                        <div style="display: inline;">
+                        <?php echo $this->Form->input('photo', array('type' => 'file')); ?>
+                            <div>
+                                <?php if($photo === "") $photo= 'avatar.png' ?>
+                                <img style="width: 70px; height: 50px;" src="<?php echo $this->webroot; ?>app/webroot/uploads/photo/<?PHP echo $photo; ?>" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- fin admin_index.cpt-->
+
+				<!-- Controller/UsersController->
+           
+            //$newdata['User']['photo']=$data['User']['photo'];
+           
+            //  $newdata['User']['adress']=$data['User']['adress'];
+             //$newdata['User']['photo']=$data['User']['photo'];
+             //$newdata['User']['notes']=$data['User']['notes'];

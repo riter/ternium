@@ -1,0 +1,1067 @@
+@font-face  
+{
+    font-family: 'RobotoThin'; 
+
+    src: url("fonts/Roboto-Thin/Roboto-Thin.eot");         
+    src: url("fonts/Roboto-Thin/Roboto-Thin.eot?#iefix") format('embedded-opentype'),
+         url("fonts/Roboto-Thin/Roboto-Thin.woff") format('woff'), 
+         url("fonts/Roboto-Thin/Roboto-Thin.ttf") format('truetype'), 
+         url("fonts/Roboto-Thin/Roboto-Thin#RobotoThin") format('svg');
+}
+body {
+  font-family: RobotoThin;
+  font-size: 14px;
+  font-weight: normal;
+  
+}
+
+body a {
+  text-decoration: none;
+}
+
+body figure {
+  margin: 0;
+}
+
+body h2 {
+  margin: 0;
+}
+
+body label {
+  display: block;
+}
+
+body ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+body header {
+  height: 107px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body header {
+    height: auto;
+  }
+}
+
+body header .wrapper {
+  border-bottom: 1px solid #e6e6e6;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body header .wrapper {
+    border-bottom: none;
+  }
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body header .wrapper {
+    border-bottom: none;
+  }
+}
+
+body header .wrapper .logo {
+  float: left;
+  padding: 27px 0 0;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body header .wrapper .logo {
+    float: none;
+    text-align: center;
+  }
+}
+
+body header .wrapper >.right {
+  float: right;
+  overflow: hidden;
+  padding: 28px 5px 20px 5px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body header .wrapper >.right {
+    float: none;
+  }
+}
+
+body header .wrapper >.right .search {
+  border-right: 1px solid #d1d8e1;
+  float: left;
+  margin: 0 22px 0 0;
+  padding: 9px 22px 9px 0;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body header .wrapper >.right .search {
+    border-right: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: none;
+    margin: 0;
+    padding: 0 0 10px;
+  }
+}
+
+body header .wrapper >.right .search input {
+  background: url("../img/bg_search.png") no-repeat;
+  background-position: 138px center;
+  border: 1px solid #bebebe;
+  font-family: RobotoThin;
+  font-size: 12px;
+  padding: 6px 40px 6px 10px;
+  width: 120px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body header .wrapper >.right .search input {
+    background-position: 98% center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+body header .wrapper >.right .search ::-webkit-input-placeholder {
+  color: #00659c;
+}
+
+body header .wrapper >.right .search :-moz-placeholder {
+  /* Firefox 18- */
+  color: #00659c;
+}
+
+body header .wrapper >.right .search ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #00659c;
+}
+
+body header .wrapper >.right .search :-ms-input-placeholder {
+  color: #00659c;
+}
+
+body header .wrapper >.right .user {
+  float: left;
+  overflow: hidden;
+  padding: 5px 0;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body header .wrapper >.right .user {
+    float: none;
+  }
+}
+
+body header .wrapper >.right .user figure {
+  float: left;
+  margin: 0 12px 0 0;
+  width: 36px;
+}
+
+body header .wrapper >.right .user figure img {
+  width: 100%;
+}
+
+body header .wrapper >.right .user > .right {
+  float: left;
+  text-align: right;
+}
+
+body header .wrapper >.right .user > .right .name {
+  color: #404041;
+  font-size: 17px;
+}
+
+body header .wrapper >.right .user > .right a {
+  color: #00659c;
+}
+
+body section .wrapper {
+  overflow: hidden;
+}
+
+body section .wrapper aside {
+  float: left;
+  padding: 30px;
+  width: 248px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper aside {
+    border-top: 1px solid #e6e6e6;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  body section .wrapper aside {
+    border-top: 1px solid #e6e6e6;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+body section .wrapper aside article {
+  margin: 0 0 2em;
+}
+
+body section .wrapper aside article a {
+  color: #58595b;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+body section .wrapper aside article h3 {
+  color: #be1e2d;
+  font-size: 12px;
+  margin: 0 0 1em;
+}
+
+body section .wrapper aside article p {
+  color: #6d6e71;
+  font-size: 12px;
+  margin: 0 0 1em;
+}
+
+body section .wrapper aside h2 {
+  color: #be1e2d;
+  font-size: 17.5px;
+  margin: 0 0 1.5em;
+}
+
+body section .wrapper nav {
+  float: left;
+  padding: 30px;
+  width: 248px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper nav {
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 30px 0;
+    margin: 0 0 10px;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  body section .wrapper nav {
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 30px 0;
+    width: 100%;
+  }
+}
+
+body section .wrapper nav ul li {
+  margin: 0 0 25px;
+  text-align: right;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper nav ul li {
+    margin: 0 0 10px;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  body section .wrapper nav ul li {
+    margin: 0 0 10px;
+    text-align: center;
+  }
+}
+
+body section .wrapper nav ul li a {
+  color: #404041;
+  font-size: 17.5px;
+}
+
+body section .wrapper nav ul li a.active,
+body section .wrapper nav ul li a:hover {
+
+  /*color: #00659c;*/
+  color: blue;
+}
+
+body section .wrapper nav ul li ul.submenu li {
+  margin: 4px 0;
+}
+
+body section .wrapper nav ul li ul.submenu li a {
+  font-size: 12px;
+}
+
+body section .wrapper .content {
+  border-left: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+  float: left;
+  min-height: 900px;
+  padding: 30px;
+  position: relative;
+  width: 522px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper .content {
+    border: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    min-height: 100%;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  body section .wrapper .content {
+    border: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+body section .wrapper .content .loraxian {
+  background: url("../img/bg_nav.png") no-repeat;
+  bottom: 5px;
+  display: block;
+  height: 120px;
+  left: -90px;
+  position: absolute;
+  width: 90px;
+}
+
+body section .wrapper .news a {
+  color: #76b83f;
+}
+
+body section .wrapper .news article {
+  border-bottom: 1px solid #a5cadc;
+  margin: 0 0 28px;
+  padding: 0 0 14px;
+}
+
+body section .wrapper .news article.last {
+  border: none;
+}
+
+body section .wrapper .news article h2 {
+  color: #00659c;
+  font-size: 17.5px;
+  margin: 0 0 1em;
+}
+
+body section .wrapper .news article p {
+  font-size: 14px;
+  margin: 0 0 1em;
+}
+
+body section .wrapper .staff h1 {
+  color: #00659c;
+  font-size: 17.5px;
+  margin: 0 0 2em;
+}
+
+body section .wrapper .staff h2 {
+  color: #00659c;
+  font-size: 17.5px;
+  margin: 0 0 0.5em;
+}
+
+body section .wrapper .staff p {
+  margin: 0 0 1em;
+}
+
+body section .wrapper .staff form ul li {
+  display: inline-block;
+  margin: 0 0 0.8em;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper .staff form ul li {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  body section .wrapper .staff form ul li {
+    width: 100%;
+  }
+}
+
+body section .wrapper .staff form ul li > label {
+  float: left;
+  margin: 0 28px 0 0;
+  width: 80px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper .staff form ul li > label {
+    width: 100%;
+  }
+}
+
+body section .wrapper .staff form ul li input[type='text'] {
+  border: 1px solid #deddde;
+  border-radius: 3px;
+  font-family:RobotoThin;
+  float: left;
+  height: 20px;
+  width: 298px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper .staff form ul li input[type='text'] {
+    background-position: 98% center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+body section .wrapper .staff form ul li input[type='submit'] {
+  background: #fff;
+  border: 1px solid #deddde;
+  border-radius: 3px;
+  font-size: 12px;
+  font-family: RobotoThin;
+  padding: 5px 8px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper .staff form ul li input[type='submit'] {
+    background-position: 98% center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+/*visibility: hidden;*/
+body section .wrapper .staff form ul li > select {
+  font-family:RobotoThin;
+  float: left; 
+  width: 298px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper .staff form ul li > select {
+    background-position: 98% center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+body section .wrapper .staff form ul li .selecter {
+  width: 301px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper .staff form ul li .selecter {
+    background-position: 98% center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper .staff .responsive-table {
+    overflow: scroll;
+  }
+}
+
+body section .wrapper .staff .responsive-table .table {
+  width: 520px;
+}
+
+body section .wrapper .staff .responsive-table .table .col {
+  height: 22px;
+  overflow: hidden;
+  padding: 0 8px;
+}
+
+body section .wrapper .staff .responsive-table .table .col:nth-child(2n) {
+  background-color: #e5f0f6;
+}
+
+body section .wrapper .staff .responsive-table .table .col .row {
+  float: left;
+  font-size: 12px;
+  line-height: 22px;
+  width: 100px;
+}
+
+body section .wrapper .staff .responsive-table .table .head {
+  margin: 0 0 15px;
+}
+
+body section .wrapper .staff .responsive-table .table .head .row {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+body section .wrapper .library h1 {
+  color: #00659c;
+  font-size: 17.5px;
+  margin: 0 0 2em;
+}
+
+body section .wrapper .library h2 {
+  color: #00659c;
+  font-size: 14px;
+  margin: 0 0 2em;
+}
+
+body section .wrapper .documents ul li {
+  float: left;
+  margin: 0 0 14px;
+  width: 50%;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 566px) {
+  body section .wrapper .documents ul li {
+    float: none;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+body section .wrapper .documents ul li p {
+  display: inline;
+  font-size: 14px;
+  margin: 0;
+}
+
+body section .wrapper .documents ul li a {
+  color: #00659c;
+  display: inline;
+}
+
+body section .wrapper .faq .answer {
+  margin: 0 0 25px;
+  position: relative;
+}
+
+body section .wrapper .faq .question {
+  margin: 0 0 15px;
+  position: relative;
+}
+
+body section .wrapper .faq > div div {
+  overflow: hidden;
+}
+
+body section .wrapper .faq > div div h3 {
+  color: #404041;
+  font-size: 16px;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0 0 0 22px;
+  width: 500px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper .faq > div h3 {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  body section .wrapper .faq > div h3 {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+body section .wrapper .faq > div div p {
+  color: #404041;
+  display: block;
+  font-size: 14px;
+  float: left;
+  margin: 0;
+  padding: 0 0 0 22px;
+  width: 500px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper .faq > div p {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  body section .wrapper .faq > div p {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+
+body section .wrapper .faq > div div span {
+  color: #00659c;
+  display: block;
+  float: left;
+  font-size: 18px;
+  margin: 0 5px 0 0;
+  text-transform: uppercase;
+  width: 17px;
+  position: absolute;
+}
+
+body section .wrapper .videos .row {
+  overflow: hidden;
+  margin: 0 0 30px;
+}
+
+body section .wrapper .videos .row article {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline;
+  float: left;
+  padding: 5px;
+  width: 50%;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper .videos .row article {
+    float: none;
+    width: 100%;
+  }
+}
+
+body section .wrapper .videos .row article h3 {
+  color: #399ae4;
+  margin: 0 0 15px;
+}
+
+body section .wrapper .videos .row article .autor {
+  margin: 0 10px 0 0;
+}
+
+body section .wrapper .videos .row article .video {
+  margin: 0 0 12px;
+}
+
+body section .wrapper .profile {
+  border-right: none;
+  width: 830px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper .profile {
+    width: 100%;
+  }
+}
+
+body section .wrapper .profile h1 {
+  color: #00659c;
+  font-size: 17.5px;
+  margin: 0 0 2em;
+}
+
+body section .wrapper .profile h2 {
+  color: #00659c;
+  font-size: 17.5px;
+  margin: 0 0 0.5em;
+}
+
+body section .wrapper .profile p {
+  margin: 0 0 1em;
+}
+
+body section .wrapper .profile form >label {
+  margin: 0 0 15px;
+}
+
+body section .wrapper .profile form .photo {
+  overflow: hidden;
+  margin: 0 0 30px 0;
+}
+
+body section .wrapper .profile form .photo figure {
+  float: left;
+  margin: 0 15px 0 0;
+  width: 63px;
+}
+
+body section .wrapper .profile form .photo figure img {
+  width: 100%;
+}
+
+body section .wrapper .profile form .photo input[type=file] {
+  float: left;
+}
+
+body section .wrapper .profile form ul li {
+  overflow: hidden;
+  margin: 0 0 2em;
+}
+
+body section .wrapper .profile form ul li label {
+  float: left;
+  margin: 0 18px 0 0;
+  width: 90px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper .profile form ul li label {
+    float: none;
+  }
+}
+
+body section .wrapper .profile form ul li input[type=password],
+body section .wrapper .profile form ul li input[type='text'] {
+  border: 1px solid #deddde;
+  border-radius: 3px;
+  font-family: RobotoThin;
+  float: left;
+  height: 20px;
+  margin: 0 10px 0 0;
+  width: 298px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper .profile form ul li input[type=password],
+  body section .wrapper .profile form ul li input[type='text'] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: none;
+    width: 100%;
+  }
+}
+
+body section .wrapper .profile form ul li input[type='submit'] {
+  background: #0083b0;
+  color: #fff;
+  border: 1px solid #0f7497;
+  border-radius: 3px;
+  font-size: 12px;
+  font-family: RobotoThin;
+  padding: 5px 8px;
+}
+
+body section .wrapper .login {
+  margin: 0 auto;
+  text-align: center;
+  width: 500px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  body section .wrapper .login {
+    width: 100%;
+  }
+}
+
+body section .wrapper .login .logo {
+  margin: 72px 0 30px;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 420px) {
+  body section .wrapper .login .logo img {
+    width: 100%;
+  }
+}
+
+body section .wrapper .login h2 {
+  color: #404041;
+  font-size: 24px;
+  margin: 0 0 45px;
+}
+
+body section .wrapper .login .error {
+  color: #be1e2d;
+  display: block;
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+body section .wrapper .login .enter {
+  color: #00659c;
+  display: block;
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+body section .wrapper .login .back {
+  background: #0083b0;
+  border: 1px solid #0f7497;
+  border-radius: 3px;
+  color: #fff;
+  display: block;
+  font-size: 15px;
+  font-family: RobotoThin;
+  margin: 30px auto;
+  padding: 5px 8px;
+  width: 98px;
+}
+
+body section .wrapper .login form {
+  margin: 0 auto;
+  padding: 10px;
+  text-align: left;
+  width: 280px;
+}
+
+body section .wrapper .login form ul li {
+  margin: 0 0 11px;
+}
+
+body section .wrapper .login form ul li input[type="text"],
+body section .wrapper .login form ul li input[type="password"] {
+  background: url("../img/login_input.png") no-repeat;
+  border: 1px solid #404041;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #00659c;
+  font-family: RobotoThin;
+  font-size: 20px;
+  padding: 11px 0 11px 55px;
+  width: 280px;
+}
+
+body section .wrapper .login form ul li input[type="text"].username,
+body section .wrapper .login form ul li input[type="password"].username {
+  background-position: 10px 5px;
+}
+
+body section .wrapper .login form ul li input[type="text"].password,
+body section .wrapper .login form ul li input[type="password"].password {
+  background-position: 10px -54px;
+}
+
+body section .wrapper .login form ul li input[type='submit'] {
+  background: #0083b0;
+  color: #fff;
+  border: 1px solid #0f7497;
+  border-radius: 3px;
+  font-size: 15px;
+  font-family: RobotoThin;
+  padding: 5px 8px;
+  width: 98px;
+}
+
+body section .wrapper .login form ul li a {
+  color: #00659c;
+  font-size: 12.5px;
+  text-align: left;
+}
+
+body section .wrapper .login form ul.reset li {
+  margin: 0 0 20px;
+}
+
+body section .wrapper .login form ul.reset li input[type='submit'] {
+  width: 130px;
+}
+
+.last {
+  margin-right: 0 !important;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .ipadoff {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ipadoff {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .ipadon {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ipadon {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  .mobileoff {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .mobileoff {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  .mobileoff-inlineblock {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .mobileoff-inlineblock {
+    display: inline-block !important;
+  }
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  .mobileon {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .mobileon {
+    display: none;
+  }
+}
+
+.odd {
+  background-color: #e5f0f6;
+}
+
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 120px) and (max-width: 767px) {
+  .wrapper {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .wrapper {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+  }
+}
+.btn_submit{
+     background: none repeat scroll 0 0 #0083B0;
+    border: 1px solid #0F7497;
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-family: RobotoThin;
+    font-size: 12px;
+    padding: 5px 8px;
+}
+.newcontent{
+    display: inline-block;
+    width: 100%;
+    font-family: RobotoThin;
+}
+.newlabel{
+    float: left;
+    width: 30%;
+    font-family: RobotoThin;
+}
+.newdata{
+   border: 1px solid #DEDDDE;
+    border-radius: 3px;
+    float: left;
+    font-family: RobotoThin;
+    height: 20px;
+    //margin: 0 10px 0 0;
+    width: 69%;
+    margin: 0 0 2em;
+    overflow: hidden;
+
+}
+/*
+#mws-navigation ul li >a:hover,
+#mws-navigation ul li a:hover,
+#mws-navigation ul li:hover{background: orange!important}
+*/
+
+div.guardados, div.noguardados
+{
+  color:green;
+  font-size:18px;
+  text-align:right;
+
+}
+div.noguardados{
+  color:red;
+}
+div.msg_error
+{
+  color:red;
+}
+div.msg_exito{
+  color:green;
+}
