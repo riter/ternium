@@ -21900,6 +21900,7 @@ Stack Trace:
 #8 C:\xampp\htdocs\validoc_ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(ComentariosController), Object(CakeRequest), Object(CakeResponse))
 #9 C:\xampp\htdocs\validoc_ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #10 {main}
+<<<<<<< HEAD
 2014-10-14 13:05:56 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
 Exception Attributes: array (
   'class' => 'Mysql',
@@ -22650,3 +22651,195 @@ Stack Trace:
 #14 /home2/validoc/public_html/ternium/ternium/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
 #15 /home2/validoc/public_html/ternium/ternium/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #16 {main}
+=======
+2014-10-14 20:35:32 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 20:35:32 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/login
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 20:40:58 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 20:40:58 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/login
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 20:49:10 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 20:49:10 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/login
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 20:49:11 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 20:49:11 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/login
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 20:49:11 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 20:49:11 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/login
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 20:49:11 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 20:49:11 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/login
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 20:49:53 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 20:49:53 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/login
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 20:51:43 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 20:51:43 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/login
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 20:52:27 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 20:52:27 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/login
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 20:52:43 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 20:52:43 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/login
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 20:53:02 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 20:53:02 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/login
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 21:29:11 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 21:29:11 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 21:30:35 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 21:30:35 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 21:30:36 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 21:30:36 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/add
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 21:34:00 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 21:34:00 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/add
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 21:34:01 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 21:34:01 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/add
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 21:34:01 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 21:34:01 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/add
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 21:34:28 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 21:34:28 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/add
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-14 21:48:34 Error: Fatal Error (4): syntax error, unexpected 'public' (T_PUBLIC) in [C:\xampp\htdocs\validoc_ternium\app\Controller\UsersController.php, line 96]
+2014-10-14 21:48:34 Error: [FatalErrorException] syntax error, unexpected 'public' (T_PUBLIC)
+Request URL: /admin/users/add
+Stack Trace:
+#0 C:\xampp\htdocs\validoc_ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#2 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 96, Array)
+#3 C:\xampp\htdocs\validoc_ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+>>>>>>> origin/master
