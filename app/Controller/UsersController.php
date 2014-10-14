@@ -97,9 +97,8 @@ class UsersController extends AppController
     {
 
         $this->User->recursive = 0;
-        var_dump($this->User->recursive);exit;
-        //$data= $this->User->find('all');
-        //$this->set('users', $data);
+        $data= $this->User->find('all');
+        $this->set('users', $data);
 
     }
 
