@@ -73,22 +73,14 @@ class DATABASE_CONFIG {
 	);
  */
 	public $default = array(
-
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		/*
-		'host' => 'localhost',		
-		'login' => 'root',
-		'password' => '',
-		'database' => 'db_dloraxian',
-*/		
-
-		//'host' => 'html5cooks.com',		
-		'host' => 'localhost',		
-		'login' => 'root',//validoc_ternium
-		'password' => '',
-		'database' => 'validoc_ternium',
+		'host' => 'localhost',
+		'login' => 'validoc_marco',
+		'password' => 's9grZNu{,(y{',
+		'database' => 'validoc_terniumv2',
 		'prefix' => '',
+		//'encoding' => 'utf8',
 
 		
 /*			
