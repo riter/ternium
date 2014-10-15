@@ -65,7 +65,11 @@
                          //echo $this->Form->input('comentario_id',   array('id'=>'comentario_id','class' => 'mws-textinput required')); ?>
                     </div>
                 </div>
-
+                <style>
+                    .mws-form .mws-form-inline label{
+                        float:none !important;
+                    }
+                </style>
             </div>
            
         <?php
