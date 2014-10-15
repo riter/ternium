@@ -80,7 +80,7 @@
         <script>    
    $(function() 
    {
-        $("#galeria").validate
+        $("#feedback").validate
         ({  
             rules: 
                {

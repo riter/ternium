@@ -122,13 +122,10 @@ class UsersController extends AppController
             
             $this->User->id = $id;
             $anData=$this->User->findById(array('id'=>$id)); 
-
-
-           /*  if($this->request->data['User']['photo']['name'] !="")
+        /*  if($this->request->data['User']['photo']['name'] !="")
                $data = $this->UploadPhoto($this->request->data); 
            else
                $data['User']['photo']=$anData['User']['photo']; */
-
             
             $newdata['User']['id']=$id;
             $newdata['User']['nombre']=$data['User']['nombre'];
@@ -155,22 +152,12 @@ class UsersController extends AppController
         $this->set(compact('pais'));
        
     }
-
-
-
-
-
-
-
-
     /**/
     // using app/Model/ProductCategory.php
-// In the following example, do not let a product category be deleted if it
-// still contains products.
-// A call of $this->Product->delete($id) from ProductsController.php has set
-// $this->id .
-// Assuming 'ProductCategory hasMany Product', we can access $this->Product
-// in the model.
+// In the following example, do not let a product category be deleted if it still contains products.
+// A call of $this->Product->delete($id) from ProductsController.php has set $this->id .
+// Assuming 'ProductCategory hasMany Product', we can access $this->Product in the model.
+
     /*Agregue esta funcion para personalizar errores */ 
     public function beforeDelete($cascade = true) { 
         $count = $this->Paise->find("count", array("conditions" => array("user_id" => $this->id)
@@ -184,15 +171,21 @@ class UsersController extends AppController
     }
 
 
-    /*$count = $this->Paise->find("count", array("conditions" => array("user_id" => $this->id)
-                        //deleteAll(mixed $conditions, $cascade = true, $callbacks = false)
-        ));
-        if ($count == 0) {
-            return true;
+
+public function delete($id = null) 
+    {
+        $this->Feedback->id = $id;
+        if (!$this->Feedback->exists()) {
+            throw new NotFoundException(__('Invalid proveedore'));
+        }
+        $this->request->onlyAllow('post', 'delete');
+        if ($this->Feedback->delete()) {
+            $this->Session->setFlash(__('The Feedback has been deleted.'));
         } else {
-            return false;
-        }*/
-    
+            $this->Session->setFlash(__('The Feedback could not be deleted. Please, try again.'));
+        }
+        return $this->redirect(array('action' => 'index'));
+    }
 /**
  * admin_delete method
  *
@@ -203,21 +196,25 @@ class UsersController extends AppController
     public function admin_delete($id = null)
     {
         ///$this->User->id = $id;
-         if(!$id)//  var_dump($id);exit;
-        throw new NotFoundException('Usuario Invalido.');
-        if($this->User->delete($id))
-        {
-            $message='La proveedor ha sido eliminado';
-            $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));    
+          //var_dump($id);exit;
+         if(!$id)
+            throw new NotFoundException('Usuario Invalido.');
+       
+         try {
+            if($this->User->delete($id)){
+               $message='La proveedor ha sido eliminado';
+               $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));    
+               $this->redirect(array('action'=>'index'));
+           }
+           
+            
+        } catch (Exception $ex) {
+           $message='Esta eliminando un usuario que es necesario en otra entidad';
+            $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));    
             $this->redirect(array('action'=>'index'));
         }
-        else
-        {
-            $message='Esta eliminando un usuario que es necesario en otra entidad';
-            $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));    
-            $this->redirect(array('action'=>'index'));
-
-        }
+       
+       
     }
     //---------------------------------------
     private function UploadPhoto($data) {
