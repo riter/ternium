@@ -197,8 +197,9 @@ class ProveedoresController extends AppController {
 
       if($this->Proveedore->delete($id))
       {
-            //$this->Session->setFlash('The User : '.$id.' been eliminated to.');
-           $this->redirect(array('action'=>'index'));
+      	$message='La proveedor ha sido guardado';
+		$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
+		$this->redirect(array('action'=>'index'));
       }       
 	}
 

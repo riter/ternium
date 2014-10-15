@@ -123,7 +123,8 @@ class PaisesController extends AppController
  */
 	public function admin_index() {
 		$this->Paise->recursive = 0;
-				$this->set('paises', $this->Paise->find('all'));
+		$this->set('paises', $this->Paise->find('all'));
+		
 		//$this->set('paises', $this->Paginator->paginate());
 	}
 
