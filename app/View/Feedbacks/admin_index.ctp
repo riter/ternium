@@ -14,14 +14,13 @@
                 </tr>
             </thead>
             <tbody>
-                <?php  // pr($feedbacks); ?>
-                <?php foreach ($feedbacks as $feedback): ?>
+                   <?php foreach ($feedbacks as $feedback): ?>
                     <tr>
                         
                         <td><?php echo $feedback['User']['nombre']; ?></td>
                         <td><?php echo $feedback['Feedback']['mensaje']; ?></td>
                         <td><?php echo $feedback['Comentario']['nombre']; ?></td>
-                        <td><?php echo $feedback['Feedback']['leido']; ?></td> 
+                        <td><?php echo $feedback['Feedback']['leido'];?></td> 
                         
                         <td>
                             <?php echo $this->Html->link('Editar', array('action' => 'edit', $feedback['Feedback']['id'])); ?>                       

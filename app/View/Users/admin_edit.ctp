@@ -35,7 +35,7 @@
                 <div class="mws-form-row">
                     <label>Telefono</label>
                     <div class="mws-form-item small">
-                        <?php echo $this->Form->input('telefono', array('id'=>'telefono','class' => 'mws-textinput required number')); ?>
+                        <?php echo $this->Form->input('telefono', array('id'=>'telefono','class' => 'mws-textinput number')); ?>
                     </div>
                 </div>
 

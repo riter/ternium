@@ -173,7 +173,14 @@ class UsersController extends AppController
 // in the model.
     /*Agregue esta funcion para personalizar errores */ 
     public function beforeDelete($cascade = true) { 
+        $count = $this->Paise->find("count", array("conditions" => array("user_id" => $this->id)
+                        //deleteAll(mixed $conditions, $cascade = true, $callbacks = false)
+        ));
+        if ($count == 0) {
             return true;
+        } else {
+            return false;
+        }  
     }
 
 
@@ -195,14 +202,21 @@ class UsersController extends AppController
  */
     public function admin_delete($id = null)
     {
-        $this->User->id = $id;
+        ///$this->User->id = $id;
          if(!$id)//  var_dump($id);exit;
         throw new NotFoundException('Usuario Invalido.');
-         if($this->User->delete($id))
+        if($this->User->delete($id))
         {
             $message='La proveedor ha sido eliminado';
             $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));    
             $this->redirect(array('action'=>'index'));
+        }
+        else
+        {
+            $message='Esta eliminando un usuario que es necesario en otra entidad';
+            $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));    
+            $this->redirect(array('action'=>'index'));
+
         }
     }
     //---------------------------------------
@@ -217,7 +231,7 @@ class UsersController extends AppController
                 {
                    
                     $tmp_name=$data['User']['photo']['tmp_name'];
-                    $name=$data['User']['firstname'].'_'.$data['User']['lastname'].'.jpg';
+                    $name=$data['User']['nombre'].'_'.$data['User']['apellido'].'.jpg';
                     $destination = WWW_ROOT . 'uploads/photo/' . $name;
                     move_uploaded_file($tmp_name, $destination);         
                     $data['User']['photo'] = $name;

@@ -24768,3 +24768,63 @@ Stack Trace:
 #8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #10 {main}
+2014-10-15 15:15:22 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+',
+  'enabled' => true,
+)
+Request URL: /home/login
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(260): Mysql->connect()
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(3476): ConnectionManager::getDataSource('default')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(1126): Model->setDataSource('default')
+#4 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(3498): Model->setSource('users')
+#5 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(1355): Model->getDataSource()
+#6 C:\xampp\htdocs\ternium\lib\Cake\View\Helper\FormHelper.php(207): Model->schema()
+#7 C:\xampp\htdocs\ternium\lib\Cake\View\Helper\FormHelper.php(459): FormHelper->_introspectModel('User', 'fields')
+#8 C:\xampp\htdocs\ternium\app\View\Home\login.ctp(61): FormHelper->create('User', Array)
+#9 C:\xampp\htdocs\ternium\lib\Cake\View\View.php(929): include('C:\\xampp\\htdocs...')
+#10 C:\xampp\htdocs\ternium\lib\Cake\View\View.php(891): View->_evaluate('C:\\xampp\\htdocs...', Array)
+#11 C:\xampp\htdocs\ternium\lib\Cake\View\View.php(460): View->_render('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#13 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#14 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#15 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-10-15 15:25:37 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/49
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(211): Model->delete('49')
+#5 [internal function]: UsersController->admin_delete('49')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 17:31:24 Error: Fatal Error (4): syntax error, unexpected '=', expecting ')' in [C:\xampp\htdocs\ternium\app\View\Feedbacks\admin_edit.ctp, line 74]
+2014-10-15 17:31:24 Error: [FatalErrorException] syntax error, unexpected '=', expecting ')'
+Request URL: /admin/feedbacks/edit/1
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 74)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 74, Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 74, Array)
+#3 C:\xampp\htdocs\ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-15 17:48:23 Error: Fatal Error (4): syntax error, unexpected '<' in [C:\xampp\htdocs\ternium\app\View\Feedbacks\admin_edit.ctp, line 75]
+2014-10-15 17:48:23 Error: [FatalErrorException] syntax error, unexpected '<'
+Request URL: /admin/feedbacks/edit/1
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 75)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 75, Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 75, Array)
+#3 C:\xampp\htdocs\ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
