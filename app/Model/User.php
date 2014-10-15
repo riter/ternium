@@ -86,5 +86,7 @@ class User extends AppModel
         )
        
     );
+
+    /*'dependent'=>false,/*agregue 10-14-2014*/
 }
 

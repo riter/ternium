@@ -34,6 +34,8 @@
                             <?php echo $this->Html->link('Editar', array('action' => 'edit', $user['User']['id'])); ?>                       
                             <?php echo "&nbsp;&nbsp; | &nbsp;&nbsp;"; ?>
                             <?php echo $this->Html->link('Eliminar', array('controller' =>'Users', 'action' => 'delete', $user['User']['id'] ), array(), "Esta seguro que desea eliminar a  ". $user['User']['username'] .". ?" );?> 
+
+    
                         </td>
                     </tr>
                 <?php endforeach; ?>

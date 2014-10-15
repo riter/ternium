@@ -262,6 +262,20 @@
                                     <li><a href="<?php echo $this->Html->url(array('controller' => 'Comentarios', 'action' => 'add', 'admin' => true)); ?>">Adicionar Comentario </a></li> 
                                 </ul> 
                         </li>  
+                         <li>
+                            <?php   $controller=strtolower($controller); ?> 
+
+                            <a  href="<?php echo $this->Html->url(array('controller'=>'Feedbacks',
+                                'action' => 'index', 'admin' => true)); ?>" >Feedbacks </a>
+
+                                <ul <?php if ($controller == 'feedbacks') 
+                                        echo 'class = ""'; 
+                                        else echo 'class = "closed"'; ?>>
+                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'feedbacks', 'action' => 'index', 'admin' => true)); ?>">Todos los Feedbacks </a></li> 
+
+                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'feedbacks', 'action' => 'add', 'admin' => true)); ?>">Adicionar Feedback </a></li> 
+                                </ul> 
+                        </li>  
                     </ul>
                 </div>   
                 

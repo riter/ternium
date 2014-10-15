@@ -171,23 +171,37 @@ class UsersController extends AppController
 // $this->id .
 // Assuming 'ProductCategory hasMany Product', we can access $this->Product
 // in the model.
-    public function beforeDelete($cascade = true) { /*Agregue esta funcion para personalizar errores */ 
-        $count = $this->Product->find("count", array(
-            "conditions" => array("user_id" => $this->id)
+    /*Agregue esta funcion para personalizar errores */ 
+    public function beforeDelete($cascade = true) { 
+            return true;
+    }
+
+
+    /*$count = $this->Paise->find("count", array("conditions" => array("user_id" => $this->id)
+                        //deleteAll(mixed $conditions, $cascade = true, $callbacks = false)
         ));
         if ($count == 0) {
             return true;
         } else {
             return false;
-        }
-    }
+        }*/
     
-    public function admin_delete($id)
+/**
+ * admin_delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+    public function admin_delete($id = null)
     {
-        if(!$id)
-            throw new NotFoundException('User Invalid.');
-        if($this->User->delete($id)){
-            //$this->Session->setFlash('The User : '.$id.' been eliminated to.');
+        $this->User->id = $id;
+         if(!$id)//  var_dump($id);exit;
+        throw new NotFoundException('Usuario Invalido.');
+         if($this->User->delete($id))
+        {
+            $message='La proveedor ha sido eliminado';
+            $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));    
             $this->redirect(array('action'=>'index'));
         }
     }
