@@ -211,32 +211,27 @@ class PaisesController extends AppController
 		 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
 		  $this->redirect(array('action'=>'index'));
       }else {
-      		$message='El pais '.$name .' no se pudo eliminar!';
+      		$message='El pais no se pudo eliminar!';
 		 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
 		 $this->redirect(array('action'=>'index'));
 		
       }
       
-	} 
+	}
 
- public function getListaPaisesJson()
- {	
-	$this->autoRender = false; 
-    $this->layout="ajax";
-    
-    $condiciones=array('recursive'=>1);
-    $paises=$this->Paise->find('all',$condiciones); 
-    echo json_encode($paises); 
- }
-// Método de prueba .....
- public function  admin_listar_paises()
- {	
-	$this->autoRender = false; 
-    $this->layout="ajax"; 
+    /*    API Method*/
+    public function lists()
+    {
+        $this->autoRender = false;
+        if ($this->request->is('get')) {
+            $paises=$this->Paise->find('all');
 
-    $condiciones=array('recursive'=>1); 
-    $paises=$this->Paise->find('all',$condiciones); 
-
-     pr($paises);
- }
+            if(!empty($paises)){
+                return json_encode(array('Default' => $paises));
+            }else{
+                return json_encode(array('Default' => null));
+            }
+        }
+        return json_encode(array('Default' => 'Required Request GET'));
+    }
 }
