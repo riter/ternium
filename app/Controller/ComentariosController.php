@@ -54,11 +54,11 @@ class ComentariosController extends AppController
 			var_dump($this->Comentario->create());exit;
 			if ($this->Comentario->save($this->request->data)) {
 
-				$message='La Comentario tipo ha sido guardada!';
+				$message='La Comentario ha sido guardado!';
 				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
 					return $this->redirect(array('action' => 'index'));
 			} else {
-				$message='La comentario tipo no pudo guardarse. Por favor, intente de nuevo.';
+				$message='La comentario no pudo guardarse. Por favor, intente de nuevo.';
 				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
 				
 			}
@@ -80,11 +80,11 @@ class ComentariosController extends AppController
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Comentario->save($this->request->data)) {
-				$message='La Comentario tipo ha sido guardada';
+				$message='La Comentario ha sido guardado';
 				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
 			return $this->redirect(array('action' => 'index'));
 			} else {
-				$message='La comentario tipo no pudo guardarse. Por favor, intente de nuevo.';
+				$message='La comentario no pudo guardarse. Por favor, intente de nuevo.';
 				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
 				
 			}
@@ -110,12 +110,12 @@ class ComentariosController extends AppController
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Comentario->delete()) {
 
-				$message='La Comentario tipo ha sido eliminada!';
+				$message='La Comentario ha sido eliminado!';
 				$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
 	
 
 		} else {
-					$message='La comentario tipo no se pudo eliminar. Por favor, intente de nuevo.';
+					$message='La comentario no se pudo eliminar. Por favor, intente de nuevo.';
 					$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
 				}
 		return $this->redirect(array('action' => 'index'));
@@ -166,7 +166,7 @@ class ComentariosController extends AppController
 				return $this->redirect(array('action' => 'index'));
 			} else {
 
-				$message='La comentario tipo no pudo guardarse. Por favor, intente de nuevo.';
+				$message='La comentario no pudo guardarse. Por favor, intente de nuevo.';
 	   		    $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
 							
 			}
@@ -187,12 +187,12 @@ class ComentariosController extends AppController
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Comentario->save($this->request->data)) {
 
-				$message='La Comentario tipo ha sido guardada!';
+				$message='La Comentario tipo ha sido guardado!';
 				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 
-					$message='La comentario tipo no pudo guardarse. Por favor, intente de nuevo.';
+					$message='La comentario no pudo guardarse. Por favor, intente de nuevo.';
 				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
 			
 				
@@ -213,11 +213,11 @@ class ComentariosController extends AppController
 	public function admin_delete($id = null) 
 	{
 	   if(!$id)
-       throw new NotFoundException('Tipos de Comentario  Invalidos');
+       throw new NotFoundException('Comentarios  Invalidos');
 
       if($this->Comentario->delete($id))
       {		
-      	$message='El Comentario '.$id.' ha sido eliminado.';
+      	$message='El Comentario ha sido eliminado.';
 	   $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
 		$this->redirect(array('action'=>'index')); 
       }else
