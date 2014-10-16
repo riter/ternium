@@ -193,3 +193,6 @@
 [29-Aug-2014 00:49:24] PHP Fatal error:  Call to a member function find() on a non-object in /home2/validoc/public_html/ternium/backend/app/Controller/GaleriasController.php on line 172
 [29-Aug-2014 00:49:55] PHP Fatal error:  Call to a member function find() on a non-object in /home2/validoc/public_html/ternium/backend/app/Controller/GaleriasController.php on line 172
 [29-Aug-2014 00:53:55] PHP Fatal error:  Call to a member function find() on a non-object in /home2/validoc/public_html/ternium/backend/app/Controller/GaleriasController.php on line 172
+[14-Oct-2014 13:36:50] PHP Parse error:  syntax error, unexpected T_PUBLIC in /home2/validoc/public_html/ternium/ternium/app/Controller/UsersController.php on line 96
+[14-Oct-2014 13:53:10] PHP Parse error:  syntax error, unexpected T_PUBLIC in /home2/validoc/public_html/ternium/ternium/app/Controller/UsersController.php on line 96
+[14-Oct-2014 13:53:15] PHP Parse error:  syntax error, unexpected T_PUBLIC in /home2/validoc/public_html/ternium/ternium/app/Controller/UsersController.php on line 96

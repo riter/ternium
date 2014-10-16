@@ -155,12 +155,12 @@ $(document).ready(function() {
 
 $(".mws-datatable").dataTable({
 		oLanguage: {
-                "sUrl": "/js/es_BO.txt"
+                "sUrl": "../js/es_BO.txt"
         }
 	});
 $(".mws-datatable-fn").dataTable({
 		oLanguage: {
-                "sUrl": "/js/es_BO.txt"
+                "sUrl": "../js/es_BO.txt"
         },
 		sPaginationType: "full_numbers"
 	});
