@@ -10,11 +10,13 @@ class UsersController extends AppController {
         $this->loadModel('Paise');
 
 
-        if (!AuthComponent::user()) {
-            $this->redirect(array('controller' => 'home', 'action' => 'login', null, 'admin' => false));
-        } else {
-            if (AuthComponent::user('role') != User::_ADMIN) {
+        if (isset($this->params['prefix']) && $this->params['prefix'] == 'admin') {
+            if (!AuthComponent::user()) {
                 $this->redirect(array('controller' => 'home', 'action' => 'login', null, 'admin' => false));
+            } else {
+                if (AuthComponent::user('role') != User::_ADMIN) {
+                    $this->redirect(array('controller' => 'home', 'action' => 'login', null, 'admin' => false));
+                }
             }
         }
     }
@@ -261,5 +263,25 @@ class UsersController extends AppController {
 
           } */
     }
+    /*    API Method*/
+    public function login()
+    {
+        $this->autoRender = false;
+        $username = $this->request->data['username'];
+        $password= $this->request->data['password'];
 
+        $password = AuthComponent::password($password);
+        $condiciones= array('username'=>$username,'password'=>$password);
+
+        if ($this->request->is('post')) {
+            $user = $this->User->find('first',array('conditions'=> $condiciones ));
+
+            if(!empty($user)){
+                return json_encode(array('Default' => $user));
+            }else{
+                return json_encode(array('Default' => null));
+            }
+        }
+        return json_encode(array('Default' => 'Required Request POST'));
+    }
 }
