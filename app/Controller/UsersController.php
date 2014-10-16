@@ -267,6 +267,7 @@ class UsersController extends AppController {
     public function login()
     {
         $this->autoRender = false;
+        $this->response->type('json');
         $username = $this->request->data['username'];
         $password= $this->request->data['password'];
 

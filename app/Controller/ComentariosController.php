@@ -238,5 +238,20 @@ class ComentariosController extends AppController
 
     }
     */
+         public function lists()
+    {
+        $this->autoRender = false;
+         $this->response->type('json');
+        if ($this->request->is('get')) {
+            $comentarios=$this->Comentario->find('all');
+
+            if(!empty($comentarios)){
+                return json_encode(array('Default' => $comentarios));
+            }else{
+                return json_encode(array('Default' => null));
+            }
+        }
+        return json_encode(array('Default' => 'Required Request GET'));
+    }
 
 }

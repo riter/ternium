@@ -236,5 +236,20 @@ class GaleriasTiposController extends AppController
 
     }
     */
+    public function lists()
+    {
+        $this->autoRender = false;
+         $this->response->type('json');
+        if ($this->request->is('get')) {
+            $galeriasTipos=$this->GaleriasTipo->find('all');
+
+            if(!empty($galeriasTipos)){
+                return json_encode(array('Default' => $galeriasTipos));
+            }else{
+                return json_encode(array('Default' => null));
+            }
+        }
+        return json_encode(array('Default' => 'Required Request GET'));
+    }
 
 }

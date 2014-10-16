@@ -139,5 +139,20 @@ class CalculosTiposController extends AppController
 
     }
     */
+      public function lists()
+    {
+        $this->autoRender = false;
+         $this->response->type('json');
+        if ($this->request->is('get')) {
+            $calculosTipos=$this->CalculosTipo->find('all');
+
+            if(!empty($calculosTipos)){
+                return json_encode(array('Default' => $calculosTipos));
+            }else{
+                return json_encode(array('Default' => null));
+            }
+        }
+        return json_encode(array('Default' => 'Required Request GET'));
+    }
 
 }
