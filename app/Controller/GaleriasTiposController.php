@@ -53,7 +53,7 @@ class GaleriasTiposController extends AppController
 			$this->GaleriasTipo->create();
 			if ($this->GaleriasTipo->save($this->request->data)) {
 
-				$message='La Galería tipo ha sido guardada!';
+				$message='La Galeria tipo ha sido guardada!';
 				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
 					return $this->redirect(array('action' => 'index'));
 			} else {
@@ -79,7 +79,7 @@ class GaleriasTiposController extends AppController
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->GaleriasTipo->save($this->request->data)) {
-				$message='La Galería tipo ha sido guardada';
+				$message='La Galeria tipo ha sido guardada';
 				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
 			return $this->redirect(array('action' => 'index'));
 			} else {
@@ -109,7 +109,7 @@ class GaleriasTiposController extends AppController
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->GaleriasTipo->delete()) {
 
-				$message='La Galería tipo ha sido eliminada!';
+				$message='La Galeria tipo ha sido eliminada!';
 				$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
 	
 
@@ -158,10 +158,15 @@ class GaleriasTiposController extends AppController
 		if ($this->request->is('post')) {
 			$this->GaleriasTipo->create();
 			if ($this->GaleriasTipo->save($this->request->data)) {
-				$this->Session->setFlash(__('La galeria ha sido guardada.'));
-				return $this->redirect(array('action' => 'index'));
+                            
+                        $message='La Galeria tipo ha sido guardada!';
+			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
+			return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('La galeria tipo no pudo guardarse. Por favor, intente de nuevo.'));
+                              $message='La Galeria tipo no pudo guardarse';
+			      $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
+			
+				
 			}
 		}
 	}
@@ -180,7 +185,7 @@ class GaleriasTiposController extends AppController
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->GaleriasTipo->save($this->request->data)) {
 
-				$message='La Galería tipo ha sido guardada!';
+				$message='La Galeria tipo ha sido guardada!';
 				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -210,12 +215,12 @@ class GaleriasTiposController extends AppController
 
       if($this->GaleriasTipo->delete($id))
       {		
-      	$message='El usuario '.$id.' ha sido eliminado.';
+      	$message='El Tipo de galeria '.$id.' ha sido eliminado.';
 	   $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
 		$this->redirect(array('action'=>'index')); 
       }else
       {
-      	$message='El usuario '.$id.' no ha sido eliminado.';
+      	$message='El Tipo de galeria '.$id.' no ha sido eliminado.';
 	   $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
 		$this->redirect(array('action'=>'index'));
       }

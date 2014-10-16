@@ -25523,4 +25523,493 @@ Stack Trace:
 #8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #10 {main}
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+2014-10-15 15:15:22 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+',
+  'enabled' => true,
+)
+Request URL: /home/login
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(260): Mysql->connect()
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(3476): ConnectionManager::getDataSource('default')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(1126): Model->setDataSource('default')
+#4 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(3498): Model->setSource('users')
+#5 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(1355): Model->getDataSource()
+#6 C:\xampp\htdocs\ternium\lib\Cake\View\Helper\FormHelper.php(207): Model->schema()
+#7 C:\xampp\htdocs\ternium\lib\Cake\View\Helper\FormHelper.php(459): FormHelper->_introspectModel('User', 'fields')
+#8 C:\xampp\htdocs\ternium\app\View\Home\login.ctp(61): FormHelper->create('User', Array)
+#9 C:\xampp\htdocs\ternium\lib\Cake\View\View.php(929): include('C:\\xampp\\htdocs...')
+#10 C:\xampp\htdocs\ternium\lib\Cake\View\View.php(891): View->_evaluate('C:\\xampp\\htdocs...', Array)
+#11 C:\xampp\htdocs\ternium\lib\Cake\View\View.php(460): View->_render('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(952): View->render(NULL, NULL)
+#13 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(192): Controller->render()
+#14 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(HomeController), Object(CakeRequest), Object(CakeResponse))
+#15 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2014-10-15 15:25:37 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/49
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(211): Model->delete('49')
+#5 [internal function]: UsersController->admin_delete('49')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 17:31:24 Error: Fatal Error (4): syntax error, unexpected '=', expecting ')' in [C:\xampp\htdocs\ternium\app\View\Feedbacks\admin_edit.ctp, line 74]
+2014-10-15 17:31:24 Error: [FatalErrorException] syntax error, unexpected '=', expecting ')'
+Request URL: /admin/feedbacks/edit/1
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 74)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 74, Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 74, Array)
+#3 C:\xampp\htdocs\ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-15 17:48:23 Error: Fatal Error (4): syntax error, unexpected '<' in [C:\xampp\htdocs\ternium\app\View\Feedbacks\admin_edit.ctp, line 75]
+2014-10-15 17:48:23 Error: [FatalErrorException] syntax error, unexpected '<'
+Request URL: /admin/feedbacks/edit/1
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 75)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 75, Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 75, Array)
+#3 C:\xampp\htdocs\ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-15 20:02:07 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/49
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(208): Model->delete('49')
+#5 [internal function]: UsersController->admin_delete('49')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 20:06:26 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(197): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 20:07:22 Error: Fatal Error (4): syntax error, unexpected '{' in [C:\xampp\htdocs\ternium\app\Controller\UsersController.php, line 204]
+2014-10-15 20:07:22 Error: [FatalErrorException] syntax error, unexpected '{'
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 204)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 204, Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 204, Array)
+#3 C:\xampp\htdocs\ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-15 20:07:37 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(197): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 20:07:54 Error: Fatal Error (4): syntax error, unexpected '{' in [C:\xampp\htdocs\ternium\app\Controller\UsersController.php, line 204]
+2014-10-15 20:07:54 Error: [FatalErrorException] syntax error, unexpected '{'
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 204)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 204, Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 204, Array)
+#3 C:\xampp\htdocs\ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-15 20:08:24 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(197): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 20:08:32 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(197): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 20:09:01 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(197): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 20:53:57 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(186): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 20:55:14 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(184): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 20:55:56 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(184): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 20:56:31 Error: Fatal Error (1): Call to undefined function debut() in [C:\xampp\htdocs\ternium\app\Controller\UsersController.php, line 184]
+2014-10-15 20:56:31 Error: [FatalErrorException] Call to undefined function debut()
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', 'C:\\xampp\\htdocs...', 184)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', 'C:\\xampp\\htdocs...', 184, Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', 'C:\\xampp\\htdocs...', 184, Array)
+#3 C:\xampp\htdocs\ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-15 20:56:44 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(184): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 20:56:57 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(184): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 20:57:14 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(184): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 20:57:25 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(184): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 20:57:35 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(187): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 20:59:35 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(202): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 21:20:04 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(202): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 21:21:28 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(202): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 21:21:35 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(202): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 21:22:23 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/50
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(203): Model->delete('50')
+#5 [internal function]: UsersController->admin_delete('50')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 21:22:32 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/49
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(203): Model->delete('49')
+#5 [internal function]: UsersController->admin_delete('49')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 21:22:43 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`validoc_ternium`.`galerias`, CONSTRAINT `galerias_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+Request URL: /admin/Users/delete/48
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(458): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\DboSource.php(424): DboSource->_execute('DELETE `User` F...', Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Model\Datasource\Database\Mysql.php(440): DboSource->execute('DELETE `User` F...')
+#3 C:\xampp\htdocs\ternium\lib\Cake\Model\Model.php(2590): Mysql->delete(Object(User), Array)
+#4 C:\xampp\htdocs\ternium\app\Controller\UsersController.php(203): Model->delete('48')
+#5 [internal function]: UsersController->admin_delete('48')
+#6 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-10-15 21:23:03 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\xampp\htdocs\ternium\app\Controller\UsersController.php, line 204]
+2014-10-15 21:23:03 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /admin/users
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Error\ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 204)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 204, Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Core\App.php(929): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 204, Array)
+#3 C:\xampp\htdocs\ternium\lib\Cake\Core\App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-10-16 00:32:04 Error: [MissingControllerException] Controller class AdminTestController could not be found.
+Exception Attributes: array (
+  'class' => 'AdminTestController',
+  'plugin' => NULL,
+)
+Request URL: /admin/admin_test
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-16 00:32:40 Error: [MissingControllerException] Controller class AdminTestController could not be found.
+Exception Attributes: array (
+  'class' => 'AdminTestController',
+  'plugin' => NULL,
+)
+Request URL: /admin/admin_test
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-16 00:33:03 Error: [MissingControllerException] Controller class AdminTestController could not be found.
+Exception Attributes: array (
+  'class' => 'AdminTestController',
+  'plugin' => NULL,
+)
+Request URL: /admin/admin_test
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-16 00:33:06 Error: [MissingControllerException] Controller class AdminTestController could not be found.
+Exception Attributes: array (
+  'class' => 'AdminTestController',
+  'plugin' => NULL,
+)
+Request URL: /admin/admin_test?email=marcjav8%40gmail.com&password=123456
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-16 00:33:24 Error: [MissingControllerException] Controller class AdminTestController could not be found.
+Exception Attributes: array (
+  'class' => 'AdminTestController',
+  'plugin' => NULL,
+)
+Request URL: /admin/admin_test
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-16 00:33:43 Error: [MissingActionException] Action UsersController::admin_admin_test() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'admin_admin_test',
+)
+Request URL: /admin/users/admin_test
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-10-16 00:34:02 Error: [MissingControllerException] Controller class UserController could not be found.
+Exception Attributes: array (
+  'class' => 'UserController',
+  'plugin' => NULL,
+)
+Request URL: /admin/user/admin_test
+Stack Trace:
+#0 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-10-16 00:40:03 Error: [NotFoundException] User Invalid
+Request URL: /admin/users/edit
+Stack Trace:
+#0 [internal function]: UsersController->admin_edit()
+#1 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-16 00:40:10 Error: [NotFoundException] User Invalid
+Request URL: /admin/users/edit
+Stack Trace:
+#0 [internal function]: UsersController->admin_edit()
+#1 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-10-16 00:40:23 Error: [NotFoundException] User Invalid
+Request URL: /admin/users/edit
+Stack Trace:
+#0 [internal function]: UsersController->admin_edit()
+#1 C:\xampp\htdocs\ternium\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp\htdocs\ternium\lib\Cake\Routing\Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\ternium\app\webroot\index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
 >>>>>>> origin/master

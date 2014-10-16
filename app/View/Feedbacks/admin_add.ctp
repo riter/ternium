@@ -60,12 +60,12 @@
 
                 
 
-                <div class="mws-form-row">
+               <div class="mws-form-row">
                     <label>Estado</label>
                     <div class="mws-form-item small">
                         <?php
-                        $options = array('S' => 'Si', 'N' => 'No');
-                         $attributes = array('legend' => false);
+                        $options = array('1' => 'Leido', '0' => 'No Leido');
+                         $attributes = array('separator' => false,'legend'=>false);
                          echo $this->Form->radio('leido', $options, $attributes);
                          //echo $this->Form->input('comentario_id',   array('id'=>'comentario_id','class' => 'mws-textinput required')); ?>
                     </div>

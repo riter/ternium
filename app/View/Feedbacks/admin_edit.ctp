@@ -1,14 +1,14 @@
 <div class="mws-panel grid_8"> 
     <div class="mws-panel-header">
-        <span class="mws-i-24 i-plus">Editar Galería</span>
+        <span class="mws-i-24 i-plus">Editar Feedback</span>
     </div>
 
     <div class="mws-panel-body">
         <?php 
 
-            echo $this->Form->create('Galeria', array
+            echo $this->Form->create('Feedback', array
             (   
-                'id' => 'galeria',
+                'id' => 'feedback',
                 'class' => 'mws-form',
                 'enctype' => 'multipart/form-data', 
                 'autocomplete' => 'off',
@@ -31,18 +31,7 @@
                         array('id'=>'id','class' => 'mws-textinput required')); ?> 
                     </div>
                 </div> 
-                <?php //pr($Galeria);?>
-                <!--<div class="mws-form-row" style="display:none" >
-                    <label>Imagen2</label> 
-                    <div class="mws-form-item small">
-                        <?php  /* echo $this->Form->input('imagen', 
-                        array('id'=>'imagen2','name'=>'data[Galeria][imagen2]',
-                                'class' => 'mws-textinput required')); */?> 
-                    </div>
-                </div>-->
-
-
-                <div class="mws-form-row">
+                          <div class="mws-form-row">
                     <label>Usuario</label>
                     <div class="mws-form-item small">
                         <?php echo $this->Form->input('user_id', 
@@ -69,15 +58,23 @@
                 <div class="mws-form-row">
                     <label>Estado</label>
                     <div class="mws-form-item small">
-                        <?php echo $this->Form->input('leido', 
-                        array('id'=>'leido','class' => 'mws-textinput required')); ?>
+                        <?php
+                        $options = array('1' => 'Leido', '0' => 'No Leido');
+                         $attributes = array('separator' => false,'legend'=>false);
+                         echo $this->Form->radio('leido', $options, $attributes);
+                         //echo $this->Form->input('comentario_id',   array('id'=>'comentario_id','class' => 'mws-textinput required')); ?>
                     </div>
-                </div> 
+                </div>
+                <style>
+                    .mws-form .mws-form-inline label{
+                        float:none !important;
+                    }
+                </style>
             </div>
-            
+           
         <?php
         echo $this->Form->end(array(
-            'label' => __('Save'),
+            'label' => __('Guardar'),
             'div' => array(
                 'class' => 'mws-button-row',
             ),
@@ -87,7 +84,7 @@
         <script>    
    $(function() 
    {
-        $("#galeria").validate
+        $("#feedback").validate
         ({  
             rules: 
                {

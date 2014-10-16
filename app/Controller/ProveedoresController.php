@@ -145,7 +145,8 @@ class ProveedoresController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Proveedore->create();
 			if ($this->Proveedore->save($this->request->data)) {
-				$this->Session->setFlash(__('El proveedor ha sido guardado.'));/*The proveedore has been saved.*/
+				 $message='El Proveedor ha sido guardado!';
+				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('El proveedor no pudo ser guardado. Por favor, intente de nuevo.'));/*The proveedore could not be saved. Please, try again.*/
@@ -169,10 +170,13 @@ class ProveedoresController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Proveedore->save($this->request->data)) {
-				$this->Session->setFlash(__('El proveedor ha sido guardado.'));
+				 $message='El Proveedor ha sido guardado!';
+				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('El proveedor no pudo ser guardado. Por favor, intentelo de nuevo.'));
+				 $message='El proveedor no pudo ser guardado. Por favor, intentelo de nuevo.!';
+				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
+				
 			}
 		} else {
 			$options = array('conditions' => array('Proveedore.' . $this->Proveedore->primaryKey => $id));
@@ -197,10 +201,17 @@ class ProveedoresController extends AppController {
 
       if($this->Proveedore->delete($id))
       {
-      	$message='La proveedor ha sido guardado';
-		$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
-		$this->redirect(array('action'=>'index'));
+
+ 		$message='El proveedor ha sido borrado!';
+		 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
+   		$this->redirect(array('action'=>'index'));
       }       
+      else
+      {
+      	 $message='La proveedor no ha sido borrado';
+		$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));	
+
+      }
 	}
 
 function getListaProveedoresJson()

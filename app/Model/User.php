@@ -74,6 +74,7 @@ class User extends AppModel
         }        
         return true;
     }
+    
     public $belongsTo = array
     (
         'Paise' => array 
