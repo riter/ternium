@@ -207,7 +207,7 @@ class ProveedoresRepresentantesController extends AppController
 		
       if($this->ProveedoresRepresentante->delete($id))
       {
- 			$message='El Proveedor representante ' .$id.' ha sido eliminado!';
+ 			$message='El Proveedor representante ha sido eliminado!';
 			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
 			$this->redirect(array('action'=>'index'));
       }

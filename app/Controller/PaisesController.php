@@ -207,7 +207,7 @@ class PaisesController extends AppController
 
       if($this->Paise->delete($id))
       {
-      	$message='El pais '.$id.' ha sido eliminado!';//$paise['Paise']['nombre']
+      	$message='El pais ha sido eliminado!';//$paise['Paise']['nombre']
 		 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
 		  $this->redirect(array('action'=>'index'));
       }else {

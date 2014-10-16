@@ -25,7 +25,7 @@
                     <div class="mws-form-item small">
                         <?php echo $this->Form->input('id', array('id'=>'id','class' => 'mws-textinput required')); ?> 
                     </div>
-                </div> -->
+                </div> 
 
                 
                 <div class="mws-form-row">

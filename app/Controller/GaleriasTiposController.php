@@ -215,7 +215,7 @@ class GaleriasTiposController extends AppController
 
       if($this->GaleriasTipo->delete($id))
       {		
-      	$message='El Tipo de galeria '.$id.' ha sido eliminado.';
+      	$message='El Tipo galeria ha sido eliminado.';
 	   $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
 		$this->redirect(array('action'=>'index')); 
       }else
