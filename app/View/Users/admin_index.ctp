@@ -34,6 +34,9 @@
                             <?php echo $this->Html->link('Editar', array('action' => 'edit', $user['User']['id'])); ?>                       
                             <?php echo "&nbsp;&nbsp; | &nbsp;&nbsp;"; ?>
                             <?php echo $this->Html->link('Eliminar', array('controller' =>'Users', 'action' => 'delete', $user['User']['id'] ), array(), "Esta seguro que desea eliminar a  ". $user['User']['username'] .". ?" );?> 
+                       <?php echo "&nbsp;&nbsp; | &nbsp;&nbsp;"; ?>
+                      <?php echo $this->Html->link('Conectar con Facebook', array('controller' =>'Users', 'action' => 'login_facebook', $user['User']['id'] ), array(), "Se esta dirigiendo al facebook". $user['User']['username'] .". ?" );?> 
+
 
     
                         </td>

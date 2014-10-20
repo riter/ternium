@@ -217,7 +217,7 @@ class ProveedoresController extends AppController {
 function getListaProveedoresJson()
 {	
  	$this->autoRender = false; 
-    $this->layout="ajax"; 
+        $this->layout="ajax"; 
 
 	$pais_id=$this->request->data['pais_id']; 
 	$provincia_id=$this->request->data['provincia_id']; 
@@ -274,5 +274,55 @@ public function admin_listar_proveedores()
 	$proveedores=$this->Proveedore->find('all',$condiciones);
 	pr($proveedores);
 }
+
+    public function lists()
+    {
+        $this->autoRender = false;
+         $this->response->type('json');
+        if ($this->request->is('get')) {
+            $proveedores=$this->Proveedore->find('all');
+
+            if(!empty($proveedores)){
+                return json_encode(array('Default' => $proveedores));
+            }else{
+                return json_encode(array('Default' => null));
+            }
+        }
+        return json_encode(array('Default' => 'Required Request GET'));
+    }
+    
+    public function proveedores_lists()//$pais, $provincia
+    { 
+        //$pais = 9;
+        $this->autoRender = false;
+        $this->response->type('json');//$proveedore_id=$this->request->data['proveedore_id']; 
+     
+        $pais=$this->request->query['pais_id'];//$this->request->data['pais_id'];//$this->request->data['pais_id'];$this->request->query('pais_id');
+        $provincia=$this->request->query['provincia_id'];//6;//'Buenos Aires';
+         
+          //$opciones=array('conditions' => array('pais_id' => $pais,'provincia_id'=>$provincia));
+          //$opciones=array('pais_id' => $pais,'provincia_id'=>$provincia);
+          $condiciones=array('conditions'=>array('Proveedore.pais_id'=>$pais,'Proveedore.provincia_id'=>$provincia),'recursive'=>0);//array('recursive'=>0);
+            
+          
+         if(empty($pais)||empty($provincia)){
+             
+             echo "Olvido un campo!";
+         }  
+         if ($this->request->is('get')) {
+            // echo "kkk ";
+           // print_r($this->request->query, false);
+           var_dump($proveedores=$this->Proveedore->find('all',$condiciones));//exit;
+
+         /* if(!empty($proveedores)){
+                return json_encode(array('Default' => $proveedores));
+            }else{
+                return json_encode(array('Default' => null));
+            }*/
+        }
+        return json_encode(array('Default' => 'Required Request GET'));
+    }
+    
+
 
 }

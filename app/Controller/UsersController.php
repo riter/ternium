@@ -8,6 +8,7 @@ class UsersController extends AppController {
         $user = AuthComponent::user();
         $this->loadModel('User');
         $this->loadModel('Paise');
+        
 
 
         if (isset($this->params['prefix']) && $this->params['prefix'] == 'admin') {
@@ -199,8 +200,7 @@ class UsersController extends AppController {
      * @return void
      */
     public function admin_delete($id = null) {
-        ///$this->User->id = $id;
-        //var_dump($id);exit;
+        ///$this->User->id = $id;//var_dump($id);exit;
         if (!$id)
             throw new NotFoundException('Usuario Invalido.');
 
@@ -275,6 +275,30 @@ class UsersController extends AppController {
         $condiciones= array('username'=>$username,'password'=>$password);
 
         if ($this->request->is('post')) {
+              $user = $this->User->find('first',array('conditions'=> $condiciones ));
+
+            if(!empty($user)){
+                return json_encode(array('Default' => $user));
+            }else{
+                return json_encode(array('Default' => null));
+            }
+        }
+        return json_encode(array('Default' => 'Required Request POST'));
+    }
+    /*****************ADMIN LOGIN FACEBOOK**********************/
+     public function admin_login_facebook()
+    {
+      
+        $this->autoRender = false;
+        $this->response->type('json');
+        $username = $this->request->data['username'];
+        $password= $this->request->data['password'];
+
+        $password = AuthComponent::password($password);
+        $condiciones= array('username'=>$username,'password'=>$password);
+           $this->traer_loginfacebook_id($condiciones);
+
+        if ($this->request->is('post')) {
             $user = $this->User->find('first',array('conditions'=> $condiciones ));
 
             if(!empty($user)){
@@ -284,5 +308,27 @@ class UsersController extends AppController {
             }
         }
         return json_encode(array('Default' => 'Required Request POST'));
+    }
+    
+    
+    public function traer_loginfacebook_id($condiciones)
+    {
+           App::Import('Lib','Facebook'); //$this->load('lib/facebook.php'); // la apikey nos la dan en http://www.facebook.com/developers
+          $appapikey = '92a5c3c01f10b9d40ff8a38275cad1234'; // el appsecret tn nos lo dan en http://www.facebook.com/developers
+          $appsecret = '48456be053d7e4afade60a87aa23c151';// iniciamos el objeto faceBook
+        
+          $facebook = new Facebook($appapikey, $appsecret);
+          $user_id = $facebook->require_login();  // Extraemos el id de usuario conectado
+
+          
+          $friends_ids = $facebook->api_client->friends_get();    // Extraemos a un array los id's de todos sus amigos
+ 
+         echo '<p>Hola! esta es tu foto: <fb:profile-pic uid="$user_id" linked="true" /></p>';  // Mostrando foto del usuario logado
+        echo "<ul>";        // Mostrando fotos de todos sus amigos
+        foreach ( $friends_ids as $friend_id ) 
+        	echo "<li><fb:profile-pic uid='$friend_id' linked='true' /></li>";	
+         echo "</ul>";
+        return $friends_ids;
+    
     }
 }

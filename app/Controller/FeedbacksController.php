@@ -77,15 +77,15 @@ class FeedbacksController extends AppController
 			{
 			$message='La Feedback ha sido guardada.';	
 			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
-		     //	$this->Session->setFlash($message,$layout); //__('El País  ha sido guardado.')
+		     //	$this->Session->setFlash($message,$layout); //__('El Pais  ha sido guardado.')
 				return $this->redirect(array('action' => 'index'));  
 				
 			}
 			else 
 			{
-				$message='La Feedback no pudo ser guardada.';
+			  $message='La Feedback no pudo ser guardada.';
 			  $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));	
-			   $this->Session->setFlash($message,$layout);//__('El Galería no pudo ser guardado. Por favor, intentelo de nuevo.')
+			  $this->Session->setFlash($message,$layout);//__('El Galería no pudo ser guardado. Por favor, intentelo de nuevo.')
 				
 			}
 		} 
@@ -248,5 +248,20 @@ class FeedbacksController extends AppController
 
     	pr($feedbacks); 
 
+    }
+     public function lists()
+    {
+        $this->autoRender = false;
+         $this->response->type('json');
+        if ($this->request->is('get')) {
+            $feedback=$this->Feedback->find('all');
+
+            if(!empty($feedback)){
+                return json_encode(array('Default' => $feedback));
+            }else{
+                return json_encode(array('Default' => null));
+            }
+        }
+        return json_encode(array('Default' => 'Required Request GET'));
     }
 }

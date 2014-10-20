@@ -223,7 +223,7 @@ class PaisesController extends AppController
     public function lists()
     {
         $this->autoRender = false;
-        //  $this->response->type('json');
+         $this->response->type('json');
         if ($this->request->is('get')) {
             $paises=$this->Paise->find('all');
 
