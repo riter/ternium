@@ -187,20 +187,6 @@ class UsersController extends AppController {
         }
     }
 
-    public function delete($id = null) {
-        $this->Feedback->id = $id;
-        if (!$this->Feedback->exists()) {
-            throw new NotFoundException(__('Invalid proveedore'));
-        }
-        $this->request->onlyAllow('post', 'delete');
-        if ($this->Feedback->delete()) {
-            $this->Session->setFlash(__('The Feedback has been deleted.'));
-        } else {
-            $this->Session->setFlash(__('The Feedback could not be deleted. Please, try again.'));
-        }
-        return $this->redirect(array('action' => 'index'));
-    }
-
     /**
      * admin_delete method
      *
@@ -290,7 +276,7 @@ class UsersController extends AppController {
 
             //$password = AuthComponent::password($password);
             $condiciones = array('User.nombre' => $nombre, 'User.apellido' => $apellido, 'User.email' => $email, 'User.telefono' => $telefono, 'User.fecha_nacimiento'=>$fecha_nacimiento,'User.username' => $username, 'User.password' => $password, 'User.pais_id' => $pais,'User.provincia_id'=>$provincia,'User.profesion_id'=>$profesion);
-//         var_dump($condiciones);exit;
+
 
             if ($this->request->is('get')) {
                 $this->User->create();
@@ -344,9 +330,7 @@ class UsersController extends AppController {
         $email = $this->request->query['email'];
        
         $uid=$this->request->query['uid'];
-
-       
-        $condiciones = array('email' => $email);
+       $condiciones = array('email' => $email);
 
         if ($this->request->is('get')) {
                     $user = $this->User->find('first', array('conditions' => $condiciones));
@@ -364,16 +348,12 @@ class UsersController extends AppController {
                         $this->User->save($user);//exit;
                        
                        }
-                       
-                           
-                   }  else {
+                      }  else {
                        $condiciones = array('uid' => $uid);
                        $user = $this->User->find('first', array('conditions' => $condiciones));
                        
                    }
-                   
-     
-            if (!empty($user)) {
+               if (!empty($user)) {
                 return json_encode(array('Default' => $user));
             } else {
                 return json_encode(array('Default' => null));

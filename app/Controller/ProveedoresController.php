@@ -310,15 +310,14 @@ public function admin_listar_proveedores()
              echo "Olvido un campo!";
          }  
          if ($this->request->is('get')) {
-            // echo "kkk ";
-           // print_r($this->request->query, false);
-           var_dump($proveedores=$this->Proveedore->find('all',$condiciones));//exit;
+              // print_r($this->request->query, false);
+          $proveedores=$this->Proveedore->find('all',$condiciones);//exit;
 
-         /* if(!empty($proveedores)){
+          if(!empty($proveedores)){
                 return json_encode(array('Default' => $proveedores));
             }else{
                 return json_encode(array('Default' => null));
-            }*/
+            }
         }
         return json_encode(array('Default' => 'Required Request GET'));
     }

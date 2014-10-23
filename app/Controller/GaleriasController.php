@@ -18,116 +18,6 @@ class GaleriasController extends AppController
  public $components = array('Paginator');
 
 
-/**
- * index method
- *
- * @return void
- */
-	public function index() {
-		$this->Galeria->recursive = 0;
-		$this->set('galerias', $this->Paginator->paginate());
-	}
-
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) 
-	{
-		if (!$this->Galeria->exists($id)) 
-		{
-			throw new NotFoundException(__('Invalid galeria'));
-		}
-
-		$options = array('conditions' => array('galeria.' . $this->Galeria->primaryKey => $id));
-		$this->set('galeria', $this->Galeria->find('first', $options));
-	}
-
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Galeria->create();
-			if ($this->Galeria->save($this->request->data)) {
-				$this->Session->setFlash(__('La galería ha sido guardado.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('La galería no pudo ser guardado. Por favor, intentelo de nuevo.'));
-			}
-		}
-		$users = $this->Galeria->User->find('list');
-		$galeriastipos = $this->Galeria->GaleriasTipo->find('list');/*$galeriastipos = $this->Galeria->GaleriasTipo->find('list');*/
-		$this->set(compact('users', 'galeriastipos'));
-	}
-
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		if (!$this->Galeria->exists($id)) {
-			throw new NotFoundException(__('Invalid galeria'));
-		}
-		if ($this->request->is(array('post', 'put'))) 
-		{
-			if ($this->Galeria->save($this->request->data)) 
-			{
-				
-				$message='La Galeria ha sido guardada.';
-			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
-				
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$message='La galeria no pudo ser guardado. Por favor, intentelo de nuevo.';
-				$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
-				
-			
-			}
-		}
-		else 
-		{
-			$options = array('conditions' => array('Galeria.' . $this->Galeria->primaryKey => $id));
-			$this->request->data = $this->Galeria->find('first', $options);
-		} 
-
-		$users = $this->Galeria->User->find('list');
-		$galeriastipos = $this->Galeria->GaleriasTipo->find('list');
-		$this->set(compact('users', 'galeriastipos'));
-	}
-
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
-		$this->Galeria->id = $id;
-		if (!$this->Galeria->exists()) {
-			throw new NotFoundException(__('Invalid galeria'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->Galeria->delete()) {
-			$message='La galería ha sido eliminada.';
-			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
-				
-		} else {
-					$message='La galería no pudo ser borrada. Por favor, intente de nuevo.';
-			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
-			
-		}
-		return $this->redirect(array('action' => 'index'));
-	}
 
 /**
  * admin_index method
@@ -347,5 +237,21 @@ class GaleriasController extends AppController
 
     	pr($galerias); 
 
+    }
+    
+     public function lists()
+    {
+        $this->autoRender = false;
+         $this->response->type('json');
+        if ($this->request->is('get')) {
+            $galerias=$this->Galeria->find('all');
+
+            if(!empty($galerias)){
+                return json_encode(array('Default' => $galerias));
+            }else{
+                return json_encode(array('Default' => null));
+            }
+        }
+        return json_encode(array('Default' => 'Required Request GET'));
     }
 }

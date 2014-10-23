@@ -15,104 +15,6 @@ class ProvinciasController extends AppController {
  */
 	public $components = array('Paginator');
 
-/**
- * index method
- *
- * @return void
- */
-	public function index() {
-		$this->Provincia->recursive = 0;
-		$this->set('provincias', $this->Paginator->paginate());
-	}
-
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		if (!$this->Provincia->exists($id)) {
-			throw new NotFoundException(__('Invalid provincia'));
-		}
-		$options = array('conditions' => array('Provincia.' . $this->Provincia->primaryKey => $id));
-		$this->set('provincia', $this->Provincia->find('first', $options));
-	}
-
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Provincia->create();
-			if ($this->Provincia->save($this->request->data)) {
-				$message='La Provincia ha sido guardada!';
-				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
-					return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));	
-				//$this->Session->setFlash(__('La provincia no pudo ser guardada. Por favor, intente de nuevo.'));
-			}
-		}
-		$pais = $this->Provincia->Pai->find('list');
-		$this->set(compact('pais'));
-	}
-
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		if (!$this->Provincia->exists($id)) {
-			throw new NotFoundException(__('Invalid provincia'));
-		}
-		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Provincia->save($this->request->data)) {
-				$message='La provincia ha sido guardada!';
-				$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$message='La provincia no pudo ser guardada. Por favor, intente de nuevo.';
-				$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));	
-			}
-		} else {
-			$options = array('conditions' => array('Provincia.' . $this->Provincia->primaryKey => $id));
-			$this->request->data = $this->Provincia->find('first', $options);
-		}
-		$pais = $this->Provincia->Pai->find('list');
-		$this->set(compact('pais'));
-	}
-
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
-		$this->Provincia->id = $id;
-		if (!$this->Provincia->exists()) {
-			throw new NotFoundException(__('Invalid provincia'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->Provincia->delete()) {
-
-           $message='La provincia ha sido eliminada.';
-			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
-			} else {
-			$message='La provincia no ha sido eliminada. Por favor intente de nuevo';
-			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));	
-			
-		}
-		return $this->redirect(array('action' => 'index'));
-	}
 
 /**
  * admin_index method
@@ -159,14 +61,30 @@ class ProvinciasController extends AppController {
 		$pais = $this->Provincia->Paise->find('list');
 		$this->set(compact('pais'));
 	}
+        
+        public function admin_provincia_ajax($pais_id=null)
+        {
+           // $provincia=$this->Provincia->find('all',true);
+           
+              
+            $pais = $this->Provincia->Paise->find('list');
+            //print_r($pais);exit;
+            $this->set(compact('pais'));
+            if(empty($pais_id))
+            {
+                  $pais = $this->Provincia->Paise->find('all');
+            }
+            else
+            {
+                  $pais = $this->Provincia->Paise->find('all',array('Provincia.pais_id'=>$pais['Provincia']['pais_id']));
+                   $this->set('provincias', $this->Paginator->paginate());
+            }
+          
+           
+              $this->set('provincias', $this->Paginator->paginate());
+            //$print_r($this->Provincia->Paise->find('list'));exit;
+        }
 
-/**
- * admin_edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
 	public function admin_edit($id = null) {
 		if (!$this->Provincia->exists($id)) {
 			throw new NotFoundException(__('Invalid provincia'));
@@ -211,4 +129,21 @@ class ProvinciasController extends AppController {
       }
       
 	}
+        
+        
+     public function lists()
+    {
+        $this->autoRender = false;
+         $this->response->type('json');
+        if ($this->request->is('get')) {
+            $provincias=$this->Provincia->find('all');
+
+            if(!empty($provincias)){
+                return json_encode(array('Default' => $provincias));
+            }else{
+                return json_encode(array('Default' => null));
+            }
+        }
+        return json_encode(array('Default' => 'Required Request GET'));
+    }
 }

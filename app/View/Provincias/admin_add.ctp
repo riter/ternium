@@ -44,7 +44,7 @@
             </div>
         <?php
         echo $this->Form->end(array(
-            'label' => __('Save'),
+            'label' => __('Guardar'),
             'div' => array(
                 'class' => 'mws-button-row',
             ),
