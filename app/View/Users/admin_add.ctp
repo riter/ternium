@@ -1,3 +1,4 @@
+<?php// print_r($profesion);exit;?>
 <div class="mws-panel grid_8">
 
     <div class="mws-panel-header">
@@ -42,11 +43,17 @@
                     </div>
                 </div> 
                  <div class="mws-form-row">
-                    <label>Email</label>
+                    <label>Correo Electronico</label>
                     <div class="mws-form-item small">
                     <?php echo $this->Form->input('email', array('id' => 'email', 'class' => 'mws-textinput required')); ?>
                     </div>
                 </div>
+                  <div class="mws-form-row">
+                    <label>Fecha de Nacimiento</label>
+                    <div class="mws-form-item small">
+                    <?php echo $this->Form->input('fecha_nacimiento', array('id' => 'fecha_nacimiento', 'class' => 'mws-textinput required')); ?>
+                    </div>
+                 </div>
 
                   <div class="mws-form-row">
                     <label>Usuario</label>
@@ -81,7 +88,27 @@
                         array('id'=>'pais_id',
                               'class' => 'mws-textinput required')); ?>  
                     </div>
-                </div>
+                  </div>
+                  <div class="mws-form-row">
+                    <label>Provincia</label>
+                    <div class="mws-form-item small">
+                        <?php 
+                         $options=$provincia;
+                        echo $this->Form->input('provincia_id',array('type'=>'select','label'=>false,'options'=>$options));
+                         ?>  
+                     </div>
+                 </div>
+                
+                 <div class="mws-form-row">
+                    <label>Profesion</label>
+                    <div class="mws-form-item small">
+                        <?php 
+                        $options=$profesion;
+                        echo $this->Form->input('profesion_id',array('type'=>'select','label'=>false,'options'=>$options));
+                        
+                        ?>  
+                    </div>
+                 </div>
 
 
 
@@ -89,7 +116,7 @@
                     <label>Rol</label>
                     <div class="mws-form-item small">          
                         <?php $options = array('1'=>'Admin','2'=> 'Public') ?>
-                       <?php echo $this->Form->input('role', array('type'=>'select','label' => false,'options' => $options,)); ?>                             
+                       <?php echo $this->Form->input('role', array('type'=>'select','label' => false,'options' => $options)); ?>                             
                     </div>
                 </div>
 
@@ -120,12 +147,17 @@
                     required : true,                
                     minlength: 2
                 },
+                 fecha_nacimiento: 
+                {
+                    required : true,                
+                    minlength: 2
+                },
                 pais_id: 
                 {
                     required : true,                
                     minlength: 2
                 },
-               
+                              
                 username: 
                 {
 

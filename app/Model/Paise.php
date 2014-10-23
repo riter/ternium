@@ -8,19 +8,6 @@ class Paise extends AppModel
 {
   public $displayField = 'nombre'; 
 
-/*
-public $validate = array(
-        'codigo' => array(
-            'rule' => 'notEmpty',
-            'required' => true,
-        ),
-        'nombre' => array(
-            'rule' => 'notEmpty',
-            'required' => true,
-        )
-   );
-   */
-
 /**
  * hasMany associations
  *

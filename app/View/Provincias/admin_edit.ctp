@@ -78,17 +78,7 @@
                     $("#mws-validate-error").hide();
                 }
             }
-           /* invalidHandler: function(form, validator) {
-                var errors = validator.numberOfInvalids();
-                if (errors) {
-                    var message = errors == 1
-                    ? 'Olvidastes 1 campo. Ha sido remarcado'
-                    : 'You missed ' + errors + ' fields. They have been highlighted';
-                    $("#mws-validate-error").html(message).show();
-                } else {
-                    $("#mws-validate-error").hide();
-                }
-            }*/
+         
         });
     });
       </script> 

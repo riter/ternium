@@ -41,12 +41,18 @@
 
   
                 <div class="mws-form-row">
-                    <label>Correo</label>
+                    <label>Correo Electronico</label>
                     <div class="mws-form-item small">
                         <?php echo $this->Form->input('email', array('id'=>'email','class' => 'mws-textinput','readonly'=>'readonly')); ?>
                     </div>
                 </div>
-
+                
+                 <div class="mws-form-row">
+                    <label>Fecha de Nacimiento</label>
+                    <div class="mws-form-item small">
+                    <?php echo $this->Form->input('fecha_nacimiento', array('id' => 'fecha_nacimiento', 'class' => 'mws-textinput required')); ?>
+                    </div>
+                 </div>
                 <div class="mws-form-row">
                     <label>Usuario</label>
                     <div class="mws-form-item small">
@@ -72,12 +78,31 @@
               <div class="mws-form-row">
                     <label>País</label>
                     <div class="mws-form-item small">
-                        <?php echo $this->Form->input('pais_id', 
-                        array('id'=>'pais_id',
-                              'class' => 'mws-textinput required')); ?>  
+                        <?php echo $this->Form->input('pais_id', array('id'=>'pais_id','class' => 'mws-textinput required')); ?>  
                     </div>
                 </div>
 
+                <div class="mws-form-row">
+                    <label>Provincia</label>
+                    <div class="mws-form-item small">
+                        <?php 
+                         $options=$provincia;
+                        echo $this->Form->input('provincia_id',array('type'=>'select','label'=>false,'options'=>$options));
+                         ?>  
+                     </div>
+                 </div>
+                
+                 <div class="mws-form-row">
+                    <label>Profesion</label>
+                    <div class="mws-form-item small">
+                        <?php 
+                        $options=$profesion;
+                        echo $this->Form->input('profesion_id',array('type'=>'select','label'=>false,'options'=>$options));
+                        
+                        ?>  
+                    </div>
+                 </div>
+                    
 
                 <div class="mws-form-row">
                     <label>Rol</label>
@@ -98,7 +123,7 @@
             </div>
         <?php
         echo $this->Form->end(array(
-            'label' => __('Save'),
+            'label' => __('Guardar'),
             'div' => array(
                 'class' => 'mws-button-row',
             ),

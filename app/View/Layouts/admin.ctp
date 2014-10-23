@@ -276,6 +276,21 @@
                                     <li><a href="<?php echo $this->Html->url(array('controller' => 'feedbacks', 'action' => 'add', 'admin' => true)); ?>">Adicionar Feedback </a></li> 
                                 </ul> 
                         </li>  
+                          <li>
+                            <?php   $controller=strtolower($controller); ?> 
+
+                            <a  href="<?php echo $this->Html->url(array('controller'=>'Profesiones',
+                                'action' => 'index', 'admin' => true)); ?>" >Profesiones </a>
+
+                                <ul <?php if ($controller == 'profesiones') 
+                                        echo 'class = ""'; 
+                                        else echo 'class = "closed"'; ?>>
+                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'profesiones', 'action' => 'index', 'admin' => true)); ?>">Todas las profesiones </a></li> 
+
+                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'profesiones', 'action' => 'add', 'admin' => true)); ?>">Adicionar profesion </a></li> 
+                                </ul> 
+                        </li>  
+                        
                     </ul>
                 </div>   
                 

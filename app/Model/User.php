@@ -26,19 +26,21 @@ class User extends AppModel
             'rule' => 'notEmpty',
             'required' => true,
         ),        
-        'email' => array(
-            'rule' => 'notEmpty',
-            'required' => true,
-        ),
+        'email' =>'email',/*array('alphaNumeric'=>array('rule'=>'alphaNumeric', 'required'=>true,'message'=>'solo letras, numeros'))*/
         'role' => array(
-            'rule' => 'notEmpty',
-            'required' => false, 
+         'rule' => 'notEmpty',
+         'required' => false, 
+         'fecha_nacimiento' => array(
+         'rule' => 'date',
+         'message' => 'Ingrese una fecha válida',
+         'allowEmpty' => false
+        )
        /* ),
         'pais_id' => array(
             'rule' => 'notEmpty',
-            'required' => true,*/
-        ));//,
-       /* 'password' => array
+            'required' => true,
+        ),
+        'password' => array
         (   
             'rule' => 'notEmpty',
             'required' => false,
@@ -50,6 +52,7 @@ class User extends AppModel
                         )
        
        ); */
+            ));
 
     function verifcarPasswords($data, $field=null)
     {
@@ -85,7 +88,23 @@ class User extends AppModel
             'fields' => '',
             'order' =>  ''
         )
-       
+       ,
+        'Provincia' => array 
+        (
+            'className' =>  'Provincia',
+            'foreignKey' => 'provincia_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' =>  ''
+        ) ,
+        'Profesione' => array 
+        (
+            'className' =>  'Profesione',
+            'foreignKey' => 'profesion_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' =>  ''
+        )
     );
 
     /*'dependent'=>false,/*agregue 10-14-2014*/

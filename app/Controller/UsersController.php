@@ -8,7 +8,9 @@ class UsersController extends AppController {
         $user = AuthComponent::user();
         $this->loadModel('User');
         $this->loadModel('Paise');
-        
+        $this->loadModel('Provincia');
+        $this->loadModel('Profesione');
+
 
 
         if (isset($this->params['prefix']) && $this->params['prefix'] == 'admin') {
@@ -37,9 +39,9 @@ class UsersController extends AppController {
     }
 
     public function admin_test($user, $password) {
-        
-        $this->autoRender=false;
-        
+
+        $this->autoRender = false;
+
         $data['user'] = $user;
         $data['password'] = $password;
 
@@ -53,21 +55,20 @@ class UsersController extends AppController {
 
         if ($oUser) {
             return array(
-            'body' => $oUser,
-            'fault' =>''
+                'body' => $oUser,
+                'fault' => ''
             );
         } else {
             return array(
-            'body' => $oUser,
-            'fault' => array(
+                'body' => $oUser,
+                'fault' => array(
                     'faultcode' => 0,
                     'faultdesc' => 'The user or password is incorrect'
-
-                    )
-                );
+                )
+            );
         }
         return json_encode(array('Default' => 'Share OK'));
-             $this->request->query('oauth_token');
+        $this->request->query('oauth_token');
     }
 
     public function admin_login() {
@@ -86,30 +87,30 @@ class UsersController extends AppController {
     }
 
     public function admin_add() {
-
-        if ($this->request->is('post')) {
-            $data = $this->UploadPhoto($this->request->data);
-
-
-            //  $data['User']['username']=$data['User']['email']; 
-            $this->User->create();
-            if ($this->User->save($data)) {
-                $this->enviarEmail($data);
-                $message = 'El Usuario ha sido guardado!';
-                $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
+        if ($this->request->is('post')) { // $data = $this->UploadPhoto($this->request->data);   //  $data['User']['username']=$data['User']['email']; 
+                $this->User->create();
+            if ($this->User->save($this->request->data)) {//  $this->enviarEmail($data);
+                      $message = 'El Usuariosss ha sido guardado!';
+                      $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
                 return $this->redirect(array('action' => 'index'));
             } else {
                 $message = 'El Usuario no ha sido guardado. Por favor, intente de nuevo';
                 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
             }
         }
-        $pais = $this->Paise->find('list');
-        $this->set(compact('pais'));
+        $pais      = $this->User->Paise->find('list');
+        $provincia = $this->User->Provincia->find('list');
+        $profesion = $this->User->Profesione->find('list');
+       
+        $this->set('pais',$pais);
+        $this->set('provincia',$provincia);
+        $this->set('profesion',$profesion);
+        
     }
 
     public function admin_index() {
 
-        $this->User->recursive = 0;
+        $this->User->recursive = 2;
         $data = $this->User->find('all');
         $this->set('users', $data);
     }
@@ -138,10 +139,13 @@ class UsersController extends AppController {
             $newdata['User']['nombre'] = $data['User']['nombre'];
             $newdata['User']['apellido'] = $data['User']['apellido'];
             $newdata['User']['telefono'] = $data['User']['telefono'];
+            $newdata['User']['fecha_nacimiento'] = $data['User']['fecha_nacimiento'];
             $newdata['User']['username'] = $data['User']['username'];
             $newdata['User']['email'] = $data['User']['email'];
             $newdata['User']['role'] = $data['User']['role'];
             $newdata['User']['pais_id'] = $data['User']['pais_id'];
+            $newdata['User']['provincia_id'] = $data['User']['provincia_id'];
+            $newdata['User']['profesion_id'] = $data['User']['profesion_id'];
 
 
 
@@ -151,15 +155,20 @@ class UsersController extends AppController {
             //echo '<pre>'; print_r($newdata);
             //exit(0);
             if ($this->User->save($newdata)) {
-                //$this->Session->setFlash('User amended.');
+                $this->Session->setFlash('User amended.');
                 $this->redirect(array('action' => 'index'), NULL, TRUE);
             }
         }
-        $pais = $this->Paise->find('list');
-        $this->set(compact('pais'));
+        $pais      = $this->User->Paise->find('list');
+        $provincia = $this->User->Provincia->find('list');
+        $profesion = $this->User->Profesione->find('list');
+       
+        $this->set('pais',$pais);
+        $this->set('provincia',$provincia);
+        $this->set('profesion',$profesion);
     }
 
-    /**/
+    /*The compact function returns an associative array, built by taking the names specified in the input array, using them as keys, and taking the values of the variables referenced by those names and making those the values*/
 
     // using app/Model/ProductCategory.php
 // In the following example, do not let a product category be deleted if it still contains products.
@@ -263,72 +272,116 @@ class UsersController extends AppController {
 
           } */
     }
-    /*    API Method*/
-    public function login()
-    {
+
+    public function registro() {
         $this->autoRender = false;
         $this->response->type('json');
-        $username = $this->request->data['username'];
-        $password= $this->request->data['password'];
+        try {
+            $nombre = $this->request->query['nombre'];
+            $apellido = $this->request->query['apellido'];
+            $email = $this->request->query['email'];
+            $telefono = $this->request->query['telefono'];
+            $fecha_nacimiento=$this->request->query['fecha_nacimiento'];
+            $username = $this->request->query['username'];
+            $password = $this->request->query['password'];
+            $pais = $this->request->query['pais_id'];
+            $provincia = $this->request->query['provincia_id'];
+            $profesion = $this->request->query['profesion_id'];
 
-        $password = AuthComponent::password($password);
-        $condiciones= array('username'=>$username,'password'=>$password);
+            //$password = AuthComponent::password($password);
+            $condiciones = array('User.nombre' => $nombre, 'User.apellido' => $apellido, 'User.email' => $email, 'User.telefono' => $telefono, 'User.fecha_nacimiento'=>$fecha_nacimiento,'User.username' => $username, 'User.password' => $password, 'User.pais_id' => $pais,'User.provincia_id'=>$provincia,'User.profesion_id'=>$profesion);
+//         var_dump($condiciones);exit;
 
-        if ($this->request->is('post')) {
-              $user = $this->User->find('first',array('conditions'=> $condiciones ));
-
-            if(!empty($user)){
-                return json_encode(array('Default' => $user));
-            }else{
-                return json_encode(array('Default' => null));
+            if ($this->request->is('get')) {
+                $this->User->create();
+                if ($this->User->save($this->request->query)) {
+                    $user = $this->User->find('all', array('conditions' => $condiciones));
+                    echo "Guadado!";
+                }
             }
+        } catch (Exception $ex) {
+            echo 'no se pudo guardar!';
         }
+        if (!empty($user)) {
+            return json_encode(array('Default' => $user));
+        } else {
+            return json_encode(array('Default' => null));
+        }
+
         return json_encode(array('Default' => 'Required Request POST'));
     }
-    /*****************ADMIN LOGIN FACEBOOK**********************/
-     public function admin_login_facebook()
-    {
-      
+
+    /*    API Method */
+
+    public function login() {
         $this->autoRender = false;
         $this->response->type('json');
-        $username = $this->request->data['username'];
-        $password= $this->request->data['password'];
-
-        $password = AuthComponent::password($password);
-        $condiciones= array('username'=>$username,'password'=>$password);
-           $this->traer_loginfacebook_id($condiciones);
-
-        if ($this->request->is('post')) {
-            $user = $this->User->find('first',array('conditions'=> $condiciones ));
-
-            if(!empty($user)){
-                return json_encode(array('Default' => $user));
-            }else{
-                return json_encode(array('Default' => null));
-            }
-        }
-        return json_encode(array('Default' => 'Required Request POST'));
-    }
-    
-    
-    public function traer_loginfacebook_id($condiciones)
-    {
-           App::Import('Lib','Facebook'); //$this->load('lib/facebook.php'); // la apikey nos la dan en http://www.facebook.com/developers
-          $appapikey = '92a5c3c01f10b9d40ff8a38275cad1234'; // el appsecret tn nos lo dan en http://www.facebook.com/developers
-          $appsecret = '48456be053d7e4afade60a87aa23c151';// iniciamos el objeto faceBook
         
-          $facebook = new Facebook($appapikey, $appsecret);
-          $user_id = $facebook->require_login();  // Extraemos el id de usuario conectado
+        $username = $this->request->data['username'];
+        $password = $this->request->data['password'];
 
-          
-          $friends_ids = $facebook->api_client->friends_get();    // Extraemos a un array los id's de todos sus amigos
- 
-         echo '<p>Hola! esta es tu foto: <fb:profile-pic uid="$user_id" linked="true" /></p>';  // Mostrando foto del usuario logado
-        echo "<ul>";        // Mostrando fotos de todos sus amigos
-        foreach ( $friends_ids as $friend_id ) 
-        	echo "<li><fb:profile-pic uid='$friend_id' linked='true' /></li>";	
-         echo "</ul>";
-        return $friends_ids;
-    
+        $password = AuthComponent::password($password);
+        $condiciones = array('username' => $username, 'password' => $password);
+
+        if ($this->request->is('post')) {
+            $user = $this->User->find('first', array('conditions' => $condiciones));
+
+            if (!empty($user)) {
+                return json_encode(array('Default' => $user));
+            } else {
+                return json_encode(array('Default' => null));
+            }
+        }
+        return json_encode(array('Default' => 'Required Request POST'));
     }
+
+    /*****************ADMIN LOGIN FACEBOOK**********************/
+
+    public function login_facebook() {
+
+        $this->autoRender = false;
+        $this->response->type('json');
+        $email = $this->request->query['email'];
+       
+        $uid=$this->request->query['uid'];
+
+       
+        $condiciones = array('email' => $email);
+
+        if ($this->request->is('get')) {
+                    $user = $this->User->find('first', array('conditions' => $condiciones));
+                   
+                    if($user)
+                   {
+                       if(empty($user['User']['uid'])||$user['User']['uid']==null)
+                       {
+                           
+                        $user['User']['uid']=$uid;//$this->request->data['uid'];
+                        
+                        
+                        $this->User->create();
+                      
+                        $this->User->save($user);//exit;
+                       
+                       }
+                       
+                           
+                   }  else {
+                       $condiciones = array('uid' => $uid);
+                       $user = $this->User->find('first', array('conditions' => $condiciones));
+                       
+                   }
+                   
+     
+            if (!empty($user)) {
+                return json_encode(array('Default' => $user));
+            } else {
+                return json_encode(array('Default' => null));
+            }
+        }
+        return json_encode(array('Default' => 'Required Request POST'));
+    }
+
+   
+
 }
