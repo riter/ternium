@@ -291,7 +291,7 @@ public function admin_listar_proveedores()
         return json_encode(array('Default' => 'Required Request GET'));
     }
     
-    public function proveedores_lists()//$pais, $provincia
+    public function proveedores_params()//$pais, $provincia
     { 
         //$pais = 9;
         $this->autoRender = false;
@@ -304,6 +304,8 @@ public function admin_listar_proveedores()
           //$opciones=array('pais_id' => $pais,'provincia_id'=>$provincia);
           $condiciones=array('conditions'=>array('Proveedore.pais_id'=>$pais,'Proveedore.provincia_id'=>$provincia),'recursive'=>0);//array('recursive'=>0);
             
+          
+         // var_dump($condiciones);exit;
           
          if(empty($pais)||empty($provincia)){
              
