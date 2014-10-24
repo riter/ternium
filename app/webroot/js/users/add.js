@@ -8,7 +8,7 @@ $("document").ready(function() {
 
         $.ajax({
             type: "GET",
-            url: "/ternium/provincias/provincia_ajax/"+$(this).val(),
+            url: "/ternium/ternium/provincias/provincia_ajax/"+$(this).val(),
             beforeSend: function() {
 
             },

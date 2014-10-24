@@ -7,8 +7,8 @@
             <thead>
                 <tr>
                     <th>Imagen</th>
-                    <th>Titulo</th>
-                    <th>Descripcion</th>           
+                    <th>T&iacute;tulo</th>
+                    <th>Descripci&oacute;n</th>           
                     <th>Usuario</th>
                     <th>Tipo Galeria</th> 
                     <th>Acciones</th> 
