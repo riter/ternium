@@ -63,13 +63,7 @@
                     </div>
                 </div> 
 
-                <div class="mws-form-row">
-                    <label>Usuario</label>
-                    <div class="mws-form-item small">
-                        <?php echo $this->Form->input('user_id', 
-                        array('id'=>'user_id','class' => 'mws-textinput required')); ?> 
-                    </div>
-                </div>                 
+                     
 
                 <div class="mws-form-row">
                     <label>Tipo Galerias</label>

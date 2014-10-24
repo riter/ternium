@@ -3,6 +3,14 @@
         background-color:green;
         float:none !important;
     }
+    .leido
+    {
+       align-text:left;
+       background-color:green;
+       float:left;
+    }
+     
+    
 </style>
 
 <div class="mws-panel grid_8"> 
@@ -66,13 +74,18 @@
                 <label>Estado</label>
                 <div class="mws-form-item small">
                     <?php
-                        $options = array('1' => 'Leido', '0' => 'No Leido');
-                         $attributes = array('separator' => false,'legend'=>false);
-                         echo $this->Form->radio('leido', $options, $attributes);
-                         //echo $this->Form->input('comentario_id',   array('id'=>'comentario_id','class' => 'mws-textinput required')); ?>
-
-
-                   
+                    echo $this->Form->input('leido', array(
+                    'type' => 'radio',
+                
+                    'legend' => false,
+                    'class' => 'radio-btn',
+                    'options' => array(
+                        1 => 'leido',
+                        2 => 'No leido', 
+                       
+                    )
+                  
+                ));?>
                 </div>
             </div>
 

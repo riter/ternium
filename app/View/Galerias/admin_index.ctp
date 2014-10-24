@@ -9,7 +9,7 @@
                     <th>Imagen</th>
                     <th>Titulo</th>
                     <th>Descripcion</th>           
-                    <th>Usuario</th>
+                  
                     <th>Tipo Galeria</th> 
                     <th>Acciones</th> 
                 </tr>
@@ -22,7 +22,7 @@
                         <td><?php echo $galeria['Galeria']['imagen']; ?></td>
                         <td><?php echo $galeria['Galeria']['titulo']; ?></td>
                         <td><?php echo $galeria['Galeria']['descripcion']; ?></td>
-                        <td><?php echo $galeria['User']['email']; ?></td>
+                        
                         <td><?php echo $galeria['GaleriasTipo']['nombre']; ?></td> 
                         
                         <td>

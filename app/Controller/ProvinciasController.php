@@ -68,9 +68,7 @@ class ProvinciasController extends AppController {
         function admin_provincia_ajax($id)
         {
         $this->layout = 'ajax';
-       // $this->autoRender = false;
-       // $this->response->type('json');
-        
+           
         // $pais = $this->Provincia->find('list');    //$this->set(compact('pais'));
         
         
