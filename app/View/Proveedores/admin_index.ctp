@@ -8,9 +8,9 @@
                 <tr>                    
                     <th>Proveedor</th>
                     <th>Dirección</th> 
-                    <th>Telefono</th> 
+                    <th>Tel&eacute;fono</th> 
                     <th>Email</th> 
-                    <th>Descripcion</th> 
+                    <th>Descripci&oacute;n</th> 
                     <th>País</th>
                     <th>Provincia</th>
                     <th>Aciones</th>
