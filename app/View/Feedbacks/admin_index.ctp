@@ -6,9 +6,9 @@
         <table class="mws-datatable-fn mws-table">
             <thead>
                 <tr>
-                    <th>U</th>
+                    <th>Usuario</th>
                     <th>Mensaje</th>
-                    <th>Tipo mensajes</th>           
+                    <th>Tipo de mensaje</th>           
                      <th>Estado</th> 
                     <th>Acciones</th>
                 </tr>
@@ -20,7 +20,7 @@
                         <td><?php echo $feedback['User']['nombre']; ?></td>
                         <td><?php echo $feedback['Feedback']['mensaje']; ?></td>
                         <td><?php echo $feedback['Comentario']['nombre']; ?></td>
-                        <td><?php if($feedback['Feedback']['leido']==1)echo "leido";else echo "no leido";?></td> 
+                        <td><?php if($feedback['Feedback']['leido']==1)echo "le&iacute;do";else echo "no le&iacute;do";?></td> 
                         
                         <td>
                             <?php echo $this->Html->link('Editar', array('action' => 'edit', $feedback['Feedback']['id'])); ?>                       

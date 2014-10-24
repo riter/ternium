@@ -1,6 +1,6 @@
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
-        <span class="mws-i-24 i-table-1">Galerías</span>
+        <span class="mws-i-24 i-table-1">Galer&iacute;a</span>
     </div>
     <div class="mws-panel-body">
         <table class="mws-datatable-fn mws-table">
@@ -9,7 +9,7 @@
                     <th>Imagen</th>
                     <th>Titulo</th>
                     <th>Descripcion</th>           
-                  
+                    <th>Usuario</th>
                     <th>Tipo Galeria</th> 
                     <th>Acciones</th> 
                 </tr>
@@ -22,7 +22,7 @@
                         <td><?php echo $galeria['Galeria']['imagen']; ?></td>
                         <td><?php echo $galeria['Galeria']['titulo']; ?></td>
                         <td><?php echo $galeria['Galeria']['descripcion']; ?></td>
-                        
+                        <td><?php echo $galeria['User']['email']; ?></td>
                         <td><?php echo $galeria['GaleriasTipo']['nombre']; ?></td> 
                         
                         <td>

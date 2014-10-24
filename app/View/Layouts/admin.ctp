@@ -186,7 +186,7 @@
                         </li> 
                         <li>
                             <a  href="<?php echo $this->Html->url(array('controller'=>'galerias',
-                                'action' => 'index', 'admin' => true)); ?>" > Galerias </a>
+                                'action' => 'index', 'admin' => true)); ?>" > Galer&iacute;a </a>
 
 
                     <?php   $controller=strtolower($controller); ?> 
@@ -194,9 +194,9 @@
                                 <ul <?php if ($controller=='galerias') 
                                         echo 'class = ""'; 
                                         else echo 'class = "closed"'; ?>>
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'galerias', 'action' => 'index', 'admin' => true)); ?>">Todas  las Imagenes </a></li> 
+                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'galerias', 'action' => 'index', 'admin' => true)); ?>">Todas  las Im&aacute;genes </a></li> 
 
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'galerias', 'action' => 'add', 'admin' => true)); ?>">Adicionar Imagenes </a></li> 
+                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'galerias', 'action' => 'add', 'admin' => true)); ?>">Adicionar Im&aacute;gen </a></li> 
                                 </ul> 
                         </li> 
                         
