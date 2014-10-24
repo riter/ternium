@@ -11,7 +11,7 @@
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Telefono</th>
-                    <th>Fecha de Nacimiento</th>
+                    <!--<th>Fecha de Nacimiento</th>-->
                     <th>Usuario</th>
                     <th>Email</th>
                     <th>Pais</th>
@@ -30,7 +30,7 @@
                         <td><?php echo $user['User']['nombre']; ?></td>
                         <td><?php echo $user['User']['apellido']; ?></td>
                         <td><?php echo $user['User']['telefono']; ?></td>
-                        <td><?php echo $user['User']['fecha_nacimiento']; ?></td>
+                        <!--<td><?php //echo $user['User']['fecha_nacimiento']; ?></td>-->
                         <td><?php echo $user['User']['username']; ?></td>
                         
                         <td><?php echo $user['User']['email']; ?></td>
