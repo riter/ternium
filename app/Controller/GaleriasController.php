@@ -73,17 +73,12 @@ class GaleriasController extends AppController
 			{
 				$message='La Imagen no pudo ser guardada.';
 			  $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));	
-			   $this->Session->setFlash($message,$layout);//__('El Galería no pudo ser guardado. Por favor, intentelo de nuevo.')
-				
+
 			}
 		} 
-		//$provincias = $this->Proveedore->Provincium->find('list');
-		//$this->set(compact('Galería', 'provincias'));
-		
 
 		$users = $this->User->find('list'); 
      	$galeriastipos = $this->GaleriasTipo->find('list'); 
-  //debug($galeriastipos);
 
 		$this->set('galeriastipos',$galeriastipos); 
 		$this->set('users',$users); 
@@ -98,46 +93,30 @@ class GaleriasController extends AppController
  */
 	public function admin_edit($id = null) 
 	{
-		if (!$this->Galeria->exists($id)) 
-		{
+		if (!$this->Galeria->exists($id)) {
 			throw new NotFoundException(__('Invalid imagen'));
 		}
 
-		if ( $this->request->is(array('post', 'put') )) 
-		{	
-	 	   if ( $this->request->data['Galeria']['imagen']['name'] !="")
-	 	   {  
+		if ( $this->request->is(array('post', 'put') )) {
+
+	 	   if ( $this->request->data['Galeria']['imagen']['name'] != ""){
 	 	   	  $data = $this->UploadPhoto($this->request->data); 
-	 	   }
-           else 
-           	{	
-           	   $data=$this->request->data;  
-         	   $data['Galeria']['imagen']=$this->request->data['Galeria']['imagen2'];
-          	   unset($data['Galeria']['imagen2']);
-           	}
-           	
-            if ($this->Galeria->save( $data )) 
-			{	
+	 	   }else {
+           	   $data = $this->request->data;
+          	   unset($data['Galeria']['imagen']);
+           }
+
+            if ($this->Galeria->save( $data )) {
 				$message='La Imagen ha sido guardada!';
-				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
-				//$this->Session->setFlash(__($message),array('elemento'=>'exito');//__('La Galería ha sido guardado.'),$layout
-				return $this->redirect(array('action' => 'index')); 
-				
-			}else 
-			{
+                $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
+				return $this->redirect(array('action' => 'index'));
+			}else {
 				$message='La Imagen no pudo ser guardada!';	
 				$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));	
-				//$this->Session->setFlash(__('La Galería no pudo ser guardado. Por favor, intentelo de nuevo.'));
-				
-			} 			
-		} 
-		else
-		{
+			}
+		}else{
 			$options = array('conditions' => array('Galeria.' . $this->Galeria->primaryKey => $id));
 			$this->request->data = $this->Galeria->find('first', $options);  
-
-		//	pr($this->request->data); 
-		//	exit(); 
 		}
 
 		$users = $this->Galeria->User->find('list'); 
@@ -145,7 +124,6 @@ class GaleriasController extends AppController
 
 		$this->set('imagen', $this->request->data['Galeria']['imagen']); 
 		$this->set(compact('users', 'galeriastipos')); 
-
 	}
 
 /**
@@ -166,19 +144,6 @@ class GaleriasController extends AppController
 			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
             $this->redirect(array('action'=>'index'));
       }
-	/*
-		$this->Galeria->id = $id;
-		if (!$this->Galeria->exists()) {
-			throw new NotFoundException(__('Invalid galeria'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->Galeria->delete()) {
-			$this->Session->setFlash(__('The galeria has been deleted.'));
-		} else {
-			$this->Session->setFlash(__('The galeria could not be deleted. Please, try again.'));
-		}
-		return $this->redirect(array('action' => 'index'));
-		*/
 	}
 
 	private function UploadPhoto($data) 
@@ -194,7 +159,7 @@ class GaleriasController extends AppController
                 if(in_array($ext, $arr_ext))
                 {	
                     $tmp_name=$data['Galeria']['imagen']['tmp_name'];  
-                    $name='galeria_d_usuario_'.$data['Galeria']['user_id'].'.jpg';
+                    $name = 'galeria_'.$data['Galeria']['id'].'.'.$ext;
 
                     $destination = WWW_ROOT . 'uploads/galerias/' . $name;
                     move_uploaded_file($tmp_name, $destination); 

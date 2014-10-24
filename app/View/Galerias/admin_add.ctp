@@ -1,7 +1,7 @@
 <?php error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING ^ E_DEPRECATED);?>
 <div class="mws-panel grid_8"> 
     <div class="mws-panel-header">
-        <span class="mws-i-24 i-plus">Adicionar Galerías</span>
+        <span class="mws-i-24 i-plus">Adicionar Imagen</span>
     </div>
 
     <div class="mws-panel-body">
@@ -40,9 +40,7 @@
                         <?php echo $this->Form->input('imagen',
                              array('type' => 'file')); 'mws-textinput required  '?> 
                             <div>
-                                <?php if($imagen === "") 
-                                    $imagen= 'avatar.png' ?>
-                                <img style="width: 70px; height: 50px;" src="<?php echo $this->webroot; ?>app/webroot/uploads/galerias/<?php echo $imagen; ?>"  />
+                                <img style="width: 70px; height: 50px;" src="<?php echo $this->webroot; ?>app/webroot/img/Profile.png"  />
                             </div>
                         </div>
                     </div>

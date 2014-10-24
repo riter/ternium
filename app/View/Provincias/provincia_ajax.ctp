@@ -1,0 +1,1 @@
+ <?php echo $this->Form->input('pais_id', array('options' => $provincias,'label'=>false,'div'=>null,'class'=>'valid'));?>

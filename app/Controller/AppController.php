@@ -109,7 +109,7 @@ class AppController extends Controller
     
         if (isset($this->params['prefix']) && $this->params['prefix'] == 'admin') {
             $this->layout = 'admin';
-            $this->set('title_page', 'Loraxian');
+            $this->set('title_page', 'Ternium');
 
             // login layout
             if ($this->params['action'] == 'admin_login') {
@@ -118,12 +118,8 @@ class AppController extends Controller
         } else { // public layout
             if ($this->params['action'] == 'login') {
                 $this->layout = false;
-            }else{
-                $this->layout = 'home';
-                $this->set('title', 'Loraxian');       
             }
         }
-    
     }
          
 

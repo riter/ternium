@@ -1,4 +1,5 @@
-<?php// print_r($profesion);exit;?>
+<?= $this->Html->script('users/add'); ?>
+
 <div class="mws-panel grid_8">
 
     <div class="mws-panel-header">
@@ -86,7 +87,7 @@
                     <div class="mws-form-item small">
                         <?php echo $this->Form->input('pais_id', 
                         array('id'=>'pais_id',
-                              'class' => 'mws-textinput required')); ?>  
+                              'class' => 'mws-textinput required','empty'=>'Seleccinar Pais')); ?>
                     </div>
                   </div>
                   <div class="mws-form-row">
@@ -94,7 +95,7 @@
                     <div class="mws-form-item small">
                         <?php 
                          $options=$provincia;
-                        echo $this->Form->input('provincia_id',array('type'=>'select','label'=>false,'options'=>$options));
+                        echo $this->Form->input('provincia_id',array('type'=>'select','label'=>false,'options'=>array()));
                          ?>  
                      </div>
                  </div>
