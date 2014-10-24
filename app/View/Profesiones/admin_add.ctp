@@ -1,6 +1,6 @@
 <div class="mws-panel grid_8"> 
     <div class="mws-panel-header">
-        <span class="mws-i-24 i-plus">Adicionar País</span>
+        <span class="mws-i-24 i-plus">Adicionar Profesion</span>
     </div> 
     
     <div class="mws-panel-body">

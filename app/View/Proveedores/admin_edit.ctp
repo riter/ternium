@@ -1,3 +1,4 @@
+<?php //print_r($proveedores);exit;?>
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
         <span class="mws-i-24 i-plus">Editar Proveedor</span>
@@ -40,11 +41,22 @@
                         <?php echo $this->Form->input('direccion', array('id'=>'direccion','class' => 'mws-textinput required')); ?> 
                     </div>
                 </div> 
-
                 <div class="mws-form-row">
-                    <label>Contáctos</label>
+                    <label>Email</label>
                     <div class="mws-form-item small">
-                        <?php echo $this->Form->input('contactos', array('id'=>'contactos','class' => 'mws-textinput required')); ?> 
+                        <?php echo $this->Form->input('email', array('id'=>'email','class' => 'mws-textinput required')); ?> 
+                    </div>
+                </div> 
+                <div class="mws-form-row">
+                    <label>Telefono</label>
+                    <div class="mws-form-item small">
+                        <?php echo $this->Form->input('telefono', array('id'=>'telefono','class' => 'mws-textinput required')); ?> 
+                    </div>
+                </div> 
+                <div class="mws-form-row">
+                    <label>Descripcion</label>
+                    <div class="mws-form-item small">
+                        <?php echo $this->Form->input('descripcion', array('id'=>'descripcion','class' => 'mws-textinput required')); ?> 
                     </div>
                 </div> 
 
@@ -82,7 +94,7 @@
                     required : true,
                     minlength: 2
                 },
-                nombre: 
+                nombres: 
                 {
                     required : true,
                     minlength: 5
@@ -100,20 +112,9 @@
                     $("#mws-validate-error").hide();
                 }
             }
-            /*  ingles   
-            invalidHandler: function(form, validator) {
-                var errors = validator.numberOfInvalids();
-                if (errors) {
-                    var message = errors == 1
-                    ? 'Olvidastes 1 campo. Ha sido remarcado'
-                    : 'You missed ' + errors + ' fields. They have been highlighted';
-                    $("#mws-validate-error").html(message).show();
-                } else {
-                    $("#mws-validate-error").hide();
-                }
-            }/*
+
         });
-    });
+    );
         </script>
                 
     </div>

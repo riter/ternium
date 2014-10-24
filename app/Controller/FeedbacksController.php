@@ -75,7 +75,7 @@ class FeedbacksController extends AppController
 
 			if ($this->Feedback->save( $data )) 
 			{
-			$message='La Feedback ha sido guardada.';	
+			$message='El Feedback ha sido guardado!';	
 			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
 		     //	$this->Session->setFlash($message,$layout); //__('El Pais  ha sido guardado.')
 				return $this->redirect(array('action' => 'index'));  
@@ -83,7 +83,7 @@ class FeedbacksController extends AppController
 			}
 			else 
 			{
-			  $message='La Feedback no pudo ser guardada.';
+			  $message='El Feedback no pudo ser guardado!';
 			  $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));	
 			  $this->Session->setFlash($message,$layout);//__('El Galería no pudo ser guardado. Por favor, intentelo de nuevo.')
 				
@@ -131,14 +131,14 @@ class FeedbacksController extends AppController
            	
             if ($this->Feedback->save( $data )) 
 			{	
-				$message='La Galería ha sido guardada!';
+				$message='El Feedback ha sido guardado!';
 				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
-				//$this->Session->setFlash(__($message),array('elemento'=>'exito');//__('La Galería ha sido guardado.'),$layout
+				
 				return $this->redirect(array('action' => 'index')); 
 				
 			}else 
 			{
-				$message='La Galería no pudo ser guardada. Por favor, intentelo de nuevo.';	
+				$message='El Feedback no pudo ser guardado!';	
 				$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));	
 				//$this->Session->setFlash(__('La Galería no pudo ser guardado. Por favor, intentelo de nuevo.'));
 				
@@ -173,7 +173,7 @@ class FeedbacksController extends AppController
 
       if($this->Feedback->delete($id))
       {
-       		$message ='La Galerir '.$id.' Ha sido eliminado.';
+       		$message ='El Feedback ha sido eliminado!';
 			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
             $this->redirect(array('action'=>'index'));
       }

@@ -35,24 +35,26 @@ class User extends AppModel
          'message' => 'Ingrese una fecha v�lida',
          'allowEmpty' => false
         )
-       /* ),
+        ),
         'pais_id' => array(
             'rule' => 'notEmpty',
             'required' => true,
         ),
-        'password' => array
+       'password' => array
         (   
             'rule' => 'notEmpty',
             'required' => false,
+            'action'=>'add',
         ),
         'confirm_password'=> array
                         (
                            'rule' => array('verifcarPasswords', 'password'),
-                           'message' => 'Las contraseñas no coinciden' 
+                           'message' => 'Las contraseñas no coinciden',
+                            'action'=>'add',
                         )
        
-       ); */
-            ));
+       ) ;
+   
 
     function verifcarPasswords($data, $field=null)
     {

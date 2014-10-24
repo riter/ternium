@@ -6,9 +6,9 @@
         <table class="mws-datatable-fn mws-table">
             <thead>
                 <tr>
-                    <th>Nombre</th>
+                    <th>U</th>
                     <th>Mensaje</th>
-                    <th>Comentarios</th>           
+                    <th>Tipo mensajes</th>           
                      <th>Estado</th> 
                     <th>Acciones</th>
                 </tr>
@@ -20,12 +20,12 @@
                         <td><?php echo $feedback['User']['nombre']; ?></td>
                         <td><?php echo $feedback['Feedback']['mensaje']; ?></td>
                         <td><?php echo $feedback['Comentario']['nombre']; ?></td>
-                        <td><?php echo $feedback['Feedback']['leido'];?></td> 
+                        <td><?php if($feedback['Feedback']['leido']==1)echo "leido";else echo "no leido";?></td> 
                         
                         <td>
                             <?php echo $this->Html->link('Editar', array('action' => 'edit', $feedback['Feedback']['id'])); ?>                       
                             <?php echo "&nbsp;&nbsp; | &nbsp;&nbsp;"; ?>
-                            <?php echo $this->Html->link('Eliminar', array('controller' =>'Feedbacks', 'action' => 'delete', $feedback['Feedback']['id'] ), array(), " Esta seguro de eliminar a ".$feedback['Feedback']['id'] .". ?" ); ?> 
+                            <?php echo $this->Html->link('Eliminar', array('controller' =>'Feedbacks', 'action' => 'delete', $feedback['Feedback']['id'] ), array(), " Esta seguro de eliminar al feedback de  ".$feedback['User']['nombre'] .". ?" ); ?> 
                         </td>
                     </tr>
                 <?php endforeach; ?>

@@ -1,8 +1,9 @@
 <?php $controller = $this->request->params['controller']; ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <meta http-equiv="Content-type" content="text/htm1;charset=utf-8"/>
 
         <!-- Apple iOS and Android stuff (do not remove) -->
         <meta name="apple-mobile-web-app-capable" content="no" />
@@ -169,30 +170,8 @@
                                     <li><a href="<?php echo $this->Html->url(array('controller' => 'proveedores', 'action' => 'add', 'admin' => true)); ?>">Adicionar Proveedor</a></li> 
                                 </ul> 
                         </li> 
-                        <li>
-                            <a  href="<?php echo $this->Html->url(array('controller'=>'ProveedoresRepresentantes',
-                                'action' => 'index', 'admin' => true)); ?>" > Representantes proveedores</a>
-
-                                  <ul <?php if ($controller == 'users') 
-                                        echo 'class = ""'; 
-                                        else echo 'class = "closed"'; ?>>
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'ProveedoresRepresentantes', 'action' => 'index', 'admin' => true)); ?>">Todos  los Representantes</a></li> 
-
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'ProveedoresRepresentantes', 'action' => 'add', 'admin' => true)); ?>">Adicionar Representantes</a></li> 
-                                </ul> 
-                        </li> 
-                        <li>
-                            <a  href="<?php echo $this->Html->url(array('controller'=>'Paises',
-                                'action' => 'index', 'admin' => true)); ?>" > Países</a>
-
-                                <ul <?php if ($controller == 'users') 
-                                        echo 'class = ""'; 
-                                        else echo 'class = "closed"'; ?>>
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'paises', 'action' => 'index', 'admin' => true)); ?>">Todos  los Paises</a></li> 
-
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'paises', 'action' => 'add', 'admin' => true)); ?>">Adicionar País</a></li> 
-                                </ul> 
-                        </li> 
+                     
+                      
                         <li>
                             <a  href="<?php echo $this->Html->url(array('controller'=>'Provincias',
                                 'action' => 'index', 'admin' => true)); ?>" > Provincias</a>
@@ -206,7 +185,7 @@
                                 </ul> 
                         </li> 
                         <li>
-                            <a  href="<?php echo $this->Html->url(array('controller'=>'GaleriasTipos',
+                            <a  href="<?php echo $this->Html->url(array('controller'=>'galerias',
                                 'action' => 'index', 'admin' => true)); ?>" > Galerias </a>
 
 
@@ -215,53 +194,14 @@
                                 <ul <?php if ($controller=='galerias') 
                                         echo 'class = ""'; 
                                         else echo 'class = "closed"'; ?>>
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'galerias', 'action' => 'index', 'admin' => true)); ?>">Todas  las Galerias </a></li> 
+                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'galerias', 'action' => 'index', 'admin' => true)); ?>">Todas  las Imagenes </a></li> 
 
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'galerias', 'action' => 'add', 'admin' => true)); ?>">Adicionar Galerias </a></li> 
+                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'galerias', 'action' => 'add', 'admin' => true)); ?>">Adicionar Imagenes </a></li> 
                                 </ul> 
                         </li> 
-                        <li>
-                            <?php   $controller=strtolower($controller); ?> 
-
-                            <a  href="<?php echo $this->Html->url(array('controller'=>'GaleriasTipos',
-                                'action' => 'index', 'admin' => true)); ?>" >Tipos Galerias </a>
-
-                                <ul <?php if ($controller == 'galeriastipos') 
-                                        echo 'class = ""'; 
-                                        else echo 'class = "closed"'; ?>>
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'GaleriasTipos', 'action' => 'index', 'admin' => true)); ?>">Todas  los Tipos de Galerias </a></li> 
-
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'GaleriasTipos', 'action' => 'add', 'admin' => true)); ?>">Adicionar Tipos Galerias </a></li> 
-                                </ul> 
-                        </li>  
-                        <li>
-                            <?php   $controller=strtolower($controller); ?> 
-
-                            <a  href="<?php echo $this->Html->url(array('controller'=>'CalculosTipos',
-                                'action' => 'index', 'admin' => true)); ?>" >Tipos de Calculos </a>
-
-                                <ul <?php if ($controller == 'calculostipos') 
-                                        echo 'class = ""'; 
-                                        else echo 'class = "closed"'; ?>>
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'CalculosTipos', 'action' => 'index', 'admin' => true)); ?>">Todos  los Tipos de Calculos </a></li> 
-
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'CalculosTipos', 'action' => 'add', 'admin' => true)); ?>">Adicionar Tipos de Calculos </a></li> 
-                                </ul> 
-                        </li>  
-                        <li>
-                            <?php   $controller=strtolower($controller); ?> 
-
-                            <a  href="<?php echo $this->Html->url(array('controller'=>'Comentarios',
-                                'action' => 'index', 'admin' => true)); ?>" >Comentario </a>
-
-                                <ul <?php if ($controller == 'comentarios') 
-                                        echo 'class = ""'; 
-                                        else echo 'class = "closed"'; ?>>
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'Comentarios', 'action' => 'index', 'admin' => true)); ?>">Todos los Comentario </a></li> 
-
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'Comentarios', 'action' => 'add', 'admin' => true)); ?>">Adicionar Comentario </a></li> 
-                                </ul> 
-                        </li>  
+                        
+         
+              
                          <li>
                             <?php   $controller=strtolower($controller); ?> 
 
@@ -273,7 +213,7 @@
                                         else echo 'class = "closed"'; ?>>
                                     <li><a href="<?php echo $this->Html->url(array('controller' => 'feedbacks', 'action' => 'index', 'admin' => true)); ?>">Todos los Feedbacks </a></li> 
 
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'feedbacks', 'action' => 'add', 'admin' => true)); ?>">Adicionar Feedback </a></li> 
+                                    
                                 </ul> 
                         </li>  
                           <li>

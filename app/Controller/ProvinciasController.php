@@ -61,29 +61,27 @@ class ProvinciasController extends AppController {
 		$pais = $this->Provincia->Paise->find('list');
 		$this->set(compact('pais'));
 	}
+       
         
-        public function admin_provincia_ajax($pais_id=null)
+        
+        
+        function admin_provincia_ajax($id)
         {
-           // $provincia=$this->Provincia->find('all',true);
-           
-              
-            $pais = $this->Provincia->Paise->find('list');
-            //print_r($pais);exit;
-            $this->set(compact('pais'));
-            if(empty($pais_id))
-            {
-                  $pais = $this->Provincia->Paise->find('all');
-            }
-            else
-            {
-                  $pais = $this->Provincia->Paise->find('all',array('Provincia.pais_id'=>$pais['Provincia']['pais_id']));
-                   $this->set('provincias', $this->Paginator->paginate());
-            }
-          
-           
-              $this->set('provincias', $this->Paginator->paginate());
-            //$print_r($this->Provincia->Paise->find('list'));exit;
-        }
+        $this->layout = 'ajax';
+       // $this->autoRender = false;
+       // $this->response->type('json');
+        
+        // $pais = $this->Provincia->find('list');    //$this->set(compact('pais'));
+        
+        
+         $provincias = $this->Provincia->find('list',array('conditions' => array('Provincia.pais_id' => $id)));
+          $this->set('provincias',$provincias);
+
+    }
+
+        
+        
+        
 
 	public function admin_edit($id = null) {
 		if (!$this->Provincia->exists($id)) {

@@ -38,12 +38,24 @@
                         array('id'=>'direccion','class' => 'mws-textinput required')); ?>
                     </div>
                 </div> 
-
                 <div class="mws-form-row">
-                    <label>Contactos</label>
+                    <label>Email</label>
                     <div class="mws-form-item small">
-                        <?php echo $this->Form->input('contactos', 
-                        array('id'=>'contactos','class' => 'mws-textinput required')); ?>
+                        <?php echo $this->Form->input('email', array('id'=>'email','class' => 'mws-textinput required')); ?> 
+                    </div>
+                </div> 
+                <div class="mws-form-row">
+                    <label>Tel&eacute;fono</label>
+                    <div class="mws-form-item small">
+                        <?php echo $this->Form->input('telefono', 
+                        array('id'=>'telefono','class' => 'mws-textinput required')); ?>
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    <label>Descripci&oacute;n</label>
+                    <div class="mws-form-item small">
+                        <?php echo $this->Form->input('descripcion', 
+                        array('id'=>'descripcion','class' => 'mws-textinput required')); ?>
                     </div>
                 </div> 
 

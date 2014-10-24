@@ -90,7 +90,7 @@ class UsersController extends AppController {
         if ($this->request->is('post')) { // $data = $this->UploadPhoto($this->request->data);   //  $data['User']['username']=$data['User']['email']; 
                 $this->User->create();
             if ($this->User->save($this->request->data)) {//  $this->enviarEmail($data);
-                      $message = 'El Usuariosss ha sido guardado!';
+                      $message = 'El Usuario ha sido guardado!';
                       $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
                 return $this->redirect(array('action' => 'index'));
             } else {
@@ -149,13 +149,14 @@ class UsersController extends AppController {
 
 
 
-            if ($data['User']['password'] != '' && $data['User']['password'] === $data['confirm_password']) {
+          /*  if ($data['User']['password'] != '' && $data['User']['password'] === $data['confirm_password']) {
                 $newdata['User']['password'] = $data['User']['password'];
-            }
+            }*/
             //echo '<pre>'; print_r($newdata);
             //exit(0);
             if ($this->User->save($newdata)) {
-                $this->Session->setFlash('User amended.');
+              $message = 'El Usuario ha sido guardado!';
+              $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
                 $this->redirect(array('action' => 'index'), NULL, TRUE);
             }
         }
@@ -201,7 +202,7 @@ class UsersController extends AppController {
 
         try {
             if ($this->User->delete($id)) {
-                $message = 'La proveedor ha sido eliminado';
+                $message = 'El usuario ha sido eliminado';
                 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
                 $this->redirect(array('action' => 'index'));
             }

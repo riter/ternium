@@ -15,101 +15,7 @@ class ProveedoresController extends AppController {
  */
 	public $components = array('Paginator');
 
-/**
- * index method
- *
- * @return void
- */
-	public function index() {
-		$this->Proveedore->recursive = 0;
-		$this->set('proveedores', $this->Paginator->paginate());
-	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) 
-	{	
-		if (!$this->Proveedore->exists($id)) 
-		{
-			throw new NotFoundException(__('Invalid proveedore'));
-		}
-		$options = array('conditions' => array('Proveedore.' . $this->Proveedore->primaryKey => $id));
-		$this->set('proveedore', $this->Proveedore->find('first', $options));
-	}
-
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Proveedore->create();
-			if ($this->Proveedore->save($this->request->data)) {
-				$this->Session->setFlash(__('El Proveedror ha sido guardado.'));/*The proveedore has been saved*/
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('El proveedor no pudo guardarse. Por favor, intente de nuevo.'));/*The proveedore could not be saved. Please, try again*/
-			}
-		}
-		$pais = $this->Proveedore->Pai->find('list');
-		$provincias = $this->Proveedore->Provincium->find('list');
-		$this->set(compact('pais', 'provincias'));
-	}
-
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		if (!$this->Proveedore->exists($id)) {
-			throw new NotFoundException(__('Proveedor invalido'));/*Invalid proveedore*/
-		}
-		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Proveedore->save($this->request->data)) {
-				$this->Session->setFlash(__('El proveedor ha sido guardado.'));/*('The proveedore has been saved.')*/
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('El proveedore no pudo guardarse. Por favor intente de nuevo.'));/*The proveedore could not be saved. Please, try again.'*/
-			}
-		} else {
-			$options = array('conditions' => array('Proveedore.' . $this->Proveedore->primaryKey => $id));
-			$this->request->data = $this->Proveedore->find('first', $options);
-		}
-		$pais = $this->Proveedore->Pai->find('list');
-		$provincias = $this->Proveedore->Provincium->find('list');
-		$this->set(compact('pais', 'provincias'));
-	}
-
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) 
-	{
-		$this->Proveedore->id = $id;
-		if (!$this->Proveedore->exists()) {
-			throw new NotFoundException(__('Invalid proveedore'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->Proveedore->delete()) {
-			$this->Session->setFlash(__('The proveedore has been deleted.'));
-		} else {
-			$this->Session->setFlash(__('The proveedore could not be deleted. Please, try again.'));
-		}
-		return $this->redirect(array('action' => 'index'));
-	}
 
 /**
  * admin_index method
@@ -165,26 +71,30 @@ class ProveedoresController extends AppController {
  * @return void
  */
 	public function admin_edit($id = null) {
-		if (!$this->Proveedore->exists($id)) {
-			throw new NotFoundException(__('Invalid proveedore'));
-		}
-		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Proveedore->save($this->request->data)) {
-				 $message='El Proveedor ha sido guardado!';
-				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				 $message='El proveedor no pudo ser guardado. Por favor, intentelo de nuevo.!';
-				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
-				
-			}
-		} else {
-			$options = array('conditions' => array('Proveedore.' . $this->Proveedore->primaryKey => $id));
-			$this->request->data = $this->Proveedore->find('first', $options);
-		}
-		$pais = $this->Proveedore->Paise->find('list');
-		$provincias = $this->Proveedore->Provincia->find('list');
-		$this->set(compact('pais', 'provincias'));
+                    //echo $id;exit;
+                    if (!$this->Proveedore->exists($id)) {
+                            throw new NotFoundException(__('Invalid proveedore'));
+                    }
+                    if ($this->request->is(array('post', 'put'))) {
+                            if ($this->Proveedore->save($this->request->data)) {
+                                     $message='El Proveedor ha sido guardado!';
+                                     $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
+                                    return $this->redirect(array('action' => 'index'));
+                            } else {
+                                     $message='El proveedor no pudo ser guardado. Por favor, intentelo de nuevo.!';
+                                     $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
+
+                            }
+                    } else {
+                            $options = array('conditions' => array('Proveedore.' . $this->Proveedore->primaryKey => $id));
+                            $this->request->data = $this->Proveedore->find('first', $options);
+                    }
+                    $pais = $this->Proveedore->Paise->find('list');
+                    $provincias = $this->Proveedore->Provincia->find('list');
+                    $this->set('pais',$pais);
+                    $this->set('provincias',$provincias);
+                    
+                    //$this->set(compact('pais', 'provincias'));
 	}
 
 /**
@@ -197,7 +107,7 @@ class ProveedoresController extends AppController {
 	public function admin_delete($id = null) 
 	{
 		if(!$id)
-       throw new NotFoundException('Proveedores Invalidos.');
+                throw new NotFoundException('Proveedores Invalidos.');
 
       if($this->Proveedore->delete($id))
       {
@@ -297,8 +207,8 @@ public function admin_listar_proveedores()
         $this->autoRender = false;
         $this->response->type('json');//$proveedore_id=$this->request->data['proveedore_id']; 
      
-        $pais=$this->request->query['pais_id'];//$this->request->data['pais_id'];//$this->request->data['pais_id'];$this->request->query('pais_id');
-        $provincia=$this->request->query['provincia_id'];//6;//'Buenos Aires';
+        $pais=$this->request->query['pais_id'];
+        $provincia=$this->request->query['provincia_id'];
          
           //$opciones=array('conditions' => array('pais_id' => $pais,'provincia_id'=>$provincia));
           //$opciones=array('pais_id' => $pais,'provincia_id'=>$provincia);

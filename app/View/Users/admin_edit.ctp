@@ -63,7 +63,7 @@
                 <div class="mws-form-row">
                     <label>Contrase&ntilde;a</label>
                     <div class="mws-form-item small">
-                        <?php echo $this->Form->input('password', array('id' => 'password','value'=>'', 'class' => 'mws-textinput')); ?>
+                        <?php echo $this->Form->input('password', array('id' => 'password','value'=>'', 'class' => 'mws-textinput','disabled')); ?>
                     </div>
                 </div>
 
@@ -71,7 +71,7 @@
                     <label>Confirmar Contrase&ntilde;a</label>
                     <div class="mws-form-item small">
                     
-                        <input type="password" id="confirm_password" name="confirm_password" class="mws-textinput" />
+                        <input type="password" id="confirm_password" name="confirm_password" class="mws-textinput" disabled="disabled" />
                     </div>
                 </div>
                 

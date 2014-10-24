@@ -21,7 +21,7 @@ public $validate = array(
             'rule' => 'notEmpty',
             'required' => true,
         ),        
-        'contactos' => array(
+        'telefono' => array(
             'rule' => 'notEmpty',
             'required' => true,
         ),
@@ -62,21 +62,4 @@ public $validate = array(
 		) 
 	);
 
-    public $hasMany = array
-    (
-        'ProveedoresRepresentante' => array
-        (
-            'className' => 'ProveedoresRepresentante', 
-            'foreignKey' => 'proveedore_id', 
-            'dependent' => false,
-            'conditions' => '',
-            'fields' => '',
-            'order' => '',
-            'limit' => '',
-            'offset' => '',
-            'exclusive' => '',
-            'finderQuery' => '',
-            'counterQuery' => ''
-        )
-    ); 
 }

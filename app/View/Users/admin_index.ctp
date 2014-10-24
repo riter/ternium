@@ -37,7 +37,7 @@
                         <td><?php echo $user['Paise']['nombre']; ?></td>
                         <td><?php echo $user['Provincia']['nombre']; ?></td>
                         <td><?php echo $user['Profesione']['nombre']; ?></td>
-                         <td><?php// echo $user['User']['uid']; ?></td>
+                         
                         <!-- photo --> <td>
                             <?php echo $this->Html->link('Editar', array('action' => 'edit', $user['User']['id'])); ?>                       
                             <?php echo "&nbsp;&nbsp; | &nbsp;&nbsp;"; ?>

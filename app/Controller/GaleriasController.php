@@ -38,7 +38,7 @@ class GaleriasController extends AppController
  */
 	public function admin_view($id = null) {
 		if (!$this->Galeria->exists($id)) {
-			throw new NotFoundException(__('Invalid galeria'));
+			throw new NotFoundException(__('Invalid imagen'));
 		}
 		$options = array('conditions' => array('Galeria.' . $this->Galeria->primaryKey => $id));
 		$this->set('galeria', $this->Galeria->find('first', $options));
@@ -63,7 +63,7 @@ class GaleriasController extends AppController
 
 			if ($this->Galeria->save( $data )) 
 			{
-			$message='La Galeria ha sido guardada.';	
+			$message='La Imagen ha sido guardada.';	
 			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
 		     //	$this->Session->setFlash($message,$layout); //__('El País  ha sido guardado.')
 				return $this->redirect(array('action' => 'index'));  
@@ -71,7 +71,7 @@ class GaleriasController extends AppController
 			}
 			else 
 			{
-				$message='La Galeria no pudo ser guardada.';
+				$message='La Imagen no pudo ser guardada.';
 			  $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));	
 			   $this->Session->setFlash($message,$layout);//__('El Galería no pudo ser guardado. Por favor, intentelo de nuevo.')
 				
@@ -100,7 +100,7 @@ class GaleriasController extends AppController
 	{
 		if (!$this->Galeria->exists($id)) 
 		{
-			throw new NotFoundException(__('Invalid galeria'));
+			throw new NotFoundException(__('Invalid imagen'));
 		}
 
 		if ( $this->request->is(array('post', 'put') )) 
@@ -118,14 +118,14 @@ class GaleriasController extends AppController
            	
             if ($this->Galeria->save( $data )) 
 			{	
-				$message='La Galería ha sido guardada!';
+				$message='La Imagen ha sido guardada!';
 				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
 				//$this->Session->setFlash(__($message),array('elemento'=>'exito');//__('La Galería ha sido guardado.'),$layout
 				return $this->redirect(array('action' => 'index')); 
 				
 			}else 
 			{
-				$message='La Galería no pudo ser guardada. Por favor, intentelo de nuevo.';	
+				$message='La Imagen no pudo ser guardada!';	
 				$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));	
 				//$this->Session->setFlash(__('La Galería no pudo ser guardado. Por favor, intentelo de nuevo.'));
 				
@@ -158,17 +158,15 @@ class GaleriasController extends AppController
 	public function admin_delete($id = null) 
 	{
 	   if(!$id)
-       throw new NotFoundException('Galeria  Invalida');
+       throw new NotFoundException('Imagen  Invalida');
 
       if($this->Galeria->delete($id))
       {
-       		$message ='La Galerir '.$id.' Ha sido eliminado.';
+       		$message ='La Imagen  Ha sido eliminado.';
 			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
             $this->redirect(array('action'=>'index'));
       }
-
-
-		/*
+	/*
 		$this->Galeria->id = $id;
 		if (!$this->Galeria->exists()) {
 			throw new NotFoundException(__('Invalid galeria'));
@@ -248,6 +246,34 @@ class GaleriasController extends AppController
 
             if(!empty($galerias)){
                 return json_encode(array('Default' => $galerias));
+            }else{
+                return json_encode(array('Default' => null));
+            }
+        }
+        return json_encode(array('Default' => 'Required Request GET'));
+    }
+    
+    
+     public function galerias_params()//$pais, $provincia
+    { 
+        //$pais = 9;
+        $this->autoRender = false;
+        $this->response->type('json');//$proveedore_id=$this->request->data['proveedore_id']; 
+     
+        $tipo_galeria=$this->request->query['galeriastipo_id'];
+        
+        $condiciones=array('conditions'=>array('Galeria.galeriastipo_id'=>$tipo_galeria),'recursive'=>0);
+            
+           if(empty($tipo_galeria)){
+             
+             echo "Olvido un campo!";
+         }  
+         if ($this->request->is('get')) {
+              // print_r($this->request->query, false);
+          $proveedores=$this->Galeria->find('all',$condiciones);//exit;
+
+          if(!empty($proveedores)){
+                return json_encode(array('Default' => $proveedores));
             }else{
                 return json_encode(array('Default' => null));
             }

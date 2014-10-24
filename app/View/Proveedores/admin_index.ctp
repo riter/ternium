@@ -8,7 +8,9 @@
                 <tr>                    
                     <th>Proveedor</th>
                     <th>Dirección</th> 
-                    <th>Contáctos</th> 
+                    <th>Telefono</th> 
+                    <th>Email</th> 
+                    <th>Descripcion</th> 
                     <th>País</th>
                     <th>Provincia</th>
                     <th>Aciones</th>
@@ -24,7 +26,13 @@
                             <?php echo $proveedore['Proveedore']['direccion']; ?>
                         </td> 
                         <td>
-                            <?php echo $proveedore['Proveedore']['contactos']; ?>
+                            <?php echo $proveedore['Proveedore']['telefono']; ?>
+                        </td>
+                        <td>
+                            <?php echo $proveedore['Proveedore']['email']; ?>
+                        </td>
+                            <td>
+                            <?php echo $proveedore['Proveedore']['descripcion']; ?>
                         </td>
                         <td>
                             <?php echo $proveedore['Paise']['nombre']; ?>
