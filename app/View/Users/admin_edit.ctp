@@ -75,14 +75,12 @@
                     </div>
                 </div>
                 
-                  <div class="mws-form-row">
+              <div class="mws-form-row">
                     <label>País</label>
                     <div class="mws-form-item small">
-                        <?php echo $this->Form->input('pais_id', 
-                        array('id'=>'pais_id',
-                              'class' => 'mws-textinput required','empty'=>'Seleccinar Pais')); ?>
+                        <?php echo $this->Form->input('pais_id', array('id'=>'pais_id','class' => 'mws-textinput required')); ?>  
                     </div>
-                  </div>
+                </div>
 
                 <div class="mws-form-row">
                     <label>Provincia</label>
@@ -99,7 +97,7 @@
                     <div class="mws-form-item small">
                         <?php 
                         $options=$profesion;
-                        echo $this->Form->input('profesion_id',array('type'=>'select','label'=>false,'options'=array()));
+                        echo $this->Form->input('profesion_id',array('type'=>'select','label'=>false,'options'=>$options));
                         
                         ?>  
                     </div>
