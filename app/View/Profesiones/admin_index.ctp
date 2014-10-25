@@ -6,7 +6,7 @@
         <table class="mws-datatable-fn mws-table">
             <thead>
                 <tr>                    
-                    <th>Profesion</th> 
+                    <th>Profesi&oacute;n</th> 
                     <th>Aciones</th>
                 </tr>
             </thead>

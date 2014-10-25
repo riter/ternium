@@ -1,4 +1,3 @@
-<?php //    print_r($users);?>
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
         <span class="mws-i-24 i-table-1">Usuarios</span>
@@ -10,13 +9,13 @@
                  
                     <th>Nombre</th>
                     <th>Apellido</th>
-                    <th>Telefono</th>
+                    <th>Tel&eacute;fono</th>
                     <!--<th>Fecha de Nacimiento</th>-->
                     <th>Usuario</th>
                     <th>Email</th>
-                    <th>Pais</th>
+                    <th>Pa&iacute;s</th>
                     <th>Provincia</th>
-                    <th>Profesion</th>
+                    <th>Profesi&oacute;n</th>
                     
                   
                     <!-- photo-->

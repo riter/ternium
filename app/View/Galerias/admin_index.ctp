@@ -10,7 +10,7 @@
                     <th>T&iacute;tulo</th>
                     <th>Descripci&oacute;n</th>           
                     <th>Usuario</th>
-                    <th>Tipo Galeria</th> 
+                    <th>Tipo de Galer&iacute;a</th> 
                     <th>Acciones</th> 
                 </tr>
             </thead>

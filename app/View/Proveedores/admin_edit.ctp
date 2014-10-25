@@ -1,4 +1,4 @@
-<?php //print_r($proveedores);exit;?>
+<?= $this->Html->script('users/add'); ?>
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
         <span class="mws-i-24 i-plus">Editar Proveedor</span>
@@ -48,13 +48,13 @@
                     </div>
                 </div> 
                 <div class="mws-form-row">
-                    <label>Telefono</label>
+                    <label>Telef&oacute;no</label>
                     <div class="mws-form-item small">
                         <?php echo $this->Form->input('telefono', array('id'=>'telefono','class' => 'mws-textinput required')); ?> 
                     </div>
                 </div> 
                 <div class="mws-form-row">
-                    <label>Descripcion</label>
+                    <label>Descripci&oacute;n</label>
                     <div class="mws-form-item small">
                         <?php echo $this->Form->input('descripcion', array('id'=>'descripcion','class' => 'mws-textinput required')); ?> 
                     </div>
@@ -71,7 +71,10 @@
                 <div class="mws-form-row">
                     <label>Provincia</label>
                     <div class="mws-form-item small">
-                        <?php echo $this->Form->input('provincia_id', array('id'=>'provincia_id','class' => 'mws-textinput required')); ?>
+                       <?php 
+                         $options=$provincias;
+                         echo $this->Form->input('provincia_id',array('type'=>'select','label'=>false,'options'=>$options,'data-ajax-provincia'));
+                       ?>  
                     </div>
                 </div>
 

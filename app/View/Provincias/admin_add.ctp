@@ -72,7 +72,7 @@
                 {
                     var message = errors == 1
                     ? 'Olvidastes 1 campo. Ha sido remarcado'
-                    : 'You missed ' + errors + ' fields. They have been highlighted';
+                    : 'Olvidaste ' + errors + ' campos. Han sido remarcados!';
                     $("#mws-validate-error").html(message).show();
                 } else {
                     $("#mws-validate-error").hide();

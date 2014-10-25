@@ -123,17 +123,13 @@ class UsersController extends AppController {
 
         if (empty($this->data)) {
             $this->data = $this->User->findById(array('id' => $id));
-            //  $this->set('photo', $this->data['User']['photo']);  
-        } else {
+           } else {
             $newdata;
             $data = $this->request->data;
 
             $this->User->id = $id;
             $anData = $this->User->findById(array('id' => $id));
-            /*  if($this->request->data['User']['photo']['name'] !="")
-              $data = $this->UploadPhoto($this->request->data);
-              else
-              $data['User']['photo']=$anData['User']['photo']; */
+
 
             $newdata['User']['id'] = $id;
             $newdata['User']['nombre'] = $data['User']['nombre'];
@@ -144,16 +140,12 @@ class UsersController extends AppController {
             $newdata['User']['email'] = $data['User']['email'];
             $newdata['User']['role'] = $data['User']['role'];
             $newdata['User']['pais_id'] = $data['User']['pais_id'];
-            $newdata['User']['provincia_id'] = $data['User']['provincia_id'];
+            if(empty($newdata['User']['provincia_id']))
+                
+          //  $newdata['User']['provincia_id'] = "";//$data['User']['provincia_id'];
+            
             $newdata['User']['profesion_id'] = $data['User']['profesion_id'];
 
-
-
-          /*  if ($data['User']['password'] != '' && $data['User']['password'] === $data['confirm_password']) {
-                $newdata['User']['password'] = $data['User']['password'];
-            }*/
-            //echo '<pre>'; print_r($newdata);
-            //exit(0);
             if ($this->User->save($newdata)) {
               $message = 'El Usuario ha sido guardado!';
               $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
@@ -171,10 +163,6 @@ class UsersController extends AppController {
 
     /*The compact function returns an associative array, built by taking the names specified in the input array, using them as keys, and taking the values of the variables referenced by those names and making those the values*/
 
-    // using app/Model/ProductCategory.php
-// In the following example, do not let a product category be deleted if it still contains products.
-// A call of $this->Product->delete($id) from ProductsController.php has set $this->id .
-// Assuming 'ProductCategory hasMany Product', we can access $this->Product in the model.
 
     /* Agregue esta funcion para personalizar errores */
     public function beforeDelete($cascade = true) {

@@ -38,13 +38,13 @@
                     </div>
                 </div> 
                 <div class="mws-form-row">
-                    <label>Telefono</label>
+                    <label>Tel&eacute;fono</label>
                     <div class="mws-form-item small">
                         <?php echo $this->Form->input('telefono', array('id'=>'telefono','class' => 'mws-textinput number')); ?>
                     </div>
                 </div> 
                  <div class="mws-form-row">
-                    <label>Correo Electronico</label>
+                    <label>Correo Electr&oacute;nico</label>
                     <div class="mws-form-item small">
                     <?php echo $this->Form->input('email', array('id' => 'email', 'class' => 'mws-textinput required')); ?>
                     </div>
@@ -101,7 +101,7 @@
                  </div>
                 
                  <div class="mws-form-row">
-                    <label>Profesion</label>
+                     <label>Profesi&oacute;n</label>
                     <div class="mws-form-item small">
                         <?php 
                         $options=$profesion;

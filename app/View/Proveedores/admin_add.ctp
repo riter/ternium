@@ -1,3 +1,4 @@
+<?= $this->Html->script('users/add'); ?>
 <div class="mws-panel grid_8"> 
     <div class="mws-panel-header">
         <span class="mws-i-24 i-plus">Adicionar Proveedor</span>
@@ -59,24 +60,24 @@
                     </div>
                 </div> 
 
-                <div class="mws-form-row">
+                               <div class="mws-form-row">
                     <label>País</label>
-
                     <div class="mws-form-item small">
                         <?php echo $this->Form->input('pais_id', 
                         array('id'=>'pais_id',
-                              'class' => 'mws-textinput required')); ?>  
+                              'class' => 'mws-textinput required','empty'=>'Seleccinar Pais')); ?>
                     </div>
-                </div>
+                  </div>
 
                 <div class="mws-form-row">
                     <label>Provincia</label>
                     <div class="mws-form-item small">
-                        <?php echo $this->Form->input('provincia_id', 
-                        array('id'=>'provincia_id',
-                              'class' => 'mws-textinput required')); ?>  
-                    </div>
-                </div>
+                        <?php 
+                         
+                        echo $this->Form->input('provincia_id',array('type'=>'select','label'=>false,'options'=>array()));
+                         ?>  
+                     </div>
+                 </div>
 
 
             </div>

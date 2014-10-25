@@ -1,3 +1,5 @@
+<?= $this->Html->script('users/add'); ?>
+
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
         <span class="mws-i-24 i-plus">Editar Usuario</span>
@@ -33,7 +35,7 @@
                     </div>
                 </div>
                 <div class="mws-form-row">
-                    <label>Telefono</label>
+                    <label>Tel&eacute;fono</label>
                     <div class="mws-form-item small">
                         <?php echo $this->Form->input('telefono', array('id'=>'telefono','class' => 'mws-textinput number')); ?>
                     </div>
@@ -41,7 +43,7 @@
 
   
                 <div class="mws-form-row">
-                    <label>Correo Electronico</label>
+                    <label>Correo Electr&oacute;nico</label>
                     <div class="mws-form-item small">
                         <?php echo $this->Form->input('email', array('id'=>'email','class' => 'mws-textinput','readonly'=>'readonly')); ?>
                     </div>
@@ -87,13 +89,13 @@
                     <div class="mws-form-item small">
                         <?php 
                          $options=$provincia;
-                        echo $this->Form->input('provincia_id',array('type'=>'select','label'=>false,'options'=>$options));
+                                echo $this->Form->input('provincia_id',array('type'=>'select','label'=>false,'options'=>$options,'data-ajax-provincia'));
                          ?>  
                      </div>
                  </div>
                 
                  <div class="mws-form-row">
-                    <label>Profesion</label>
+                    <label>Profesi&oacute;n</label>
                     <div class="mws-form-item small">
                         <?php 
                         $options=$profesion;

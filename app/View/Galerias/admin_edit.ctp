@@ -64,7 +64,7 @@
                 </div> 
 
                 <div class="mws-form-row">
-                    <label>Descripcion</label>
+                    <label>Descripci&oacute;n</label>
                     <div class="mws-form-item small">
                         <?php echo $this->Form->input('descripcion',
                         array('id'=>'descripcion','class' => 'mws-textinput required')); ?>
@@ -73,7 +73,7 @@
 
                   
                 <div class="mws-form-row">
-                    <label>Tipo Galerias</label>
+                    <label>Tipo de Galer&iacute;a</label>
                     <div class="mws-form-item small">
                         <?php echo $this->Form->input('galeriastipo_id', 
                         array('id'=>'galeriastipo_id','class' => 'mws-textinput required')); ?>

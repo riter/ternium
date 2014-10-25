@@ -71,9 +71,9 @@ class ProveedoresController extends AppController {
  * @return void
  */
 	public function admin_edit($id = null) {
-                    //echo $id;exit;
-                    if (!$this->Proveedore->exists($id)) {
+                      if (!id){//$this->Proveedore->exists($id)) {
                             throw new NotFoundException(__('Invalid proveedore'));
+                             $this->redirect(array('action' => 'index'));
                     }
                     if ($this->request->is(array('post', 'put'))) {
                             if ($this->Proveedore->save($this->request->data)) {
@@ -91,10 +91,11 @@ class ProveedoresController extends AppController {
                     }
                     $pais = $this->Proveedore->Paise->find('list');
                     $provincias = $this->Proveedore->Provincia->find('list');
+                    //$provincias = $this->Proveedore->find('all',array('conditions'=>array('Proveedore.provincia_id'=>$id)));
+              
                     $this->set('pais',$pais);
                     $this->set('provincias',$provincias);
-                    
-                    //$this->set(compact('pais', 'provincias'));
+              
 	}
 
 /**
