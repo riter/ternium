@@ -24,8 +24,10 @@ class CalculosController extends AppController
  * @return void
  */
 	public function index() {
-		$this->Calculo->recursive = 0;
-		$this->set('galerias', $this->Paginator->paginate());
+               $usuarios = $this->Calculo->find('count',array('conditions'=>array('Calculo.id >'=>0)));
+		$this->Calculo->recursive = 2;
+		$this->set('calculos', $this->Paginator->paginate());
+                echo "ljfsldf";
 	}
 
 /**
@@ -39,94 +41,11 @@ class CalculosController extends AppController
 	{
 		if (!$this->Calculo->exists($id)) 
 		{
-			throw new NotFoundException(__('Invalid galeria'));
+			throw new NotFoundException(__('Invalid calculo'));
 		}
 
-		$options = array('conditions' => array('galeria.' . $this->Calculo->primaryKey => $id));
-		$this->set('galeria', $this->Calculo->find('first', $options));
-	}
-
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Calculo->create();
-			if ($this->Calculo->save($this->request->data)) {
-				$this->Session->setFlash(__('El Calculo ha sido guardado.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('El Calculo no pudo ser guardado. Por favor, intentelo de nuevo.'));
-			}
-		}
-		$users = $this->Calculo->User->find('list');
-		$galeriastipos = $this->Calculo->CalculosTipo->find('list');/*$galeriastipos = $this->Calculo->CalculosTipo->find('list');*/
-		$this->set(compact('users', 'calculostipos'));
-	}
-
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		if (!$this->Calculo->exists($id)) {
-			throw new NotFoundException(__('Invalid galeria'));
-		}
-		if ($this->request->is(array('post', 'put'))) 
-		{
-			if ($this->Calculo->save($this->request->data)) 
-			{
-				
-				$message='La Calculo ha sido guardada.';
-			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
-				
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$message='La galeria no pudo ser guardado. Por favor, intentelo de nuevo.';
-				$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
-				
-			
-			}
-		}
-		else 
-		{
-			$options = array('conditions' => array('Calculo.' . $this->Calculo->primaryKey => $id));
-			$this->request->data = $this->Calculo->find('first', $options);
-		} 
-
-		$users = $this->Calculo->User->find('list');
-		$galeriastipos = $this->Calculo->CalculosTipo->find('list');
-		$this->set(compact('users', 'galeriastipos'));
-	}
-
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
-		$this->Calculo->id = $id;
-		if (!$this->Calculo->exists()) {
-			throw new NotFoundException(__('Invalid galeria'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->Calculo->delete()) {
-			$message='La galería ha sido eliminada.';
-			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
-				
-		} else {
-					$message='La galería no pudo ser borrada. Por favor, intente de nuevo.';
-			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
-			
-		}
-		return $this->redirect(array('action' => 'index'));
+		$options = array('conditions' => array('calculo.' . $this->Calculo->primaryKey => $id));
+		$this->set('calculo', $this->Calculo->find('first', $options));
 	}
 
 /**
@@ -135,8 +54,9 @@ class CalculosController extends AppController
  * @return void
  */
 	public function admin_index() {
-		$this->Calculo->recursive = 0;
-		$this->set('galerias', $this->Paginator->paginate());
+		$this->Calculo->recursive = 2;
+		$this->set('calculos', $this->Paginator->paginate());
+                exit;
 	}
 
 /**
@@ -148,10 +68,12 @@ class CalculosController extends AppController
  */
 	public function admin_view($id = null) {
 		if (!$this->Calculo->exists($id)) {
-			throw new NotFoundException(__('Invalid galeria'));
+			throw new NotFoundException(__('Invalid calculo'));
 		}
 		$options = array('conditions' => array('Calculo.' . $this->Calculo->primaryKey => $id));
-		$this->set('galeria', $this->Calculo->find('first', $options));
+		$this->set('calculo', $this->Calculo->find('first', $options));
+                
+
 	}
 
 /**
@@ -192,10 +114,10 @@ class CalculosController extends AppController
 		
 
 		$users = $this->User->find('list'); 
-     	$galeriastipos = $this->CalculosTipo->find('list'); 
-  //debug($galeriastipos);
+         	$calculostipos = $this->CalculosTipo->find('list'); 
+  
 
-		$this->set('galeriastipos',$galeriastipos); 
+		$this->set('calculostipos',$calculostipos); 
 		$this->set('users',$users); 
 	}
 
@@ -210,7 +132,7 @@ class CalculosController extends AppController
 	{
 		if (!$this->Calculo->exists($id)) 
 		{
-			throw new NotFoundException(__('Invalid galeria'));
+			throw new NotFoundException(__('Invalid calculo'));
 		}
 
 		if ( $this->request->is(array('post', 'put') )) 
@@ -228,14 +150,14 @@ class CalculosController extends AppController
            	
             if ($this->Calculo->save( $data )) 
 			{	
-				$message='La Galería ha sido guardada!';
+				$message='EL calculo ha sido guardada!';
 				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
 				//$this->Session->setFlash(__($message),array('elemento'=>'exito');//__('La Galería ha sido guardado.'),$layout
 				return $this->redirect(array('action' => 'index')); 
 				
 			}else 
 			{
-				$message='La Galería no pudo ser guardada. Por favor, intentelo de nuevo.';	
+				$message='EL calculo no pudo ser guardada. Por favor, intentelo de nuevo.';	
 				$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));	
 				//$this->Session->setFlash(__('La Galería no pudo ser guardado. Por favor, intentelo de nuevo.'));
 				
@@ -246,15 +168,13 @@ class CalculosController extends AppController
 			$options = array('conditions' => array('Calculo.' . $this->Calculo->primaryKey => $id));
 			$this->request->data = $this->Calculo->find('first', $options);  
 
-		//	pr($this->request->data); 
-		//	exit(); 
 		}
 
 		$users = $this->Calculo->User->find('list'); 
-		$galeriastipos = $this->Calculo->CalculosTipo->find('list'); 
+		$calculostipos = $this->Calculo->CalculosTipo->find('list'); 
 
 		$this->set('imagen', $this->request->data['Calculo']['imagen']); 
-		$this->set(compact('users', 'galeriastipos')); 
+		$this->set(compact('users', 'calculostipos')); 
 
 	}
 
@@ -272,7 +192,7 @@ class CalculosController extends AppController
 
       if($this->Calculo->delete($id))
       {
-       		$message ='La Galerir '.$id.' Ha sido eliminado.';
+       		$message ='EL calculo '.$id.' Ha sido eliminado.';
 			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
             $this->redirect(array('action'=>'index'));
       }
@@ -281,13 +201,13 @@ class CalculosController extends AppController
 		/*
 		$this->Calculo->id = $id;
 		if (!$this->Calculo->exists()) {
-			throw new NotFoundException(__('Invalid galeria'));
+			throw new NotFoundException(__('Invalid calculo'));
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Calculo->delete()) {
-			$this->Session->setFlash(__('The galeria has been deleted.'));
+			$this->Session->setFlash(__('The calculo has been deleted.'));
 		} else {
-			$this->Session->setFlash(__('The galeria could not be deleted. Please, try again.'));
+			$this->Session->setFlash(__('The calculo could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
 		*/
@@ -306,9 +226,9 @@ class CalculosController extends AppController
                 if(in_array($ext, $arr_ext))
                 {	
                     $tmp_name=$data['Calculo']['imagen']['tmp_name'];  
-                    $name='galeria_d_usuario_'.$data['Calculo']['user_id'].'.jpg';
+                    $name='calculo_d_usuario_'.$data['Calculo']['user_id'].'.jpg';
 
-                    $destination = WWW_ROOT . 'uploads/galerias/' . $name;
+                    $destination = WWW_ROOT . 'uploads/calculos/' . $name;
                     move_uploaded_file($tmp_name, $destination); 
                     $data['Calculo']['imagen'] = $name ; 
                 }
@@ -335,17 +255,17 @@ class CalculosController extends AppController
 	    $this->layout="ajax";
 
     	$condiciones=array('recursive'=>1); 
-    	$galerias=$this->Calculo->find('all',$condiciones); 
-    	echo json_encode($galerias); 
+    	$calculos=$this->Calculo->find('all',$condiciones); 
+    	echo json_encode($calculos); 
 
     }
 
     function admin_getCalculos()
     {
     	$condiciones=array('recursive'=>1); 
-    	$galerias=$this->Calculo->find('all',$condiciones); 
+    	$calculos=$this->Calculo->find('all',$condiciones); 
 
-    	pr($galerias); 
+    	pr($calculos); 
 
     }
 }

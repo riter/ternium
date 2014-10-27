@@ -6,7 +6,7 @@ App::uses('AppModel', 'Model');
  * @property User $User
  * @property Galeriastipo $Galeriastipo
  */
-class Galeria extends AppModel {
+class Calculo extends AppModel {
  public $displayField = 'nombre'; 
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -37,7 +37,7 @@ class Galeria extends AppModel {
 	var $validate = array(
     'image' => array(
         'rule' => array('extension', array('gif', 'jpeg', 'png', 'jpg'),
-        'message' => 'Por favor indique una imágen válida.'
+        'message' => 'Por favor indique una imagen valida.'
     ))
 	);
 

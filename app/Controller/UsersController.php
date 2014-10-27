@@ -283,7 +283,7 @@ class UsersController extends AppController {
             return json_encode(array('Default' => null));
         }
 
-        return json_encode(array('Default' => 'Required Request POST'));
+        return json_encode(array('Default' => 'Required Request GET'));
     }
 
     /*    API Method */
