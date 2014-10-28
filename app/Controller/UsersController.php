@@ -333,6 +333,7 @@ class UsersController extends AppController {
                         
                         
                         $this->User->create();
+                        unset($user['User']['password']);
                       
                         $this->User->save($user);//exit;
                        
