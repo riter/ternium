@@ -227,27 +227,6 @@ class UsersController extends AppController {
         return $data;
     }
 
-    private function enviarEmail($data) {
-
-        /* try {
-          $subject = "Loraxian - Registration on the website";
-          $to = $data['User']['email'];
-          $from= 'admin@loraxian.com';
-          $url="http://".$_SERVER['HTTP_HOST'].$this->webroot."home/login";
-
-          $body = "Your Loraxian Team Portal account has been created.\n\n";
-          $body .= "You can login to the team portal by visiting this link:".$url."\n\n";
-          $body .= "You can change your password by clicking on the 'My Profile' link in the upper right corner of the team portal. \n\n";
-          $body .= "        Loraxian Management \n\n";
-
-
-          $headers = 'From: ' . $from . "\r\n";
-          @mail($to, $subject, $body, $headers);
-          } catch (Exception $ex) {
-
-          } */
-    }
-
     public function registro() {
         $this->autoRender = false;
         $this->response->type('json');
@@ -255,6 +234,9 @@ class UsersController extends AppController {
             if ($this->request->is('get')) {
                 $this->User->create();
                 $user = $this->User->save($this->request->query);
+
+                CakeLog::debug(print_r($this->request->query,true));
+                CakeLog::debug(print_r($user,true));
 
                 if ($user && !empty($user)) {
                     return json_encode(array('Default' => $user));
@@ -338,6 +320,80 @@ class UsersController extends AppController {
         return json_encode(array('Default' => 'Required Request POST'));
     }
 
-   
 
+    public function lost_password() {
+
+        $this->autoRender = false;
+        $this->response->type('json');
+        $email = $this->request->query['email'];
+
+        $condiciones = array('email' => $email);
+
+        if ($this->request->is('get')) {
+            $user = $this->User->find('first', array('conditions' => $condiciones));
+
+            if($user)
+            {
+                /*$this->User->create();
+                unset($user['User']['password']);
+
+                $this->User->save($user);*/
+
+                $from = array('soporte@ternium.com' => 'ternium');
+                $to = array($email => '');
+                $subject = 'Ternium: Recuperar contraseña';
+                $params = array(
+                    'new_password' => ''
+                );
+
+                if($this->sendEmail('lostpassword', $from, $to, $subject, $params)){
+                    return json_encode(array('Default' => 'Email enviado correctamente'));
+                }else{
+                    return json_encode(array('Default' => null,'Message'=>'Error al enviar email'));
+                }
+            }else{
+                return json_encode(array('Default' => null,'Message'=>'Email no esta registrado'));
+            }
+
+        }
+        return json_encode(array('Default' => null,'Message'=>'Required Request GET'));
+    }
+
+    public function sendEmail($template, $from, $to, $subject, $params = null) {
+        try{
+            App::uses('CakeEmail', 'Network/Email');
+            $Email = new CakeEmail($this->configEmail());
+            //$Email = new CakeEmail();
+            $Email->template($template);
+            $Email->emailFormat('html');
+            $Email->from($from);
+            $Email->to($to);
+            //$Email->replyTo(array());
+            $Email->subject($subject);
+            if($params != null){
+                $Email->viewVars($params);
+            }
+            $Email->send();
+            return true;
+
+        }catch (Exception $e){
+            CakeLog::debug(print_r($e->getMessage(),true));
+            return false;
+        }
+    }
+    public function configEmail() {
+        $gmail = array(
+            'transport' => 'Smtp',
+            'from' => array('riter.angelito@gmail.com' => 'La segunda'),
+            'host' => 'ssl://smtp.gmail.com',
+            'port' => 465,
+            'timeout' => 10,
+            'username' => 'riter.angelito@gmail.com',
+            'password' => 'riter123angel',
+            'client' => null,
+            'log' => true,
+            'emailFormat' => 'html'
+        );
+        return $gmail;
+    }
 }
