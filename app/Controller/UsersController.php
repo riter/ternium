@@ -252,38 +252,24 @@ class UsersController extends AppController {
         $this->autoRender = false;
         $this->response->type('json');
         try {
-            $nombre = $this->request->query['nombre'];
-            $apellido = $this->request->query['apellido'];
-            $email = $this->request->query['email'];
-            $telefono = $this->request->query['telefono'];
-            $fecha_nacimiento=$this->request->query['fecha_nacimiento'];
-            $username = $this->request->query['username'];
-            $password = $this->request->query['password'];
-            $pais = $this->request->query['pais_id'];
-            $provincia = $this->request->query['provincia_id'];
-            $profesion = $this->request->query['profesion_id'];
-
-            //$password = AuthComponent::password($password);
-            $condiciones = array('User.nombre' => $nombre, 'User.apellido' => $apellido, 'User.email' => $email, 'User.telefono' => $telefono, 'User.fecha_nacimiento'=>$fecha_nacimiento,'User.username' => $username, 'User.password' => $password, 'User.pais_id' => $pais,'User.provincia_id'=>$provincia,'User.profesion_id'=>$profesion);
-
-
             if ($this->request->is('get')) {
                 $this->User->create();
-                if ($this->User->save($this->request->query)) {
-                    $user = $this->User->find('all', array('conditions' => $condiciones));
-                    echo "Guadado!";
+                $user = $this->User->save($this->request->query);
+
+                if ($user && !empty($user)) {
+                    return json_encode(array('Default' => $user));
+                } else {
+                    return json_encode(array('Default' => null));
                 }
             }
+            return json_encode(array('Default' => 'Required Request GET'));
+
         } catch (Exception $ex) {
-            echo 'no se pudo guardar!';
-        }
-        if (!empty($user)) {
-            return json_encode(array('Default' => $user));
-        } else {
-            return json_encode(array('Default' => null));
+            return json_encode(array('Default' => $ex->getMessage()));
         }
 
-        return json_encode(array('Default' => 'Required Request GET'));
+
+
     }
 
     /*    API Method */
