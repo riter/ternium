@@ -18,8 +18,12 @@ class DashboardController extends AppController {
             } 
         }            
     }
+    public function admin_index()
+    {
+
+    }
     
-    public function index() 
+    public function index()
     {
         
         $this->loadModel('Calculo');
