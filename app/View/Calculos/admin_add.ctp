@@ -1,15 +1,14 @@
-<?php error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING ^ E_DEPRECATED);?>
 <div class="mws-panel grid_8"> 
     <div class="mws-panel-header">
-        <span class="mws-i-24 i-plus">Adicionar Galerías</span>
+        <span class="mws-i-24 i-plus">Adicionar C&aacute;lculo</span>
     </div>
 
     <div class="mws-panel-body">
         <?php
 
-            echo $this->Form->create('Galeria', array
+            echo $this->Form->create('Calculo', array
             (   
-                'id' => 'galeria',
+                'id' => 'calculo',
                 'class' => 'mws-form',
                 'enctype' => 'multipart/form-data',
                 'autocomplete' => 'off',
@@ -33,35 +32,15 @@
                     </div>
                 </div> 
 
-             <div class="mws-form-row">
-                    <label for="FileImage">Imagen</label>
-                    <div class="mws-form-item small"> 
-                        <div style="display: inline;">
-                        <?php echo $this->Form->input('imagen',
-                             array('type' => 'file')); 'mws-textinput required  '?> 
-                            <div>
-                                <?php if($imagen === "") 
-                                    $imagen= 'avatar.png' ?>
-                                <img style="width: 70px; height: 50px;" src="<?php echo $this->webroot; ?>app/webroot/uploads/galerias/<?php echo $imagen; ?>"  />
-                            </div>
-                        </div>
-                    </div>
-                </div>
             <div class="mws-form-row">
-                    <label>Titulo</label>
+                    <label>C&aacute;lculo</label>
                     <div class="mws-form-item small">
-                        <?php echo $this->Form->input('titulo', 
-                        array('id'=>'titulo','class' => 'mws-textinput required')); ?> 
+                        <?php echo $this->Form->input('nombre', 
+                        array('id'=>'nombre','class' => 'mws-textinput required')); ?> 
                     </div>
                 </div> 
 
-                <div class="mws-form-row">
-                    <label>Descripcion</label>
-                    <div class="mws-form-item small">
-                        <?php echo $this->Form->input('descripcion',
-                        array('id'=>'descripcion','class' => 'mws-textinput required')); ?>
-                    </div>
-                </div> 
+                
 
                 <div class="mws-form-row">
                     <label>Usuario</label>
@@ -72,10 +51,18 @@
                 </div>                 
 
                 <div class="mws-form-row">
-                    <label>Tipo Galerias</label>
+                    <label>Tipo de C&aacute;lculos</label>
                     <div class="mws-form-item small">
-                        <?php echo $this->Form->input('galeriastipo_id', 
-                        array('id'=>'galeriastipo_id','class' => 'mws-textinput required')); ?>
+                        <?php echo $this->Form->input('calculostipos_id', 
+                        array('id'=>'calculostipo_id','class' => 'mws-textinput required')); ?>
+                    </div>
+                </div>
+              
+              <div class="mws-form-row">
+                    <label>Fecha creaci&oacute;n</label>
+                    <div class="mws-form-item small">
+                        <?php echo $this->Form->input('created', 
+                        array('id'=>'created','class' => 'mws-textinput required')); ?>
                     </div>
                 </div>
                 
@@ -93,29 +80,18 @@
         <script>    
    $(function() 
    {
-        $("#galeria").validate
+        $("#calculo").validate
         ({  
             rules: 
                {
-                codigo: 
+                nombre: 
                 {
                     required : true,                
                     minlength: 2
                 },
-                
-                imagen: 
+                data: 
                 {
                     required : true,                
-                    minlength: 2
-                },
-                titulo: 
-                {
-                    required : true,                
-                    minlength: 2
-                },
-                descripcion:{
-
-                   required : true,                
                     minlength: 2
                 }
             },

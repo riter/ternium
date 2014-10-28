@@ -9,33 +9,11 @@ App::uses('AppController', 'Controller');
 class GaleriasController extends AppController 
 {	
 
-/**
- * Components
- *
- * @var array
- */
-
  public $components = array('Paginator');
-
-
-
-/**
- * admin_index method
- *
- * @return void
- */
-	public function admin_index() {
+public function admin_index() {
 		$this->Galeria->recursive = 0;
 		$this->set('galerias', $this->Paginator->paginate());
 	}
-
-/**
- * admin_view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
 	public function admin_view($id = null) {
 		if (!$this->Galeria->exists($id)) {
 			throw new NotFoundException(__('Invalid imagen'));

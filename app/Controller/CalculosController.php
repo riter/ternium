@@ -9,34 +9,8 @@ App::uses('AppController', 'Controller');
 class CalculosController extends AppController 
 {	
 
-/**
- * Components
- *
- * @var array
- */
-
  public $components = array('Paginator');
 
-
-/**
- * index method
- *
- * @return void
- */
-	public function index() {
-               $usuarios = $this->Calculo->find('count',array('conditions'=>array('Calculo.id >'=>0)));
-		$this->Calculo->recursive = 2;
-		$this->set('calculos', $this->Paginator->paginate());
-                echo "ljfsldf";
-	}
-
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
 	public function view($id = null) 
 	{
 		if (!$this->Calculo->exists($id)) 
@@ -54,9 +28,22 @@ class CalculosController extends AppController
  * @return void
  */
 	public function admin_index() {
-		$this->Calculo->recursive = 2;
-		$this->set('calculos', $this->Paginator->paginate());
-                exit;
+		//$this->Calculo->recursive  = 0;
+                  
+                //$this->Calculo->recursive = 2;
+              //  $data = $this->Calculo->find('all');
+              //  $this->set('calculos', $data);
+             //   print_r($this->set('calculos', $data));
+             //    print_r($this->Calculo->query("SELECT * FROM calculos LIMIT 2"));
+              //  exit;
+		//print_r($this->set('calculos', $this->Paginator->paginate()));
+                
+                $mostrar=$this->Calculo->query("select * from calculo");
+                var_dump($mostrar);echo "alsjdflksdfjlasjd";exit;
+        $this->Calculo->recursive = 0;
+        $data = $this->Calculo->find('all');
+        $this->set('calculos', $data);
+               
 	}
 
 /**
@@ -89,30 +76,27 @@ class CalculosController extends AppController
 		
 		if ($this->request->is('post')) 
 		{	
-			$data = $this->UploadPhoto($this->request->data); 
+			$data = $this->request->data; 
 
 			$this->Calculo->create();  
 
 			if ($this->Calculo->save( $data )) 
 			{
-			$message='La Calculo ha sido guardada.';	
+			$message='La Calculo ha sido guardado.';	
 			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
-		     //	$this->Session->setFlash($message,$layout); //__('El País  ha sido guardado.')
+		     
 				return $this->redirect(array('action' => 'index'));  
 				
 			}
 			else 
 			{
-				$message='La Calculo no pudo ser guardada.';
+                          $message='La Calculo no pudo ser guardada.';
 			  $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));	
-			   $this->Session->setFlash($message,$layout);//__('El Galería no pudo ser guardado. Por favor, intentelo de nuevo.')
+			   $this->Session->setFlash($message,$layout);
 				
 			}
 		} 
-		//$provincias = $this->Proveedore->Provincium->find('list');
-		//$this->set(compact('Galería', 'provincias'));
-		
-
+	
 		$users = $this->User->find('list'); 
          	$calculostipos = $this->CalculosTipo->find('list'); 
   
@@ -137,17 +121,7 @@ class CalculosController extends AppController
 
 		if ( $this->request->is(array('post', 'put') )) 
 		{	
-	 	   if ( $this->request->data['Calculo']['imagen']['name'] !="")
-	 	   {  
-	 	   	  $data = $this->UploadPhoto($this->request->data); 
-	 	   }
-           else 
-           	{	
-           	   $data=$this->request->data;  
-         	   $data['Calculo']['imagen']=$this->request->data['Calculo']['imagen2'];
-          	   unset($data['Calculo']['imagen2']);
-           	}
-           	
+	 	            	
             if ($this->Calculo->save( $data )) 
 			{	
 				$message='EL calculo ha sido guardada!';
@@ -192,25 +166,11 @@ class CalculosController extends AppController
 
       if($this->Calculo->delete($id))
       {
-       		$message ='EL calculo '.$id.' Ha sido eliminado.';
-			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
+       	    $message ='EL calculo '.$id.' Ha sido eliminado.';
+	    $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
             $this->redirect(array('action'=>'index'));
       }
 
-
-		/*
-		$this->Calculo->id = $id;
-		if (!$this->Calculo->exists()) {
-			throw new NotFoundException(__('Invalid calculo'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->Calculo->delete()) {
-			$this->Session->setFlash(__('The calculo has been deleted.'));
-		} else {
-			$this->Session->setFlash(__('The calculo could not be deleted. Please, try again.'));
-		}
-		return $this->redirect(array('action' => 'index'));
-		*/
 	}
 
 	private function UploadPhoto($data) 

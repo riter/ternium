@@ -16,6 +16,11 @@ class User extends AppModel
             ) 
         ); 
     */
+     var $virtualFields = array(
+    'contar_usuario' => 'COUNT(User.uid)',
+    'edad_usuario'=>'COUNT(User.fecha_nacimiento)'
+     );
+     
     
     public $validate = array(
         'nombre' => array(
