@@ -31,7 +31,7 @@ class DashboardController extends AppController {
     }
 
     public function admin_index() {
-        $up = $this->UsuariosPais();
+       // $up = $this->UsuariosPais();
         $upa = $this->UsuariosPaisFecha();
         $ue = $this->UsuariosEdad();
         $uprof = $this->UsuariosProfesion();
@@ -128,7 +128,7 @@ class DashboardController extends AppController {
         $cargar[] = array();
         $fields = array('User.uid', 'User.pais_id');
         $contarUpanio = $this->User->find('all', array(
-            'conditions' => array('User.uid >' => 0, 'User.created <' => '2014-10-02 09:38:20'),
+            'conditions' => array('User.uid >' => 0, 'User.created' => '2014-10-02 09:38:20'),
             'group' => 'User.pais_id',
             'recursive' => 0)); //,'fields'=>$fields
 

@@ -6,14 +6,33 @@
         <br><br><br><br><br><br><br>
          <img src="<?php echo $this->webroot; ?>/img/logo-steelframe.png" alt="Steelframe Calculator" title="Steelframe Calculator" />
          <?php
-       
-        $contar_array=sizeof($recibir);
-        $contar_array2=count($recibir);
         
          $i=0;
         
          for($j=0;$j<count($recibir);$j++)
-        {   echo "<br/>";
+        {
+             if($j==0)
+             {
+             //echo "Usuarios registrados por fecha<br>";
+             }
+             elseif($j==1)
+             {
+             echo "<b>Usuarios registrados por fecha</b>";
+             }
+            elseif($j==2)
+             {
+             echo "<br><b>Usuarios registrados por edad</b>";
+             }
+             elseif($j==3)
+             {
+             echo "<br><b>Usuarios registrados por profesion</b>";
+             }
+             elseif($j==4)
+             {
+             echo "<br><b>Usuarios registrados por provincias</b>";
+             }
+
+             echo "<br/>";
             for($i=0;$i<count($recibir[$j]);$i++){
              
                for($k=0;$k<count($recibir[$j][$i]);$k++){
