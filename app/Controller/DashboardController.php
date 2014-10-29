@@ -32,13 +32,16 @@ class DashboardController extends AppController {
 
     public function admin_index() {
         $up = $this->UsuariosPais();
-        // print_r($up);exit;
-        $upa = $this->UsuariosPaisAnio();
+        $upa = $this->UsuariosPaisFecha();
         $ue = $this->UsuariosEdad();
         $uprof = $this->UsuariosProfesion();
         $prov = $this->UsuariosProvincia();
 
+        
+       
         $recibir = array($up, $upa, $ue, $uprof, $prov);
+        $cont = $this->listadosUsuarios("Calculos realizados");
+        //echo $cont;exit;
         $this->set('recibir', $recibir);
     }
 
@@ -47,11 +50,15 @@ class DashboardController extends AppController {
         switch ($listado) {
             case "Usuarios registrados";
                 $listados = $this->User->find('count', array('conditions' => array('User.uid >' => 0)));
-                return $listados;
+                return "Usuarios registrados".$listados;
                 break;
             case "Calculos realizados";
                 $cont = $this->Calculo->find('count', array('conditions' => array('Calculo.id >' => 0)));
-                echo "Calculos realizados " . $cont;
+                return  "Calculos realizados ".$cont;
+                break;
+             case "Paises registrados";
+                $cont = $this->User->find('count', array('conditions' => array('User.id >' => 0,'User.pais_id'=>0)));
+                echo "Calculos paises " . $cont;
                 break;
             case "Descargas de la apps";
                 echo "en veremos!";
@@ -66,7 +73,7 @@ class DashboardController extends AppController {
         $ano_diferencia = date("Y") - $ano;
         $mes_diferencia = date("m") - $mes;
         $dia_diferencia = date("d") - $dia;
-        if ($dia_diferencia < 0 || $mes_diferencia < 0)
+        if ($dia_diferencia < 0 || $mes_diferencia < 0)//si no funciona en todos los casos probar con &&
             $ano_diferencia--;
         return $ano_diferencia;
     }
@@ -79,11 +86,11 @@ class DashboardController extends AppController {
             'group' => 'User.pais_id',
             'recursive' => 0));
         $i = 0;
-        // echo "<pre>"; var_dump($contarUpaiss);echo "</pre>";exit;
+
         foreach ($contarUpaiss as $contar) {
-            $cargar[$i][0] = $contar['User']['contar_usuario']." ";
-            $cargar[$i][1] = $contar['User']['nombre']. " ";
-            $cargar[$i][2] = $contar['User']['fecha_nacimiento']." <br/>";
+            $cargar[$i][0] = $contar['User']['contar_usuario'] . " ";
+            $cargar[$i][1] = $contar['User']['nombre'] . " ";
+            $cargar[$i][2] = $contar['User']['fecha_nacimiento'] . " <br/>";
             $i++;
         }
 
@@ -118,7 +125,7 @@ class DashboardController extends AppController {
         return $cargar;
     }
 
-    public function UsuariosPaisAnio() {
+    public function UsuariosPaisFecha() {
 
         $cargar[] = array();
         $fields = array('User.uid', 'User.pais_id');
@@ -129,9 +136,9 @@ class DashboardController extends AppController {
 
         $i = 0;
         foreach ($contarUpanio as $contar) {
-            $cargar[$i][0] = $contar['User']['contar_usuario']. " ";
-            $cargar[$i][1] = $contar['User']['nombre']. " ";
-            $cargar[$i][2] = $contar['User']['created']." <br/>";
+            $cargar[$i][0] = $contar['User']['contar_usuario'] . " ";
+            $cargar[$i][1] = $contar['User']['nombre'] . " ";
+            $cargar[$i][2] = $contar['User']['created'] . " <br/>";
             $i++;
         }
         return $cargar;
@@ -149,7 +156,8 @@ class DashboardController extends AppController {
         $i = 0;
         foreach ($contarUs as $contar) {
             $cargar[$i][0] = $contar['User']['contar_usuario'] . " ";
-            $cargar[$i][1] = $contar['Profesione']['nombre']."<br/>";
+            $cargar[$i][1] = $contar['Profesione']['nombre'] . "<br/>";
+            $i++;
         }
         return $cargar;
     }
@@ -159,14 +167,14 @@ class DashboardController extends AppController {
 
         $fields = array('User.uid', 'User.provincia_id');
         $contarUs = $this->User->find('all', array(
-            'conditions' => array('User.uid >' => 0), // array('User.fecha_nacimiento BETWEEN ? AND ?' => array('2000-10-19', '2014-10-27'))),
+            'conditions' => array('User.uid >' => 0, array('User.fecha_nacimiento BETWEEN ? AND ?' => array('2000-10-19', '2014-10-27'))),
             'group' => 'User.provincia_id',
             'recursive' => 0)); //,'fields'=>$fields
         $i = 0;
 
         foreach ($contarUs as $contar) {
             $cargar[$i][0] = $contar['User']['contar_usuario'] . " ";
-            $cargar[$i][1] = $contar['Provincia']['nombre']."<br/>";
+            $cargar[$i][1] = $contar['Provincia']['nombre'] . "<br/>";
             $i++;
         }//  echo "<br/>";
         return $cargar;

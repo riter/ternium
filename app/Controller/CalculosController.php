@@ -38,7 +38,7 @@ class CalculosController extends AppController
               //  exit;
 		//print_r($this->set('calculos', $this->Paginator->paginate()));
                 
-                $mostrar=$this->Calculo->query("select * from calculo");
+                $mostrar=$this->Calculo->query("select * from calculos");
                 var_dump($mostrar);echo "alsjdflksdfjlasjd";exit;
         $this->Calculo->recursive = 0;
         $data = $this->Calculo->find('all');

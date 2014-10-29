@@ -7,7 +7,7 @@ class Calculo extends AppModel {
     public $belongsTo = array(
 		'User' => array(
 			'className' => 'User',
-			'foreignKey' => 'user_id',
+			'foreignKey' => 'users_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
