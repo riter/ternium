@@ -37,8 +37,6 @@ class DashboardController extends AppController {
         $uprof = $this->UsuariosProfesion();
         $prov = $this->UsuariosProvincia();
 
-        
-       
         $recibir = array($up, $upa, $ue, $uprof, $prov);
         $cont = $this->listadosUsuarios("Calculos realizados");
         //echo $cont;exit;

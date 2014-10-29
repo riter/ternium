@@ -131,13 +131,19 @@ class ProvinciasController extends AppController {
         $this->autoRender = false;
          $this->response->type('json');
         if ($this->request->is('get')) {
-            $provincias=$this->Provincia->find('all');
+
+            if(!empty($this->request->query['id'])){
+                $provincias = $this->Provincia->find('all',array('conditions' => array('Provincia.pais_id' => $this->request->query['id'])));
+            }else{
+                $provincias = $this->Provincia->find('all');
+            }
 
             if(!empty($provincias)){
                 return json_encode(array('Default' => $provincias));
             }else{
                 return json_encode(array('Default' => null));
             }
+
         }
         return json_encode(array('Default' => 'Required Request GET'));
     }

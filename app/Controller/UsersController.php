@@ -124,7 +124,6 @@ class UsersController extends AppController {
         if (empty($this->data)) {
             $this->data = $this->User->findById(array('id' => $id));
            } else {
-            $newdata;
             $data = $this->request->data;
 
             $this->User->id = $id;
@@ -227,63 +226,28 @@ class UsersController extends AppController {
         return $data;
     }
 
-    private function enviarEmail($data) {
-
-        /* try {
-          $subject = "Loraxian - Registration on the website";
-          $to = $data['User']['email'];
-          $from= 'admin@loraxian.com';
-          $url="http://".$_SERVER['HTTP_HOST'].$this->webroot."home/login";
-
-          $body = "Your Loraxian Team Portal account has been created.\n\n";
-          $body .= "You can login to the team portal by visiting this link:".$url."\n\n";
-          $body .= "You can change your password by clicking on the 'My Profile' link in the upper right corner of the team portal. \n\n";
-          $body .= "        Loraxian Management \n\n";
-
-
-          $headers = 'From: ' . $from . "\r\n";
-          @mail($to, $subject, $body, $headers);
-          } catch (Exception $ex) {
-
-          } */
-    }
-
     public function registro() {
         $this->autoRender = false;
         $this->response->type('json');
         try {
-            $nombre = $this->request->query['nombre'];
-            $apellido = $this->request->query['apellido'];
-            $email = $this->request->query['email'];
-            $telefono = $this->request->query['telefono'];
-            $fecha_nacimiento=$this->request->query['fecha_nacimiento'];
-            $username = $this->request->query['username'];
-            $password = $this->request->query['password'];
-            $pais = $this->request->query['pais_id'];
-            $provincia = $this->request->query['provincia_id'];
-            $profesion = $this->request->query['profesion_id'];
-
-            //$password = AuthComponent::password($password);
-            $condiciones = array('User.nombre' => $nombre, 'User.apellido' => $apellido, 'User.email' => $email, 'User.telefono' => $telefono, 'User.fecha_nacimiento'=>$fecha_nacimiento,'User.username' => $username, 'User.password' => $password, 'User.pais_id' => $pais,'User.provincia_id'=>$provincia,'User.profesion_id'=>$profesion);
-
-
             if ($this->request->is('get')) {
                 $this->User->create();
-                if ($this->User->save($this->request->query)) {
-                    $user = $this->User->find('all', array('conditions' => $condiciones));
-                    echo "Guadado!";
+                $user = $this->User->save($this->request->query);
+
+                if ($user && !empty($user)) {
+                    return json_encode(array('Default' => $user));
+                } else {
+                    return json_encode(array('Default' => null));
                 }
             }
+            return json_encode(array('Default' => 'Required Request GET'));
+
         } catch (Exception $ex) {
-            echo 'no se pudo guardar!';
-        }
-        if (!empty($user)) {
-            return json_encode(array('Default' => $user));
-        } else {
-            return json_encode(array('Default' => null));
+            return json_encode(array('Default' => $ex->getMessage()));
         }
 
-        return json_encode(array('Default' => 'Required Request GET'));
+
+
     }
 
     /*    API Method */
@@ -295,17 +259,31 @@ class UsersController extends AppController {
         $username = $this->request->data['username'];
         $password = $this->request->data['password'];
 
-        $password = AuthComponent::password($password);
-        $condiciones = array('username' => $username, 'password' => $password);
+        $condiciones = array('username' => $username,'OR' => array('password' => AuthComponent::password($password), 'password_tmp' => $password));
 
         if ($this->request->is('post')) {
-            $user = $this->User->find('first', array('conditions' => $condiciones));
+
+            $user = $this->User->find('first', array('conditions' => $condiciones, 'recursive' => -1));
+            unset($user['User']['password']);
 
             if (!empty($user)) {
+                $fecha = getdate();
+                $passwTmp  = substr( md5($username.$fecha['mon'].$fecha['mday']), 0, 8);
+
+                if($user ['User']['password_tmp'] == $password){
+                    if($user ['User']['password_tmp'] == $passwTmp){
+                        $user ['User']['password_tmp'] = null;
+                        $this->User->create();
+                        if($this->User->save($user))
+                            return json_encode(array('Default' => $user));
+                        else
+                            return json_encode(array('Default' => null,'Message' => 'Error al actualizar contraseña temporal'));
+                    }
+                    return json_encode(array('Default' => null,'Message' => 'Su contraseña temporal ha expirado'));
+                }
                 return json_encode(array('Default' => $user));
-            } else {
-                return json_encode(array('Default' => null));
             }
+            return json_encode(array('Default' => null,'Message' => 'Username o contraseña Incorrecta'));
         }
         return json_encode(array('Default' => 'Required Request POST'));
     }
@@ -333,6 +311,7 @@ class UsersController extends AppController {
                         
                         
                         $this->User->create();
+                        unset($user['User']['password']);
                       
                         $this->User->save($user);//exit;
                        
@@ -351,6 +330,82 @@ class UsersController extends AppController {
         return json_encode(array('Default' => 'Required Request POST'));
     }
 
-   
 
+    public function lost_password() {
+
+        $this->autoRender = false;
+        $this->response->type('json');
+        $email = $this->request->query['email'];
+
+        $condiciones = array('email' => $email);
+
+        if ($this->request->is('get')) {
+            $user = $this->User->find('first', array('conditions' => $condiciones));
+
+            if($user)
+            {
+                $fecha = getdate();
+                $user['User']['password_tmp'] =  substr( md5($user['User']['username'].$fecha['mon'].$fecha['mday']), 0, 8);
+
+                $this->User->create();
+                unset($user['User']['password']);
+
+                if($this->User->save($user)){
+                    $from = array('soporte@ternium.com' => 'ternium');
+                    $to = array($email => '');
+                    $subject = 'Ternium: Recuperar contraseña';
+                    $params = array(
+                        'new_password' => $user['User']['password_tmp']
+                    );
+
+                    if($this->sendEmail('lostpassword', $from, $to, $subject, $params)){
+                        return json_encode(array('Default' => 'Email enviado correctamente'));
+                    }
+                }
+                return json_encode(array('Default' => null,'Message'=>'Error al enviar email'));
+            }else{
+                return json_encode(array('Default' => null,'Message'=>'Email no esta registrado'));
+            }
+
+        }
+        return json_encode(array('Default' => null,'Message'=>'Required Request GET'));
+    }
+
+    public function sendEmail($template, $from, $to, $subject, $params = null) {
+        try{
+            App::uses('CakeEmail', 'Network/Email');
+            $Email = new CakeEmail($this->configEmail());
+            //$Email = new CakeEmail();
+            $Email->template($template);
+            $Email->emailFormat('html');
+            $Email->from($from);
+            $Email->to($to);
+            //$Email->replyTo(array());
+            $Email->subject($subject);
+            if($params != null){
+                $Email->viewVars($params);
+            }
+            $Email->send();
+            return true;
+
+        }catch (Exception $e){
+            CakeLog::debug(print_r($e->getMessage(),true));
+            return false;
+        }
+    }
+    public function configEmail() {
+        $gmail = array(
+            'transport' => 'Smtp',
+            'from' => array('riter.angelito@gmail.com' => 'La segunda'),
+            'host' => 'ssl://smtp.gmail.com',
+            'port' => 465,
+            'timeout' => 10,
+            'username' => 'riter.angelito@gmail.com',
+            'password' => 'riter123angel',
+            'client' => null,
+            'log' => true,
+            'emailFormat' => 'html'
+        );
+        return $gmail;
+    }
 }
