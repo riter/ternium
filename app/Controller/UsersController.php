@@ -124,7 +124,6 @@ class UsersController extends AppController {
         if (empty($this->data)) {
             $this->data = $this->User->findById(array('id' => $id));
            } else {
-            $newdata;
             $data = $this->request->data;
 
             $this->User->id = $id;
@@ -235,9 +234,6 @@ class UsersController extends AppController {
                 $this->User->create();
                 $user = $this->User->save($this->request->query);
 
-                CakeLog::debug(print_r($this->request->query,true));
-                CakeLog::debug(print_r($user,true));
-
                 if ($user && !empty($user)) {
                     return json_encode(array('Default' => $user));
                 } else {
@@ -263,17 +259,31 @@ class UsersController extends AppController {
         $username = $this->request->data['username'];
         $password = $this->request->data['password'];
 
-        $password = AuthComponent::password($password);
-        $condiciones = array('username' => $username, 'password' => $password);
+        $condiciones = array('username' => $username,'OR' => array('password' => AuthComponent::password($password), 'password_tmp' => $password));
 
         if ($this->request->is('post')) {
-            $user = $this->User->find('first', array('conditions' => $condiciones));
+
+            $user = $this->User->find('first', array('conditions' => $condiciones, 'recursive' => -1));
+            unset($user['User']['password']);
 
             if (!empty($user)) {
+                $fecha = getdate();
+                $passwTmp  = substr( md5($username.$fecha['mon'].$fecha['mday']), 0, 8);
+
+                if($user ['User']['password_tmp'] == $password){
+                    if($user ['User']['password_tmp'] == $passwTmp){
+                        $user ['User']['password_tmp'] = null;
+                        $this->User->create();
+                        if($this->User->save($user))
+                            return json_encode(array('Default' => $user));
+                        else
+                            return json_encode(array('Default' => null,'Message' => 'Error al actualizar contraseña temporal'));
+                    }
+                    return json_encode(array('Default' => null,'Message' => 'Su contraseña temporal ha expirado'));
+                }
                 return json_encode(array('Default' => $user));
-            } else {
-                return json_encode(array('Default' => null));
             }
+            return json_encode(array('Default' => null,'Message' => 'Username o contraseña Incorrecta'));
         }
         return json_encode(array('Default' => 'Required Request POST'));
     }
@@ -334,23 +344,25 @@ class UsersController extends AppController {
 
             if($user)
             {
-                /*$this->User->create();
+                $fecha = getdate();
+                $user['User']['password_tmp'] =  substr( md5($user['User']['username'].$fecha['mon'].$fecha['mday']), 0, 8);
+
+                $this->User->create();
                 unset($user['User']['password']);
 
-                $this->User->save($user);*/
+                if($this->User->save($user)){
+                    $from = array('soporte@ternium.com' => 'ternium');
+                    $to = array($email => '');
+                    $subject = 'Ternium: Recuperar contraseña';
+                    $params = array(
+                        'new_password' => $user['User']['password_tmp']
+                    );
 
-                $from = array('soporte@ternium.com' => 'ternium');
-                $to = array($email => '');
-                $subject = 'Ternium: Recuperar contraseña';
-                $params = array(
-                    'new_password' => ''
-                );
-
-                if($this->sendEmail('lostpassword', $from, $to, $subject, $params)){
-                    return json_encode(array('Default' => 'Email enviado correctamente'));
-                }else{
-                    return json_encode(array('Default' => null,'Message'=>'Error al enviar email'));
+                    if($this->sendEmail('lostpassword', $from, $to, $subject, $params)){
+                        return json_encode(array('Default' => 'Email enviado correctamente'));
+                    }
                 }
+                return json_encode(array('Default' => null,'Message'=>'Error al enviar email'));
             }else{
                 return json_encode(array('Default' => null,'Message'=>'Email no esta registrado'));
             }
