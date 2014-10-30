@@ -38,9 +38,11 @@ class DashboardController extends AppController {
         $prov = $this->UsuariosProvincia();
 
         $recibir = array($up, $upa, $ue, $uprof, $prov);
-        $listados=array($this->listadosUsuarios("Calculos realizados"));
+        $listados_calculos=array($this->listadosUsuarios("Calculos realizados"));
+        $listados_usu=array($this->listadosUsuarios("Usuarios registrados "));
         $this->set('recibir', $recibir);
-        $this->set('listados_cantidad',$listados);
+        $this->set('listados_calculos',$listados_calculos);
+        $this->set('listados_usuarios',$listados_usu);
     }
 
     public function listadosUsuarios($listado) {

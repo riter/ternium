@@ -43,12 +43,17 @@
             }
           
         }
-        foreach($listados_cantidad as $cant)
+        foreach($listados_calculos as $cant)
         {
-            echo "ljljl";
+            //$this->log($listados_cantidad);//CakeLog::(LOG_ERR, 'Something horrible happened');
+             echo ("<br/><b> ".$cant." </b>");
             
-            $this->log($listados_cantidad);
-            //CakeLog::(LOG_ERR, 'Something horrible happened');
+        }
+         foreach($listados_usuarios as $cant2)
+        {
+            //$this->log($listados_cantidad);//CakeLog::(LOG_ERR, 'Something horrible happened');
+             echo ("<br/><b> ".$cant2." </b>");
+            
         }
          ?>
     </div>
