@@ -112,8 +112,7 @@ class ProveedoresController extends AppController {
 
       if($this->Proveedore->delete($id))
       {
-
- 		$message='El proveedor ha sido borrado!';
+    	$message='El proveedor ha sido borrado!';
 		 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
    		$this->redirect(array('action'=>'index'));
       }       
@@ -176,8 +175,6 @@ function getListaProveedoresJsonp()
     
     // echo $jsoncallback.'('.json_encode($datos).')';  
 } 
-
-
 /// Método de prueba...
 public function admin_listar_proveedores()
 {	
@@ -206,18 +203,13 @@ public function admin_listar_proveedores()
     { 
         //$pais = 9;
         $this->autoRender = false;
-        $this->response->type('json');//$proveedore_id=$this->request->data['proveedore_id']; 
+        $this->response->type('json');
      
         $pais=$this->request->query['pais_id'];
         $provincia=$this->request->query['provincia_id'];
-         
-          //$opciones=array('conditions' => array('pais_id' => $pais,'provincia_id'=>$provincia));
-          //$opciones=array('pais_id' => $pais,'provincia_id'=>$provincia);
-          $condiciones=array('conditions'=>array('Proveedore.pais_id'=>$pais,'Proveedore.provincia_id'=>$provincia),'recursive'=>0);//array('recursive'=>0);
+        
+        $condiciones=array('conditions'=>array('Proveedore.pais_id'=>$pais,'Proveedore.provincia_id'=>$provincia),'recursive'=>0);//array('recursive'=>0);
             
-          
-         // var_dump($condiciones);exit;
-          
          if(empty($pais)||empty($provincia)){
              
              echo "Olvido un campo!";

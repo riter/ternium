@@ -38,9 +38,9 @@ class DashboardController extends AppController {
         $prov = $this->UsuariosProvincia();
 
         $recibir = array($up, $upa, $ue, $uprof, $prov);
-        $cont = $this->listadosUsuarios("Calculos realizados");
-        //echo $cont;exit;
+        $listados=array($this->listadosUsuarios("Calculos realizados"));
         $this->set('recibir', $recibir);
+        $this->set('listados_cantidad',$listados);
     }
 
     public function listadosUsuarios($listado) {
@@ -78,9 +78,10 @@ class DashboardController extends AppController {
 
     public function UsuariosPais() {
         $cargar[] = array();
+        $fecha_entrada = strtotime("19-11-2008 21:00:00");
         $fields = array('User.uid', 'User.pais_id');
         $contarUpaiss = $this->User->find('all', array(
-            'conditions' => array('User.uid >' => 0, array('User.fecha_nacimiento BETWEEN ? AND ?' => array('2000-10-19', '2014-10-27'))),
+            'conditions' => array('User.uid >' => 0, array('User.fecha_nacimiento <=' => $fecha_entrada)),
             'group' => 'User.pais_id',
             'recursive' => 0));
         $i = 0;
@@ -101,7 +102,7 @@ class DashboardController extends AppController {
         $contarEdad = $this->User->find('all', array(
             'conditions' => array('User.uid >' => 0, array('User.fecha_nacimiento BETWEEN ? AND ?' => array('2000-10-19', '2014-10-27'))),
             'limit' => 10, //'group' => 'User.fecha_nacimiento',
-            'recursive' => 0, $fields)); //,'fields'=>$fields
+            'recursive' => 0)); //,'fields'=>$fields
         $edad = 0;
         $i = 0;
         foreach ($contarEdad as $contar) {
@@ -109,13 +110,13 @@ class DashboardController extends AppController {
             $fechaaa = $contar['User']['fecha_nacimiento'];
             $edad = $this->calcular_edad($fechaaa);
 
-            if ($edad <= 25) {// && $edad<26)
+            if ($edad>=10 &&$edad <= 25) {// && $edad<26)
                 $cargar[$i][0] = $contar['User']['contar_usuario'] . " usuarios 23/25 a&ntilde;os <br/>";
-            } elseif ($edad <= 29) {
+            } elseif ($edad>25 && $edad <= 29) {
                 $cargar[$i][0] = $contar['User']['edad_usuario'] . " usuarios 26/29 a&ntilde;os <br/>";
-            } elseif ($edad <= 35) {
+            } elseif ($edad>29 &&$edad <= 35) {
                 $cargar[$i][0] = $contar['User']['edad_usuario'] . " usuarios 30/35 a&ntilde;os <br/>";
-            } elseif ($edad <= 42) {
+            } elseif ($edad>35 &&$edad <= 42) {
                 $cargar[$i][0] = $contar['User']['edad_usuario'] . " usuarios 36/42 a&ntilde;os <br/>";
             }
             $i++;
@@ -126,9 +127,10 @@ class DashboardController extends AppController {
     public function UsuariosPaisFecha() {
 
         $cargar[] = array();
-        $fields = array('User.uid', 'User.pais_id');
+          //$fecha_entrada = new DateTime('2014-10-02 09:38:20');  $fecha_entrada1=strtotime("19-11-2008 21:00:00");
+        
         $contarUpanio = $this->User->find('all', array(
-            'conditions' => array('User.uid >' => 0, 'User.created' => '2014-10-02 09:38:20'),
+            'conditions' => array('User.uid >' => 0, 'User.created <=' =>'2014-10-15 00:00:00'),
             'group' => 'User.pais_id',
             'recursive' => 0)); //,'fields'=>$fields
 

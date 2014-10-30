@@ -1,3 +1,4 @@
+<?php //echo "<pre>";print_r($calculos); echo "</pre>";exit;?>
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
         <span class="mws-i-24 i-table-1">Calculos</span>

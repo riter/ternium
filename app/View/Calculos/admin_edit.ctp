@@ -1,14 +1,15 @@
+<?php //echo "<pre>";print_r($calculos); echo "</pre>";exit;?>
 <div class="mws-panel grid_8"> 
     <div class="mws-panel-header">
-        <span class="mws-i-24 i-plus">Editar Galería</span>
+        <span class="mws-i-24 i-plus">Editar C&aacute;lculo</span>
     </div>
 
     <div class="mws-panel-body">
         <?php 
 
-            echo $this->Form->create('Galeria', array
+            echo $this->Form->create('Calculo', array
             (   
-                'id' => 'galeria',
+                'id' => 'calculo',
                 'class' => 'mws-form',
                 'enctype' => 'multipart/form-data', 
                 'autocomplete' => 'off',
@@ -24,6 +25,7 @@
 
             <div class="mws-form-inline">  
 
+                
                 <div class="mws-form-row" style="display:none">
                     <label>ID</label>
                     <div class="mws-form-item small">
@@ -31,65 +33,48 @@
                         array('id'=>'id','class' => 'mws-textinput required')); ?> 
                     </div>
                 </div> 
-                <?php //pr($Galeria);?>
-                <!--<div class="mws-form-row" style="display:none" >
-                    <label>Imagen2</label> 
-                    <div class="mws-form-item small">
-                        <?php  /* echo $this->Form->input('imagen', 
-                        array('id'=>'imagen2','name'=>'data[Galeria][imagen2]',
-                                'class' => 'mws-textinput required')); */?> 
-                    </div>
-                </div>-->
 
-                <div class="mws-form-row">
-                    <label for="FileImage">Imagen</label>
-                    <div class="mws-form-item small"> 
-                        <div style="display: inline;">
-                        <?php echo $this->Form->input('imagen', array('type' => 'file')); ?> 
-                            <div>
-                                <?php if($imagen === "") 
-                                    $imagen= 'avatar.png' ?>
-                                <img style="width: 70px; height: 50px;" src="<?php echo $this->webroot; ?>app/webroot/uploads/galerias/<?PHP echo $imagen; ?>"  />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mws-form-row">
-                    <label>Título</label>
+              <div class="mws-form-row">
+                    <label>C&aacute;lculo</label>
                     <div class="mws-form-item small">
-                        <?php echo $this->Form->input('titulo', 
-                        array('id'=>'titulo','class' => 'mws-textinput required')); ?> 
+                        <?php echo $this->Form->input('nombre', 
+                        array('id'=>'nombre','class' => 'mws-textinput required')); ?> 
                     </div>
                 </div> 
 
-                <div class="mws-form-row">
-                    <label>Descripcion</label>
-                    <div class="mws-form-item small">
-                        <?php echo $this->Form->input('descripcion',
-                        array('id'=>'descripcion','class' => 'mws-textinput required')); ?>
-                    </div>
-                </div> 
 
                 <div class="mws-form-row">
                     <label>Usuario</label>
                     <div class="mws-form-item small">
-                        <?php echo $this->Form->input('user_id', 
-                        array('id'=>'user_id','class' => 'mws-textinput required')); ?> 
+                        <?php echo $this->Form->input('users_id', 
+                        array('id'=>'users_id','class' => 'mws-textinput required')); ?> 
                     </div>
-                </div>       
+                </div>                 
+
                 <div class="mws-form-row">
-                    <label>Tipo Galerias</label>
+                    <label>Tipo de C&aacute;lculos</label>
                     <div class="mws-form-item small">
-                        <?php echo $this->Form->input('galeriastipo_id', 
-                        array('id'=>'galeriastipo_id','class' => 'mws-textinput required')); ?>
+                        <?php echo $this->Form->input('calculostipos_id', 
+                        array('id'=>'calculostipo_id','class' => 'mws-textinput required')); ?>
                     </div>
-                </div> 
+                </div>
+              
+              <div class="mws-form-row">
+                    <label>Fecha creaci&oacute;n</label>
+                    <div class="mws-form-item small">
+                        <?php echo $this->Form->input('created', 
+                        array('id'=>'created','class' => 'mws-textinput required')); ?>
+                    </div>
+                </div>
+               
+               
+
+            
             </div>
             
         <?php
         echo $this->Form->end(array(
-            'label' => __('Save'),
+            'label' => __('Guardar'),
             'div' => array(
                 'class' => 'mws-button-row',
             ),
@@ -99,26 +84,16 @@
         <script>    
    $(function() 
    {
-        $("#galeria").validate
+        $("#calculo").validate
         ({  
             rules: 
                {
-                codigo: 
+                nombre: 
                 {
                     required : true,                
                     minlength: 2
                 },
                 imagen: 
-                {
-                    required : true,                
-                    minlength: 2
-                },
-                texto1: 
-                {
-                    required : true,                
-                    minlength: 2
-                },
-                texto2: 
                 {
                     required : true,                
                     minlength: 2

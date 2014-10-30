@@ -1,231 +1,279 @@
 <?php
+
 App::uses('AppController', 'Controller');
+
 /**
  * Calculos Controller
  *
  * @property Calculo $Calculo
  * @property PaginatorComponent $Paginator
  */
-class CalculosController extends AppController 
-{	
+class CalculosController extends AppController {
 
- public $components = array('Paginator');
+    public $components = array('Paginator');
 
-	public function view($id = null) 
-	{
-		if (!$this->Calculo->exists($id)) 
-		{
-			throw new NotFoundException(__('Invalid calculo'));
-		}
+    public function view($id = null) {
+        if (!$this->Calculo->exists($id)) {
+            throw new NotFoundException(__('Invalid calculo'));
+        }
 
-		$options = array('conditions' => array('calculo.' . $this->Calculo->primaryKey => $id));
-		$this->set('calculo', $this->Calculo->find('first', $options));
-	}
+        $options = array('conditions' => array('calculo.' . $this->Calculo->primaryKey => $id));
+        $this->set('calculo', $this->Calculo->find('first', $options));
+    }
 
-/**
- * admin_index method
- *
- * @return void
- */
-	public function admin_index() {
-		//$this->Calculo->recursive  = 0;
-                  
-                //$this->Calculo->recursive = 2;
-              //  $data = $this->Calculo->find('all');
-              //  $this->set('calculos', $data);
-             //   print_r($this->set('calculos', $data));
-             //    print_r($this->Calculo->query("SELECT * FROM calculos LIMIT 2"));
-              //  exit;
-		//print_r($this->set('calculos', $this->Paginator->paginate()));
-                
-                $mostrar=$this->Calculo->query("select * from calculos");
-                var_dump($mostrar);echo "alsjdflksdfjlasjd";exit;
-        $this->Calculo->recursive = 0;
+    /**
+     * admin_index method
+     *
+     * @return void
+     */
+    public function admin_index() {
+
+        // $mostrar=$this->Calculo->query("select * from calculos");
+        //echo "<pre>";print_r($mostrar);echo "</pre>";exit;
+        $this->Calculo->recursive = 2;
         $data = $this->Calculo->find('all');
         $this->set('calculos', $data);
+
+        // $this->Calculo->recursive = 0;
+        //  $this->set('calculos', $this->Paginator->paginate());
+    }
+
+    /**
+     * admin_view method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function admin_view($id = null) {
+        if (!$this->Calculo->exists($id)) {
+            throw new NotFoundException(__('Invalid calculo'));
+        }
+        $options = array('conditions' => array('Calculo.' . $this->Calculo->primaryKey => $id));
+        $this->set('calculo', $this->Calculo->find('first', $options));
+    }
+
+    /**
+     * admin_add method
+     *
+     * @return void
+     */
+    public function admin_add() {
+        $this->loadModel('CalculosTipo');
+        $this->loadModel('User');
+       
+        if ($this->request->is('post')) {
+            $data = $this->request->data;
                
-	}
+            $this->Calculo->create();
 
-/**
- * admin_view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function admin_view($id = null) {
-		if (!$this->Calculo->exists($id)) {
-			throw new NotFoundException(__('Invalid calculo'));
-		}
-		$options = array('conditions' => array('Calculo.' . $this->Calculo->primaryKey => $id));
-		$this->set('calculo', $this->Calculo->find('first', $options));
-                
-
-	}
-
-/**
- * admin_add method
- *
- * @return void
- */
-   
-	public function admin_add() 
-	{	
-		 $this->loadModel('CalculosTipo');          
-		 $this->loadModel('User'); 
-		
-		if ($this->request->is('post')) 
-		{	
-			$data = $this->request->data; 
-
-			$this->Calculo->create();  
-
-			if ($this->Calculo->save( $data )) 
-			{
-			$message='La Calculo ha sido guardado.';	
-			$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
-		     
-				return $this->redirect(array('action' => 'index'));  
-				
-			}
-			else 
-			{
-                          $message='La Calculo no pudo ser guardada.';
-			  $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));	
-			   $this->Session->setFlash($message,$layout);
-				
-			}
-		} 
-	
-		$users = $this->User->find('list'); 
-         	$calculostipos = $this->CalculosTipo->find('list'); 
-  
-
-		$this->set('calculostipos',$calculostipos); 
-		$this->set('users',$users); 
-	}
-
-/**
- * admin_edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function admin_edit($id = null) 
-	{
-		if (!$this->Calculo->exists($id)) 
-		{
-			throw new NotFoundException(__('Invalid calculo'));
-		}
-
-		if ( $this->request->is(array('post', 'put') )) 
-		{	
-	 	            	
-            if ($this->Calculo->save( $data )) 
-			{	
-				$message='EL calculo ha sido guardada!';
-				 $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
-				//$this->Session->setFlash(__($message),array('elemento'=>'exito');//__('La Galería ha sido guardado.'),$layout
-				return $this->redirect(array('action' => 'index')); 
-				
-			}else 
-			{
-				$message='EL calculo no pudo ser guardada. Por favor, intentelo de nuevo.';	
-				$this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));	
-				//$this->Session->setFlash(__('La Galería no pudo ser guardado. Por favor, intentelo de nuevo.'));
-				
-			} 			
-		} 
-		else
-		{
-			$options = array('conditions' => array('Calculo.' . $this->Calculo->primaryKey => $id));
-			$this->request->data = $this->Calculo->find('first', $options);  
-
-		}
-
-		$users = $this->Calculo->User->find('list'); 
-		$calculostipos = $this->Calculo->CalculosTipo->find('list'); 
-
-		$this->set('imagen', $this->request->data['Calculo']['imagen']); 
-		$this->set(compact('users', 'calculostipos')); 
-
-	}
-
-/**
- * admin_delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function admin_delete($id = null) 
-	{
-	   if(!$id)
-       throw new NotFoundException('Calculo  Invalida');
-
-      if($this->Calculo->delete($id))
-      {
-       	    $message ='EL calculo '.$id.' Ha sido eliminado.';
-	    $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));	
-            $this->redirect(array('action'=>'index'));
-      }
-
-	}
-
-	private function UploadPhoto($data) 
-    {
-        try 
-           {
-            if(!empty($this->data['Calculo']['imagen']['name']))
-            {
-                $file = $this->data['Calculo']['imagen'];  
-                $ext = substr(strtolower(strrchr($file['name'], '.')), 1);
-                $arr_ext = array('jpg', 'png', 'gif'); 
-
-                if(in_array($ext, $arr_ext))
-                {	
-                    $tmp_name=$data['Calculo']['imagen']['tmp_name'];  
-                    $name='calculo_d_usuario_'.$data['Calculo']['user_id'].'.jpg';
-
-                    $destination = WWW_ROOT . 'uploads/calculos/' . $name;
-                    move_uploaded_file($tmp_name, $destination); 
-                    $data['Calculo']['imagen'] = $name ; 
-                }
-                else
-                {
-                    $data['Calculo']['imagen'] = '';
-                } 
-            }
-            else
-            {
-               $data['Calculo']['imagen'] = '';
+            if ($this->Calculo->save($data)) {
+                $message = 'La Calculo ha sido guardado.';
+                $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
+                 print_r($data);exit;
+                return $this->redirect(array('action' => 'index'));
+            } else {
+                $message = 'La Calculo no pudo ser guardada.';
+                $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
+                $this->Session->setFlash($message, $layout);
             }
         }
-        catch (Exception $ex) 
-        {
-            print_r($ex->getMessage());
+
+        $users = $this->User->find('list');
+        $calculostipos = $this->CalculosTipo->find('list');
+
+
+        $this->set('calculostipos', $calculostipos);
+        $this->set('users', $users);
+    }
+
+    /**
+     * admin_edit method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function admin_edit($id = null) {
+        $this->loadModel('CalculosTipo');
+        $this->loadModel('User');
+
+        /* if (!$this->Calculo->exists($id)) {
+          throw new NotFoundException(__('Invalid calculo'));
+          }
+         */if ($this->request->is(array('post', 'put'))) {
+            if ($this->Calculo->save($this->request->data)) {
+                $message = 'El calculo ha sido guardado!';
+                $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
+                return $this->redirect(array('action' => 'index'));
+            } else {
+
+                $message = 'El calculo no pudo ser guardado. Por favor, intente de nuevo!';
+                $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message error'));
+            }
+        } else {
+            $options = array('conditions' => array('Calculo.' . $this->Calculo->primaryKey => $id));
         }
+        $users = $this->User->find('list');
+        $calculostipos = $this->CalculosTipo->find('list');
+        $this->set('users', 'calculostipos');
+    }
+
+    /**
+     * admin_delete method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function admin_delete($id = null) {
+        if (!$id)
+            throw new NotFoundException('Calculo  Invalida');
+
+        if ($this->Calculo->delete($id)) {
+            $message = 'EL calculo ' . $id . ' Ha sido eliminado.';
+            $this->Session->setFlash(__($message), 'default', array('class' => 'mws-form-message success'));
+            $this->redirect(array('action' => 'index'));
+        }
+    }
+
+    function getCalculosJSON() {
+        $this->autoRender = false;
+        $this->layout = "ajax";
+
+        $condiciones = array('recursive' => 1);
+        $calculos = $this->Calculo->find('all', $condiciones);
+        echo json_encode($calculos);
+    }
+
+    function admin_getCalculos() {
+        $condiciones = array('recursive' => 1);
+        $calculos = $this->Calculo->find('all', $condiciones);
+
+        pr($calculos);
+    }
+
+    public function lists() {
+        $this->autoRender = false;
+        $this->response->type('json');
         
-        return $data; 
-    } 
-    function getCalculosJSON()
-    {
-    	$this->autoRender = false; 
-	    $this->layout="ajax";
+        
+        if ($this->request->is('get')) {
+                
+            if (!empty($this->request->query['id'])) {
+                $calculo = $this->Calculo->find('all'); //,array('conditions' => array('Calculo.pais_id' => $this->request->query['id'])));
+            } else {
+                $calculo = $this->Calculo->find('all');
+            }
 
-    	$condiciones=array('recursive'=>1); 
-    	$calculos=$this->Calculo->find('all',$condiciones); 
-    	echo json_encode($calculos); 
-
+            if (!empty($calculo)) {
+                return json_encode(array('Default' => $calculo));
+            } else {
+                return json_encode(array('Default' => null));
+            }
+        }
+        return json_encode(array('Default' => 'Required Request GET'));
     }
 
-    function admin_getCalculos()
-    {
-    	$condiciones=array('recursive'=>1); 
-    	$calculos=$this->Calculo->find('all',$condiciones); 
+    public function insertar_calculo() {
 
-    	pr($calculos); 
+        $this->autoRender = false;
+        $this->response->type('json');
+        try {
+            if ($this->request->is('get')) {
+                $this->Calculo->create();
+                $calculo = $this->Calculo->save($this->request->query);
 
+                if ($calculo && !empty($calculo)) {
+                    return json_encode(array('Default' => $calculo));
+                } else {
+                    return json_encode(array('Default' => null));
+                }
+            }
+            return json_encode(array('Default' => 'Required Request GETs'));
+        } catch (Exception $ex) {
+            return json_encode(array('Default' => $ex->getMessage()));
+        }
     }
+
+    public function actualizar_calculo() {
+        $id = $this->request->query['id'];
+        $this->autoRender = false;
+        $this->response->type('json');
+        try {
+            if ($this->request->is(array('get', 'put'))) {
+                $this->query = $this->Calculo->findById(array('id' => $id));
+                $calculo = $this->Calculo->save($this->request->query);
+
+                if ($calculo && !empty($calculo)) {
+
+                    return json_encode(array('Default' => $calculo));
+                } else {
+                    return json_encode(array('Default' => null));
+                }
+            } else {
+
+                return json_encode(array('Default' => 'Required GET'));
+            }
+            return json_encode(array('Default' => 'Required Request GET'));
+        } catch (Exception $ex) {
+            return json_encode(array('Default' => $ex->getMessage()));
+        }
+    }
+
+    public function eliminar_calculo() {
+        $id = $this->request->query['id'];
+        $this->autoRender = false;
+        $this->response->type('json');
+        try {
+            if ($this->Calculo->delete($id)) {
+                if ($calculo && !empty($calculo)) {
+                    return json_encode(array('Default' => $calculo));
+                } else {
+                    return json_encode(array('Default' => null));
+                }
+            } else {
+
+                return json_encode(array('Default' => 'Required GET'));
+            }
+            return json_encode(array('Default' => 'Required Request GET'));
+        } catch (Exception $ex) {
+            return json_encode(array('Default' => $ex->getMessage()));
+        }
+    }
+    public function duplicar_calculo() {
+        $id = $this->request->query['id'];
+        $this->autoRender = false;
+        $this->response->type('json');
+        try {
+            if ($this->request->is(array('get', 'put'))) {
+                $calculos = $this->Calculo->find('first',array('conditions'=>array('Calculo.id'=> $id),'recursive'=>-1));
+                //print_r($calculos);exit;
+                //$calculos2=$calculos['Calculo'];
+                //$calculos2['id']='';
+                
+               
+                if ($calculos && !empty($calculos)) {
+
+                    $this->Calculo->create();
+                    unset($calculos['Calculo']['id']);
+                    $calculo = $this->Calculo->save($calculos);
+                    if($calculo){
+                       return json_encode(array('Default' => $calculo)); 
+                    }else {
+                        return json_encode(array('Default' => null,'Message'=>'No se pudo guardar!'));
+                    }
+                } else {
+
+                    return json_encode(array('Default' => null));
+                }
+            }
+            return json_encode(array('Default' => 'Required Request GET'));
+        } catch (Exception $ex) {
+            return json_encode(array('Default' => $ex->getMessage()));
+        }
+    }
+
+
+
 }

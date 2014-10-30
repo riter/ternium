@@ -240,7 +240,7 @@ class UsersController extends AppController {
                     return json_encode(array('Default' => null));
                 }
             }
-            return json_encode(array('Default' => 'Required Request GET'));
+            return json_encode(array('Default' => 'Required Request GETs'));
 
         } catch (Exception $ex) {
             return json_encode(array('Default' => $ex->getMessage()));
@@ -297,7 +297,7 @@ class UsersController extends AppController {
         $email = $this->request->query['email'];
        
         $uid=$this->request->query['uid'];
-       $condiciones = array('email' => $email);
+        $condiciones = array('email' => $email);
 
         if ($this->request->is('get')) {
                     $user = $this->User->find('first', array('conditions' => $condiciones));
@@ -306,21 +306,16 @@ class UsersController extends AppController {
                    {
                        if(empty($user['User']['uid'])||$user['User']['uid']==null)
                        {
-                           
-                        $user['User']['uid']=$uid;//$this->request->data['uid'];
-                        
-                        
+                           $user['User']['uid']=$uid;//$this->request->data['uid'];
                         $this->User->create();
                         unset($user['User']['password']);
                       
                         $this->User->save($user);//exit;
-                       
                        }
                       }  else {
                        $condiciones = array('uid' => $uid);
                        $user = $this->User->find('first', array('conditions' => $condiciones));
-                       
-                   }
+                    }
                if (!empty($user)) {
                 return json_encode(array('Default' => $user));
             } else {

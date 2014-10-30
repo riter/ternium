@@ -1,4 +1,4 @@
-<?php/* echo print_r($recibir);*/?>
+<?php// print_r($listados_cantidad);exit;?>
 <div class="mws-panel grid_8">
     
     
@@ -41,10 +41,14 @@
                }
                
             }
-           // echo "<pre>".$recibir[$j][1]."</pre>";
-           // echo "<pre>".$recibir[$j][2]."</pre>";
-           // echo "<pre>".$recibir[$j][3]."</pre>";
-           // echo "aaaaaa";exit;
+          
+        }
+        foreach($listados_cantidad as $cant)
+        {
+            echo "ljljl";
+            
+            $this->log($listados_cantidad);
+            //CakeLog::(LOG_ERR, 'Something horrible happened');
         }
          ?>
     </div>

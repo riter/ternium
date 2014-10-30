@@ -1,3 +1,4 @@
+<?php //echo "<pre>";print_r($calculos); echo "</pre>";exit;?>
 <div class="mws-panel grid_8"> 
     <div class="mws-panel-header">
         <span class="mws-i-24 i-plus">Adicionar C&aacute;lculo</span>
@@ -32,7 +33,7 @@
                     </div>
                 </div> 
 
-            <div class="mws-form-row">
+              <div class="mws-form-row">
                     <label>C&aacute;lculo</label>
                     <div class="mws-form-item small">
                         <?php echo $this->Form->input('nombre', 
@@ -45,8 +46,8 @@
                 <div class="mws-form-row">
                     <label>Usuario</label>
                     <div class="mws-form-item small">
-                        <?php echo $this->Form->input('user_id', 
-                        array('id'=>'user_id','class' => 'mws-textinput required')); ?> 
+                        <?php echo $this->Form->input('users_id', 
+                        array('id'=>'users_id','class' => 'mws-textinput required')); ?> 
                     </div>
                 </div>                 
 
