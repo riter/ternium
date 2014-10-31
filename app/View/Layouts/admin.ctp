@@ -1,14 +1,16 @@
-<?php $controller = $this->request->params['controller']; ?>
+<?php
+
+$controller = $this->request->params['controller']; ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    
-    <meta http-equiv="Content-type" content="text/htm1;charset=utf-8"/>
+    <head>
+
+        <meta http-equiv="Content-type" content="text/htm1;charset=utf-8"/>
 
         <!-- Apple iOS and Android stuff (do not remove) -->
         <meta name="apple-mobile-web-app-capable" content="no" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        
+
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1" />
 
         <!-- Required Stylesheets -->
@@ -16,15 +18,24 @@
         <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>admin-assets/css/fluid.css" media="screen" />
 
         <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>admin-assets/css/mws.style.css" media="screen" />
-       
-        <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>admin-assets/plugins/fileinput/css/fileinput.css" media="screen" />
-     <!-- JavaScript Plugins -->
-        
-        <script type="text/javascript" src="<?php echo $this->webroot; ?>admin-assets/js/jquery-1.7.1.min.js"></script> 
 
-<!--
-        <script type="text/javascript" src="<?php // echo $this->webroot; ?>admin-assets/js/jquery.mousewheel-min.js"></script> 
-    -->
+        <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>admin-assets/plugins/fileinput/css/fileinput.css" media="screen" />
+        <!-- JavaScript Plugins -->
+        <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>admin-assets/css/core/statistic.css" media="screen" />
+
+        <!-- Agregado 10/31/2014 viernes-->
+        <script type="text/javascript" src="<?php echo $this->webroot; ?>admin-assets/js/jquery-1.7.1.min.js"></script> 
+        <script type="text/javascript" src="<?php echo $this->webroot; ?>js/jquery.metadata.js"></script>   
+        <!--[if lt IE 9]>
+            <script type="text/javascript" src="js/excanvas.js"></script>
+        <![endif]-->
+        <script type="text/javascript" src="<?php echo $this->webroot; ?>js/excanvas.js"></script> 
+        <script type="text/javascript" src="<?php echo $this->webroot; ?>js/core/plugins/dandelion.circularstat.min.js"></script>
+
+
+        <!--
+                <script type="text/javascript" src="<?php // echo $this->webroot; ?>admin-assets/js/jquery.mousewheel-min.js"></script> 
+        -->
 
         <!-- jQuery-UI Dependent Scripts -->
 
@@ -68,7 +79,7 @@
 
         <!-- Themer Script (Remove if not needed) -->
         <script type="text/javascript" src="<?php echo $this->webroot; ?>admin-assets/js/themer.js"></script>
-		
+
         <!-- Demo Scripts (remove if not needed) -->
         <script type="text/javascript" src="<?php echo $this->webroot; ?>admin-assets/js/demo.js"></script>
         <script type="text/javascript" src="<?php echo $this->webroot; ?>admin-assets/js/demo.formelements.js"></script>
@@ -87,9 +98,9 @@
 
         <!-- <title><?php echo $title_page; ?> &lsaquo; Admin</title> -->
         <title> Steel Frame Calculator  |  Admin </title>
-</head>
-<body>
-   <!-- Header -->
+    </head>
+    <body>
+        <!-- Header -->
         <div id="mws-header" class="clearfix">
 
             <!-- Logo Container -->
@@ -100,13 +111,13 @@
                     <img src="<?php echo $this->webroot; ?>img/logo-steelframe.png" alt="Steelframe Calculator" />
                 </div>
             </div>  
-            
+
             <!-- User Tools (notifications, logout, profile, change password) -->
             <div id="mws-user-tools" class="clearfix">
-                
+
                 <!-- User Information and functions section -->
                 <div id="mws-user-info" class="mws-inset"> 
-                    
+
                     <!-- User Photo -->
                     <div id="mws-user-photo">
                         <?php 
@@ -142,11 +153,11 @@
 
             <!-- Sidebar Wrapper -->
             <div id="mws-sidebar">
-                
+
                 <?php //$user = AuthComponent::user(); ?>
                 <!-- Main Navigation -->
-              
-                 <div id="mws-navigation">
+
+                <div id="mws-navigation">
                     <ul>
                         <li>
                             <a href="<?php echo $this->Html->url(array('controller' => 'dashboard', 'action' => 'index', 'admin' => true)); ?>" class="mws-i-24 i-home">Dashboard</a>
@@ -162,27 +173,27 @@
                             <a  href="<?php echo $this->Html->url(array('controller'=>'Proveedores',
                                 'action' => 'index', 'admin' => true)); ?>" > Proveedores</a>
 
-                                  <ul <?php if ($controller == 'users') 
+                            <ul <?php if ($controller == 'users') 
                                         echo 'class = ""'; 
                                         else echo 'class = "closed"'; ?>>
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'proveedores', 'action' => 'index', 'admin' => true)); ?>">Todos  los Proveedores</a></li> 
+                                <li><a href="<?php echo $this->Html->url(array('controller' => 'proveedores', 'action' => 'index', 'admin' => true)); ?>">Todos  los Proveedores</a></li> 
 
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'proveedores', 'action' => 'add', 'admin' => true)); ?>">Adicionar Proveedor</a></li> 
-                                </ul> 
+                                <li><a href="<?php echo $this->Html->url(array('controller' => 'proveedores', 'action' => 'add', 'admin' => true)); ?>">Adicionar Proveedor</a></li> 
+                            </ul> 
                         </li> 
-                     
-                      
+
+
                         <li>
                             <a  href="<?php echo $this->Html->url(array('controller'=>'Provincias',
                                 'action' => 'index', 'admin' => true)); ?>" > Provincias</a>
 
-                                <ul <?php if ($controller == 'provincias') 
+                            <ul <?php if ($controller == 'provincias') 
                                         echo 'class = ""'; 
                                         else echo 'class = "closed"'; ?>>
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'provincias', 'action' => 'index', 'admin' => true)); ?>">Todas  las Provincias</a></li> 
+                                <li><a href="<?php echo $this->Html->url(array('controller' => 'provincias', 'action' => 'index', 'admin' => true)); ?>">Todas  las Provincias</a></li> 
 
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'provincias', 'action' => 'add', 'admin' => true)); ?>">Adicionar Provincias</a></li> 
-                                </ul> 
+                                <li><a href="<?php echo $this->Html->url(array('controller' => 'provincias', 'action' => 'add', 'admin' => true)); ?>">Adicionar Provincias</a></li> 
+                            </ul> 
                         </li> 
                         <li>
                             <a  href="<?php echo $this->Html->url(array('controller'=>'galerias',
@@ -191,49 +202,49 @@
 
                     <?php   $controller=strtolower($controller); ?> 
 
-                                <ul <?php if ($controller=='galerias') 
+                            <ul <?php if ($controller=='galerias') 
                                         echo 'class = ""'; 
                                         else echo 'class = "closed"'; ?>>
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'galerias', 'action' => 'index', 'admin' => true)); ?>">Todas  las Im&aacute;genes </a></li> 
+                                <li><a href="<?php echo $this->Html->url(array('controller' => 'galerias', 'action' => 'index', 'admin' => true)); ?>">Todas  las Im&aacute;genes </a></li> 
 
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'galerias', 'action' => 'add', 'admin' => true)); ?>">Adicionar Imagen </a></li> 
-                                </ul> 
+                                <li><a href="<?php echo $this->Html->url(array('controller' => 'galerias', 'action' => 'add', 'admin' => true)); ?>">Adicionar Imagen </a></li> 
+                            </ul> 
                         </li> 
-                        
-         
-              
-                         <li>
+
+
+
+                        <li>
                             <?php   $controller=strtolower($controller); ?> 
 
                             <a  href="<?php echo $this->Html->url(array('controller'=>'Feedbacks',
                                 'action' => 'index', 'admin' => true)); ?>" >Feedbacks </a>
 
-                                <ul <?php if ($controller == 'feedbacks') 
+                            <ul <?php if ($controller == 'feedbacks') 
                                         echo 'class = ""'; 
                                         else echo 'class = "closed"'; ?>>
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'feedbacks', 'action' => 'index', 'admin' => true)); ?>">Todos los Feedbacks </a></li> 
+                                <li><a href="<?php echo $this->Html->url(array('controller' => 'feedbacks', 'action' => 'index', 'admin' => true)); ?>">Todos los Feedbacks </a></li> 
 
-                                    
-                                </ul> 
+
+                            </ul> 
                         </li>  
-                          <li>
+                        <li>
                             <?php   $controller=strtolower($controller); ?> 
 
                             <a  href="<?php echo $this->Html->url(array('controller'=>'Profesiones',
                                 'action' => 'index', 'admin' => true)); ?>" >Profesiones </a>
 
-                                <ul <?php if ($controller == 'profesiones') 
+                            <ul <?php if ($controller == 'profesiones') 
                                         echo 'class = ""'; 
                                         else echo 'class = "closed"'; ?>>
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'profesiones', 'action' => 'index', 'admin' => true)); ?>">Todas las profesiones </a></li> 
+                                <li><a href="<?php echo $this->Html->url(array('controller' => 'profesiones', 'action' => 'index', 'admin' => true)); ?>">Todas las profesiones </a></li> 
 
-                                    <li><a href="<?php echo $this->Html->url(array('controller' => 'profesiones', 'action' => 'add', 'admin' => true)); ?>">Adicionar profesion </a></li> 
-                                </ul> 
+                                <li><a href="<?php echo $this->Html->url(array('controller' => 'profesiones', 'action' => 'add', 'admin' => true)); ?>">Adicionar profesion </a></li> 
+                            </ul> 
                         </li>  
-                        
+
                     </ul>
                 </div>   
-                
+
             </div>
 
             <!-- Main Container Start -->
@@ -256,5 +267,5 @@
             </div>
             <!-- Main Container End -->
         </div> 
-</body>
+    </body>
 </html>

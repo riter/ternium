@@ -403,4 +403,28 @@ class UsersController extends AppController {
         );
         return $gmail;
     }
+     public function editar_usuario() {
+        $id = $this->request->query['id'];
+        $this->autoRender = false;
+        $this->response->type('json');
+        try {
+            if ($this->request->is(array('get', 'put'))) {
+                $this->query = $this->User->findById(array('id' => $id));
+                $user = $this->User->save($this->request->query);
+
+                if ($user && !empty($user)) {
+
+                    return json_encode(array('Default' => $user));
+                } else {
+                    return json_encode(array('Default' => null));
+                }
+            } else {
+
+                return json_encode(array('Default' => 'Required GET'));
+            }
+            return json_encode(array('Default' => 'Required Request GET'));
+        } catch (Exception $ex) {
+            return json_encode(array('Default' => $ex->getMessage()));
+        }
+    }
 }

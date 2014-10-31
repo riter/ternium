@@ -29,7 +29,7 @@ class DashboardController extends AppController {
             }
         }
     }
-
+    
     public function admin_index() {
        // $up = $this->UsuariosPais();
         $upa = $this->UsuariosPaisFecha();
@@ -38,27 +38,29 @@ class DashboardController extends AppController {
         $prov = $this->UsuariosProvincia();
 
         $recibir = array($up, $upa, $ue, $uprof, $prov);
-        $listados_calculos=array($this->listadosUsuarios("Calculos realizados"));
-        $listados_usu=array($this->listadosUsuarios("Usuarios registrados "));
+        $listados_calculos=array($this->listadosCantidadTotal("Calculos realizados"));
+        $listados_usuarios=array($this->listadosCantidadTotal("Usuarios registrados"));
+        $listados_paises= array($this->listadosCantidadTotal("Paises registrados"));
         $this->set('recibir', $recibir);
         $this->set('listados_calculos',$listados_calculos);
-        $this->set('listados_usuarios',$listados_usu);
+        $this->set('listados_usuarios',$listados_usuarios);
+        
     }
 
-    public function listadosUsuarios($listado) {
+    public function listadosCantidadTotal($listado) {
         $listados[] = array();
         switch ($listado) {
             case "Usuarios registrados";
-                $listados = $this->User->find('count', array('conditions' => array('User.uid >' => 0)));
-                return "Usuarios registrados".$listados;
+                $listado = $this->User->find('count', array('conditions' => array('User.uid >' => 0)));
+                return $listado;
                 break;
             case "Calculos realizados";
                 $cont = $this->Calculo->find('count', array('conditions' => array('Calculo.id >' => 0)));
-                return  "Calculos realizados ".$cont;
+                return  $cont;
                 break;
              case "Paises registrados";
-                $cont = $this->User->find('count', array('conditions' => array('User.id >' => 0,'User.pais_id'=>0)));
-                echo "Calculos paises " . $cont;
+                $cont = $this->User->find('count', array('conditions' => array('User.id >' => 0,'User.pais_id >'=>0)));
+                return $cont;
                 break;
             case "Descargas de la apps";
                 echo "en veremos!";
@@ -139,8 +141,8 @@ class DashboardController extends AppController {
         $i = 0;
         foreach ($contarUpanio as $contar) {
             $cargar[$i][0] = $contar['User']['contar_usuario'] . " ";
-            $cargar[$i][1] = $contar['User']['nombre'] . " ";
-            $cargar[$i][2] = $contar['User']['created'] . " <br/>";
+            $cargar[$i][1] = $contar['Paise']['nombre'] . " <br/>";
+            //$cargar[$i][2] = $contar['User']['created'] . " <br/>";
             $i++;
         }
         return $cargar;
