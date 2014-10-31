@@ -1,4 +1,3 @@
-<meta http-equiv="Content-type" content="text/htm1;charset=utf-8"/>
 <style type="text/css">
     .padre{
         display:inline-block;
@@ -45,11 +44,9 @@
         
          $i=0;
          ?><div class="padre"><?php
-         for($j=0;$j<count($recibir);$j++)
-        { 
+         for($j=0;$j<count($recibir);$j++){ 
            
-         //   echo "<br/>";
-            ?><div class="hermanos" ><?php
+             ?><div class="hermanos" ><?php
               if($j==1){
              echo "<b>USUARIOS REGISTRADOS POR PAIS<br/></b>";
              }
@@ -69,8 +66,7 @@
                 echo "<br/>";
                ?><li><div class='prueba'><?php
                for($k=0;$k<count($recibir[$j][$i]);$k++){
-                 //$ent= htmlentities(strtoupper($recibir[$j][$i][$k]), ENT_QUOTES,'UTF-8'); // así de sencillo 
-                 echo ($recibir[$j][$i][$k]);
+                echo ($recibir[$j][$i][$k]);
                  
               }
                 ?></div></li><?php
@@ -81,6 +77,7 @@
         ?></div>
 
         <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/core/statistic.css" media="screen" />
+        
         <script type="text/javascript">
             (function($) {
                 $(document).ready(function(e) {
@@ -92,7 +89,7 @@
         <ul class="da-circular-stat-wrap">
             <li class="da-circular-stat {fillColor: '#a6d037', value:<?php echo $listados_usuarios[0];?>, maxValue: 98, label: 'Total Calculos'}"></li>
             <li class="da-circular-stat {fillColor: '#a6d037', value:<?php echo $listados_calculos[0];?>, maxValue: 100, label: 'Total Usuarios'}"></li>
-            <li class="da-circular-stat {fillColor: '#fff', value:<?php echo $listados_calculos[0];?>, maxValue: 100, label: 'Total Descargas'}"></li>
+            <li class="da-circular-stat {fillColor: '#fff', value:<?php echo $listados_paises[0];?>, maxValue: 100, label: 'Total Descargas'}"></li>
             <li class="da-circular-stat {fillColor: '#1BEE57', value:<?php echo $listados_calculos[0];?>, maxValue: 100, label: 'Total Descargas'}"></li>
         </ul>
 
