@@ -1,21 +1,41 @@
+<meta http-equiv="Content-type" content="text/htm1;charset=utf-8"/>
 <style type="text/css">
+    .padre{
+        display:inline-block;
+        width:100%;
+    }
+    .hermanos{
+        display:inline-block;
+        width:33%;
+        float:left;
+    }
     li{
         list-style: none;
-    }
-   .prueba {
-	/*background:url(../../admin-assets/images/black-circle.png) no-repeat center center;*/
-        background-color:#3d464b; 
-        border-radius: 50%;
-        height:20px;
-        width: 20px;
-        display: block;
         text-align: left;
-        
-       }
-       .prueba a{
-           padding-left:100px;
-       }
-       
+    }
+    .prueba:before {
+    background-color: #3d464b;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    text-align: left;
+    content: "";
+    position: absolute;
+    left: 7px;
+    }
+    .prueba {
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 9px;
+    }
+    b{
+      margin-top:100px;
+        margin-bottom: 20px;
+      margin-left:-167px;
+    }
+  
+
 </style>
 <div class="mws-panel grid_8">
     <div class="dashboard" style="text-align: center">
@@ -24,41 +44,43 @@
          <?php
         
          $i=0;
-        
+         ?><div class="padre"><?php
          for($j=0;$j<count($recibir);$j++)
         { 
-             if($j==1)
-             {
-             echo "<b>USUARIOS REGISTRADOS POR PAIS</b>";
+           
+         //   echo "<br/>";
+            ?><div class="hermanos" ><?php
+              if($j==1){
+             echo "<b>USUARIOS REGISTRADOS POR PAIS<br/></b>";
              }
-            elseif($j==2)
-             {
-             echo "<br><b>USUARIOS REGISTRADOS POR EDAD</b>";
+            elseif($j==2){
+             echo "<b>USUARIOS REGISTRADOS POR EDAD</b><br/>";
              }
-             elseif($j==3)
-             {
-             echo "<br><b>USUARIOS REGISTRADOS POR PROFESION</b>";
+             elseif($j==3){
+             echo "<b>USUARIOS REGISTRADOS POR PROFESION</b><br/>";
              }
-             elseif($j==4)
-             {
-             echo "<br><b>USUARIOS REGISTRADOS POR PROVINCIAS</b>";
+             elseif($j==4){
+             echo "<b>USUARIOS REGISTRADOS POR PROVINCIAS</b><br/>";
              }
-           //echo "<script>alert($i);</script>";
-
-             echo "<br/>";
+             
+             
+             ?><ul><?php
             for($i=0;$i<count($recibir[$j]);$i++){
-             
+                echo "<br/>";
+               ?><li><div class='prueba'><?php
                for($k=0;$k<count($recibir[$j][$i]);$k++){
-               echo $recibir[$j][$i][$k];
-             
-                }
+                 //$ent= htmlentities(strtoupper($recibir[$j][$i][$k]), ENT_QUOTES,'UTF-8'); // así de sencillo 
+                 echo ($recibir[$j][$i][$k]);
+                 
+              }
+                ?></div></li><?php
                
-            } 
+            } ?></ul></div><?php
           
         }
-        ?>
+        ?></div>
 
-<link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/core/statistic.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $this->webroot; ?>css/core/statistic.css" media="screen" />
         <script type="text/javascript">
             (function($) {
                 $(document).ready(function(e) {
@@ -67,14 +89,14 @@
             })(jQuery);
 
         </script>
-          <ul class="da-circular-stat-wrap">
+        <ul class="da-circular-stat-wrap">
             <li class="da-circular-stat {fillColor: '#a6d037', value:<?php echo $listados_usuarios[0];?>, maxValue: 98, label: 'Total Calculos'}"></li>
             <li class="da-circular-stat {fillColor: '#a6d037', value:<?php echo $listados_calculos[0];?>, maxValue: 100, label: 'Total Usuarios'}"></li>
             <li class="da-circular-stat {fillColor: '#fff', value:<?php echo $listados_calculos[0];?>, maxValue: 100, label: 'Total Descargas'}"></li>
             <li class="da-circular-stat {fillColor: '#1BEE57', value:<?php echo $listados_calculos[0];?>, maxValue: 100, label: 'Total Descargas'}"></li>
         </ul>
-            
-        
-         
+
+
+
     </div>
 </div>

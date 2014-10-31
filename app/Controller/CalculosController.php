@@ -248,10 +248,7 @@ class CalculosController extends AppController {
         try {
             if ($this->request->is(array('get', 'put'))) {
                 $calculos = $this->Calculo->find('first',array('conditions'=>array('Calculo.id'=> $id),'recursive'=>-1));
-                //print_r($calculos);exit;
-                //$calculos2=$calculos['Calculo'];
-                //$calculos2['id']='';
-                
+                 
                
                 if ($calculos && !empty($calculos)) {
 

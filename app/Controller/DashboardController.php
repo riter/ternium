@@ -115,13 +115,13 @@ class DashboardController extends AppController {
             $edad = $this->calcular_edad($fechaaa);
 
             if ($edad>=10 &&$edad <= 25) {// && $edad<26)
-                $cargar[$i][0] = $contar['User']['contar_usuario'] . " usuarios 23/25 a&ntilde;os <br/>";
+                $cargar[$i][0] = $contar['User']['contar_usuario'] . " USUARIO 23/25 A&Ntilde;OS";
             } elseif ($edad>25 && $edad <= 29) {
-                $cargar[$i][0] = $contar['User']['edad_usuario'] . " usuarios 26/29 a&ntilde;os <br/>";
+                $cargar[$i][0] = $contar['User']['edad_usuario'] . " USUARIOS 26/29 A&Ntilde;OS";
             } elseif ($edad>29 &&$edad <= 35) {
-                $cargar[$i][0] = $contar['User']['edad_usuario'] . " usuarios 30/35 a&ntilde;os <br/>";
+                $cargar[$i][0] = $contar['User']['edad_usuario'] . " USUARIOS 30/35 A&Ntilde;OS <br/>";
             } elseif ($edad>35 &&$edad <= 42) {
-                $cargar[$i][0] = $contar['User']['edad_usuario'] . " usuarios 36/42 a&ntilde;os <br/>";
+                $cargar[$i][0] = $contar['User']['edad_usuario'] . " USUARIOS 36/42 A&Ntilde;OS <br/>";
             }
             $i++;
         }
@@ -141,8 +141,8 @@ class DashboardController extends AppController {
         $i = 0;
         foreach ($contarUpanio as $contar) {
             $cargar[$i][0] = $contar['User']['contar_usuario'] . " ";
-            $cargar[$i][1] = $contar['Paise']['nombre'] . " <br/>";
-            //$cargar[$i][2] = $contar['User']['created'] . " <br/>";
+            $cargar[$i][1] = strtoupper($contar['Paise']['nombre']) . " <br/>";
+            
             $i++;
         }
         return $cargar;
@@ -160,7 +160,7 @@ class DashboardController extends AppController {
         $i = 0;
         foreach ($contarUs as $contar) {
             $cargar[$i][0] = $contar['User']['contar_usuario'] . " ";
-            $cargar[$i][1] = $contar['Profesione']['nombre'] . "<br/>";
+            $cargar[$i][1] = strtoupper($contar['Profesione']['nombre']) . "<br/>";
             $i++;
         }
         return $cargar;
@@ -178,7 +178,7 @@ class DashboardController extends AppController {
 
         foreach ($contarUs as $contar) {
             $cargar[$i][0] = $contar['User']['contar_usuario'] . " ";
-            $cargar[$i][1] = $contar['Provincia']['nombre'] . "<br/>";
+            $cargar[$i][1] = strtoupper($contar['Provincia']['nombre']) . "<br/>";
             $i++;
         }//  echo "<br/>";
         return $cargar;

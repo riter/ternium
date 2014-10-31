@@ -6,7 +6,7 @@ $controller = $this->request->params['controller']; ?>
     <head>
 
         <meta http-equiv="Content-type" content="text/htm1;charset=utf-8"/>
-
+        
         <!-- Apple iOS and Android stuff (do not remove) -->
         <meta name="apple-mobile-web-app-capable" content="no" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
